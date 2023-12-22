@@ -1,0 +1,19 @@
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  &__form {
+    display: grid;
+    gap: 30px;
+  }
+  &__link {
+    text-align: center;
+    color: var(--clr-primary);
+    transition: 0.3s;
+    &:hover,
+    &:active {
+      color: var(--clr-primary-dark);
+      text-decoration: underline;
+    }
+  }
+}

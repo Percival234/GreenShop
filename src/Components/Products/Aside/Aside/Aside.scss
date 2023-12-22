@@ -1,0 +1,14 @@
+.aside {
+  $width: 265px;
+  &__sticky {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-width: var($width);
+  }
+  & img {
+    max-width: var($width);
+  }
+}

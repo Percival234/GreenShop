@@ -1,0 +1,16 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border-radius: 10px;
+  border: 2px dashed var(--clr-primary);
+  text-transform: capitalize;
+  color: var(--clr-primary);
+  font-size: var(--fs-title);
+  padding: 100px;
+  &__icon {
+    font-size: 70px;
+  }
+}

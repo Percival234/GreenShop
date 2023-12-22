@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@Root/*": ["src/Root/*"],
+      "@Hooks/*": ["src/Hooks/*"],
+      "@Pages/*": ["src/Pages/*"],
+      "@Styles/*": ["src/Styles/*"],
+      "@Routes/*": ["src/Routes/*"],
+      "@Assets/*": ["src/Assets/*"],
+      "@Helpers/*": ["src/Helpers/*"],
+      "@UI/*": ["src/Components/UI/*"],
+      "@Middleware/*": ["src/Middleware/*"],
+      "@Providers/*": ["src/Providers/*"],
+      "@Components/*": ["src/Components/*"],
+    }
+  },
+  "include": ["src/**/*.js", "src/**/*.jsx"],
+  "exclude": ["node_modules"]
+}

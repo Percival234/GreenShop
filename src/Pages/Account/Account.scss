@@ -1,0 +1,10 @@
+.account {
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--padding-large);
+  }
+  &__info {
+    flex-grow: 1;
+  }
+}

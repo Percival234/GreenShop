@@ -1,0 +1,9 @@
+.title-border {
+  width: 100%;
+  padding: 10px 0px;
+  border-bottom: 2px solid var(--clr-primary-light);
+  font-size: var(--fs-item-title);
+  font-weight: var(--fw-bold);
+  text-transform: capitalize;
+  white-space: nowrap;
+}

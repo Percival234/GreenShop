@@ -1,0 +1,34 @@
+@import '../../../Styles/Tools/mixins';
+
+.header-action {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  &__button_menu {
+    display: none !important;
+  }
+  &__cart-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 3px;
+    right: 0px;
+    height: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    font-size: 11px;
+    color: var(--clr-white);
+    border: 2px solid var(--clr-white);
+    background: var(--clr-primary);
+  }
+}
+
+@include adaptation('tablet-wide', max) {
+  .header-action {
+    gap: 10px;
+    &__button_menu {
+      display: flex !important;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  max-width: 450px;
+  min-width: 450px;
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  &__zoom-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    z-index: 100;
+    width: 50px;
+    aspect-ratio: 1;
+    border-bottom-left-radius: inherit;
+    background: var(--clr-white);
+    opacity: 0.5;
+    transition: 0.3s;
+    &:hover,
+    &:active {
+      color: var(--clr-primary-dark);
+      background: var(--clr-background);
+    }
+  }
+}

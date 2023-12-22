@@ -1,0 +1,39 @@
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-primary);
+  color: var(--clr-black);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-primary);
+}
+
+p {
+  line-height: var(--lh-secondary);
+  font-size: var(--fs-secondary);
+  color: var(--clr-grey);
+}
+
+a,
+button {
+  white-space: nowrap;
+  line-height: 1;
+}
+
+main {
+  flex-grow: 1;
+  margin-top: var(--header-height);
+  padding: var(--padding-small) 0px var(--padding-large);
+}
+
+input {
+  font-weight: var(--fw-medium);
+  width: 100%;
+}
+
+::selection {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+}
+
+:focus {
+  outline: none;
+}

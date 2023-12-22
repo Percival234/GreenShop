@@ -1,0 +1,32 @@
+.menu-desktop {
+  &__list {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 50px;
+  }
+  &__link {
+    position: relative;
+    transition: var(--transition-quick);
+    &:hover,
+    &:active {
+      color: var(--clr-primary);
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--clr-primary);
+      transition: var(--transition-quick);
+    }
+    &.active {
+      font-weight: var(--fw-bold);
+      color: var(--clr-primary);
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+}
