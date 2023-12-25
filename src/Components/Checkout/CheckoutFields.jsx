@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputRequired from '../UI/Inputs/InputRequired';
+import InputRequired from '../UI/Inputs/InputWthLabel/InputWithLabel';
 import TextArea from '../UI/Inputs/TextArea';
 
 export default function CheckOutFields() {

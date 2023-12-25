@@ -1,7 +1,7 @@
 import React from 'react';
 import './UserData.scss';
 
-import InputRequired from '../../UI/Inputs/InputRequired';
+import InputRequired from '../../UI/Inputs/InputWthLabel/InputWithLabel';
 import Button from '../../UI/Buttons/Button';
 import ButtonInvert from '../../UI/Buttons/ButtonInvert';
 

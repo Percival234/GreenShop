@@ -1,17 +1,17 @@
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
-import Loading from '@Components/Loading/Loading';
-import Contacts from '@Components/Contants/Contacts';
-import NewsLetter from '@Components/NewsLetter/NewsLetter';
+// import Loading from '@Components/Loading/Loading';
+// import Contacts from '@Components/Contants/Contacts';
+// import NewsLetter from '@Components/NewsLetter/NewsLetter';
 // import Related from '@Components/ProductPage/Related/Related/Related';
 // import ProductAbout from '@Components/ProductPage/ProductAbout/ProductAbout';
 // import ProductInfo from '@Components/ProductPage/ProductInfo/ProductInfo';
 // import ProductImage from '@Components/ProductPage/ProductImage/ProductImage';
 
 export default function Product() {
-  const { productId } = useParams();
+  // const { productId } = useParams();
 
-  if (productId > 0) return <Loading />;
+  // if (productId > 0) return <Loading />;
 
   return (
     <>
@@ -21,8 +21,8 @@ export default function Product() {
         <ProductAbout reviews={product.reviews} fullDescription={product.fullDescription} /> */}
       </div>
       {/* <Related category={product.category} /> */}
-      <NewsLetter />
-      <Contacts />
+      {/* <NewsLetter />
+      <Contacts /> */}
     </>
   );
 }

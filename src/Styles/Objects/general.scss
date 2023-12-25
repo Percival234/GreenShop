@@ -56,55 +56,55 @@
   text-overflow: ellipsis;
 }
 
-// .input {
-//   --clr: var(--clr-primary);
-//   width: 100%;
-//   padding: 10px 15px;
-//   border: 1px solid var(--clr-grey-light);
-//   border-radius: 5px;
-//   font-weight: var(--fw-medium);
-//   &.error {
-//     --clr: var(--clr-red);
-//     animation: shake 0.3s linear;
-//   }
-//   &:focus {
-//     color: var(--clr);
-//     outline-color: var(--clr);
-//   }
-//   &::placeholder {
-//     color: var(--clr-grey-light);
-//   }
-//   &__wrapper {
-//     position: relative;
-//   }
-//   &__button {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     position: absolute;
-//     right: 10px;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     font-size: var(--fs-sub-title);
-//     color: var(--clr-grey);
-//   }
-//   &__item {
-//     display: grid;
-//     gap: 5px;
-//   }
-//   &__label {
-//     text-transform: capitalize;
-//     font-size: var(--fs-secondary);
-//   }
-//   &__required {
-//     &::after {
-//       content: '*';
-//       font-size: var(--fs-item-title);
-//       color: var(--clr-red);
-//       margin-left: 3px;
-//     }
-//   }
-// }
+.input {
+  --clr: var(--clr-primary);
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid var(--clr-grey-light);
+  border-radius: 5px;
+  font-weight: var(--fw-medium);
+  &.error {
+    --clr: var(--clr-red);
+    animation: shake 0.3s linear;
+  }
+  &:focus {
+    color: var(--clr);
+    outline-color: var(--clr);
+  }
+  &::placeholder {
+    color: var(--clr-grey-light);
+  }
+  &__wrapper {
+    position: relative;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--fs-sub-title);
+    color: var(--clr-grey);
+  }
+  &__item {
+    display: grid;
+    gap: 5px;
+  }
+  &__label {
+    text-transform: capitalize;
+    font-size: var(--fs-secondary);
+  }
+  &__required {
+    &::after {
+      content: '*';
+      font-size: var(--fs-item-title);
+      color: var(--clr-red);
+      margin-left: 3px;
+    }
+  }
+}
 
 // .input-simple {
 //   width: 100%;

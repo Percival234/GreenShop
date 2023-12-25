@@ -1,0 +1,14 @@
+.local-loading {
+  display: flex;
+  justify-content: center;
+  padding: 100px 10px;
+  &__spiner {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 5px solid var(--clr-primary-light);
+    border-top-color: var(--clr-primary);
+    border-bottom-color: var(--clr-primary);
+    animation: rotate 1s infinite;
+  }
+}

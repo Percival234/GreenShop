@@ -8,7 +8,7 @@
       "@Styles/*": ["src/Styles/*"],
       "@Routes/*": ["src/Routes/*"],
       "@Assets/*": ["src/Assets/*"],
-      "@Helpers/*": ["src/Helpers/*"],
+      "@Utils/*": ["src/Utils/*"],
       "@UI/*": ["src/Components/UI/*"],
       "@Middleware/*": ["src/Middleware/*"],
       "@Providers/*": ["src/Providers/*"],

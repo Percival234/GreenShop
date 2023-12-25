@@ -1,0 +1,11 @@
+.label-input {
+  display: flex;
+  &__label {
+    // padding-bottom: 5px;
+  }
+  &__input {
+    padding: 10px 15px;
+    border: 2px solid var(--clr-gray-light);
+    border-radius: 5px;
+  }
+}

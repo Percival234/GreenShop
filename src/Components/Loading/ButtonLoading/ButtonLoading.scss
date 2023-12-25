@@ -1,0 +1,16 @@
+.button-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.8;
+  &__spiner {
+    width: 25px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid var(--clr-primary-light);
+    border-top-color: var(--clr-primary);
+    border-bottom-color: var(--clr-primary);
+    animation: rotate 1s infinite;
+  }
+}

@@ -4,10 +4,11 @@
   background: var(--clr-background);
   padding-top: var(--padding-large);
   padding-bottom: var(--padding-small);
-
   &__container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    // display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: space-between;
     gap: 20px;
   }
   &__menu {
@@ -24,6 +25,8 @@
     }
   }
   &__social {
+    // grid-column: 2 span;
+    // justify-self: end;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -42,7 +45,7 @@
     border: 2px solid var(--clr-primary);
     border-radius: 5px;
     opacity: 0.4;
-    transition: 0.2;
+    transition: 0.2s;
     &:hover,
     &:active {
       opacity: 1;
@@ -56,7 +59,7 @@
     text-align: center;
     grid-column: 1 / -1;
     padding-top: var(--padding-small);
-    border-top: 1px solid var(--clr-grey-light);
+    border-top: 1px solid var(--clr-gray-light);
   }
 }
 

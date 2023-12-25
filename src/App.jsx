@@ -12,14 +12,19 @@ import Cart from './Components/Cart/CartLayout/CartLayout';
 import Product from './Pages/Product/Product';
 import CheckoutLayout from './Components/Checkout/CheckoutLayout';
 import Root from './Pages/Root/Root';
+import Admin from '@Pages/Admin/Admin';
 
 const router = createBrowserRouter([
   {
-    path: '*',
+    path: '',
     element: <Root />,
     children: [
       {
-        path: '*',
+        path: 'admin',
+        element: <Admin />,
+      },
+      {
+        path: '',
         element: <Home />,
       },
       {
@@ -47,7 +52,7 @@ const router = createBrowserRouter([
         element: <Account />,
         children: [
           {
-            path: '*',
+            path: '',
             element: <UserData />,
           },
           {
