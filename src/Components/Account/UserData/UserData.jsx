@@ -2,8 +2,8 @@ import React from 'react';
 import './UserData.scss';
 
 import InputRequired from '../../UI/Inputs/InputWthLabel/InputWithLabel';
-import Button from '../../UI/Buttons/Button';
-import ButtonInvert from '../../UI/Buttons/ButtonInvert';
+import Button from '../../UI/Buttons/Button/Button';
+import ButtonInvert from '../../UI/Buttons/ButtonOutline/ButtonOutline';
 
 export default function UserData() {
   return (

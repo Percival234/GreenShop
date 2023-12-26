@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import { addToCart } from '../../../Redux/Slices/CartSlice';
 
-import Button from '../../UI/Buttons/Button';
-import ButtonInvert from '../../UI/Buttons/ButtonInvert';
+import Button from '../../UI/Buttons/Button/Button';
+import ButtonInvert from '../../UI/Buttons/ButtonOutline/ButtonOutline';
 import Counter from '../../Counter/Counter';
 
 export default function ProductAction({ id }) {

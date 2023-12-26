@@ -1,7 +1,6 @@
-@import '../../../../Styles/Tools/mixins';
+@import '@Styles/Tools/mixins';
 
 .button-small {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +9,7 @@
   border-radius: 5px;
   background: var(--clr-white);
   font-size: 25px;
-  color: var(--clr-grey);
+  color: var(--clr-gray);
   transition: 0.3s;
   &:hover,
   &:active {

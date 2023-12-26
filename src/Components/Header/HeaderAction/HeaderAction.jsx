@@ -7,7 +7,7 @@ import {
 
 import './HeaderAction.scss';
 
-import Button from '@UI/Buttons/Button';
+import Button from '@UI/Buttons/Button/Button';
 import ButtonSmall from '@UI/Buttons/ButtonSmall/ButtonSmall';
 
 export default function HeaderAction() {

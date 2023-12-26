@@ -1,50 +1,36 @@
-import { NavLink } from 'react-router-dom';
 import { FiTwitter, FiFacebook, FiLinkedin, FiInstagram } from 'react-icons/fi';
+
+import SubTitle from '@UI/Titles/SubTitle/SubTitle';
+import LinkSocial from '@UI/Links/LinkSocial/LinkSocial';
+import LinkUnderline from '@UI/Links/LinkUnderline/LinkUnderline';
+
 import './Footer.scss';
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer__container container">
-        <div className="footer__menu">
-          <h4 className="sub-title">My Account</h4>
-          <NavLink className="footer__menu-link" to="/account">
-            Account
-          </NavLink>
-          <NavLink className="footer__menu-link" to="/account/wishlist">
-            Wishes
-          </NavLink>
-          <NavLink className="footer__menu-link" to="/account/support">
-            Support
-          </NavLink>
-        </div>
-        <div className="footer__menu">
-          <h4 className="sub-title">Help & Guide</h4>
-          <NavLink className="footer__menu-link" to="/blog/">
-            How to return
-          </NavLink>
-          <NavLink className="footer__menu-link" to="/blog/">
-            Product policy
-          </NavLink>
-          <NavLink className="footer__menu-link" to="/blog/">
-            How to buy
-          </NavLink>
-        </div>
-        <div className="footer__social">
-          <h4 className="sub-title">Social Media</h4>
-          <div className="footer__social-list">
-            <a href="#" className="footer__social-link">
-              <FiFacebook className="footer__icon" />
-            </a>
-            <a href="#" className="footer__social-link">
-              <FiInstagram className="footer__icon" />
-            </a>
-            <a href="#" className="footer__social-link">
-              <FiLinkedin className="footer__icon" />
-            </a>
-            <a href="#" className="footer__social-link">
-              <FiTwitter className="footer__icon" />
-            </a>
+      <div className="container">
+        <div className="footer__action">
+          <div className="footer__menu">
+            <SubTitle>My Account</SubTitle>
+            <LinkUnderline to="/account" text="Account" />
+            <LinkUnderline to="/account/wishlist" text="Wishes" />
+            <LinkUnderline to="/account/support" text="Support" />
+          </div>
+          <div className="footer__menu">
+            <SubTitle>Help & Guide</SubTitle>
+            <LinkUnderline to="/account" text="How To Return" />
+            <LinkUnderline to="/account/wishlist" text="Product Policy" />
+            <LinkUnderline to="/account/support" text="How To Buy" />
+          </div>
+          <div className="footer__menu">
+            <SubTitle center>Social Media</SubTitle>
+            <div className="footer__link-list">
+              <LinkSocial Icon={FiFacebook} to="#" aria-label="Facebook link" />
+              <LinkSocial Icon={FiInstagram} to="#" aria-label="Instagram link" />
+              <LinkSocial Icon={FiLinkedin} to="#" aria-label="Linkedin link" />
+              <LinkSocial Icon={FiTwitter} to="#" aria-label="Twitter link" />
+            </div>
           </div>
         </div>
         <div className="footer__copy">&copy; 2021 GreenShop. All rights reserved.</div>

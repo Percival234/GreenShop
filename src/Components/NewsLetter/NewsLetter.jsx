@@ -1,7 +1,9 @@
 import './NewsLetter.scss';
 
-import Button from '@UI/Buttons/Button';
+import Button from '@UI/Buttons/Button/Button';
 import InputSimple from '@UI/Inputs/InputSimple';
+import SubTitle from '@UI/Titles/SubTitle/SubTitle';
+import TitleItem from '@UI/Titles/TitleItem/TitleItem';
 
 import ImageFlowerPotOne from '@Assets/icons/flowerpot-1.svg';
 import ImageFlowerPotTwo from '@Assets/icons/flowerpot-2.svg';
@@ -14,28 +16,28 @@ export default function NewsLetter() {
         <div className="newsletter__list">
           <div className="newsletter__item">
             <div className="newsletter__image-container">
-              <img src={ImageFlowerPotOne} alt="flowerpot" />
+              <img src={ImageFlowerPotOne} alt="flowerpot 1" />
             </div>
-            <h4 className="item-title">Garden Care</h4>
+            <TitleItem>Garden Care</TitleItem>
             <p>We are an online plant shop offering a wide range of cheap and trendy plants.</p>
           </div>
           <div className="newsletter__item">
             <div className="newsletter__image-container">
-              <img src={ImageFlowerPotTwo} alt="flowerpot" />
+              <img src={ImageFlowerPotTwo} alt="flowerpot 2" />
             </div>
-            <h4 className="item-title">Plant Renovation</h4>
+            <TitleItem>Plant Renovation</TitleItem>
             <p>We are an online plant shop offering a wide range of cheap and trendy plants.</p>
           </div>
           <div className="newsletter__item">
             <div className="newsletter__image-container">
-              <img src={ImageFlowerPotThree} alt="flowerpot" />
+              <img src={ImageFlowerPotThree} alt="flowerpot 3" />
             </div>
-            <h4 className="item-title">Watering Graden</h4>
+            <TitleItem>Watering Graden</TitleItem>
             <p>We are an online plant shop offering a wide range of cheap and trendy plants.</p>
           </div>
         </div>
         <div className="newsletter__item newsletter__form ">
-          <h3 className="sub-title">Would you like to join newsletters?</h3>
+          <SubTitle>Would you like to join newsletters?</SubTitle>
           <p>
             We usually post offers and challenges in newsletter. We’re your online houseplant
             destination. We offer a wide range of houseplants and accessories shipped directly from

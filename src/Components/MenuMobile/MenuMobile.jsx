@@ -5,7 +5,7 @@ import './MenuMobile.scss';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 import { FiLogIn } from 'react-icons/fi';
 
-import Button from '../UI/Buttons/Button';
+import Button from '../UI/Buttons/Button/Button';
 
 export default function MenuMobile({ vissible }) {
   const [subMenuVissible, setSubMenuVissible] = useState(false);

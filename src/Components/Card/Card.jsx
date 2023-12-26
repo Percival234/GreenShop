@@ -8,7 +8,7 @@ import { FiSearch } from 'react-icons/fi';
 
 import './Card.scss';
 
-import Button from '@UI/Buttons/Button';
+import Button from '@UI/Buttons/Button/Button';
 import ButtonSmall from '@UI/Buttons/ButtonSmall/ButtonSmall';
 
 // ! ціна повина  вираховуватись взалежності від знижки а не просто добавляти нулі в кінці і ставити красиву знижку

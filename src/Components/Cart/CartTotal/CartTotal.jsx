@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './CartTotal.scss';
 
 import Calculation from '../CartCalculation/CartCalculation';
-import Button from '../../UI/Buttons/Button';
+import Button from '../../UI/Buttons/Button/Button';
 import TitleBorder from '../../UI/Titles/TitleBorder/TitleBorder';
 
 export default function CartTotal() {

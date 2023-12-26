@@ -1,51 +1,11 @@
 @import '../Tools/mixins.scss';
 
-.button {
-  padding: 12px 25px;
-  border-radius: 5px;
-  text-align: center;
-  text-transform: capitalize;
-  color: var(--clr-white);
-  font-weight: var(--fw-bold);
-  background: var(--clr-primary);
-  transition: 0.3s;
-  &:active,
-  &:hover {
-    background: var(--clr-primary-dark);
-  }
-}
-
-.button-inverted {
-  border: 1px solid var(--clr-primary);
-  color: var(--clr-primary);
-  padding: 11px 24px;
-  background: var(--clr-white);
-  &:hover,
-  &:active {
-    color: var(--clr-white);
-  }
-}
-
 .logo {
   min-width: 100px;
 }
 
-.icon {
-  font-size: 25px;
-  transition: 0.3s;
-}
-
-.title {
-  font-size: var(--fs-title);
-}
-
-.sub-title {
-  font-size: var(--fs-sub-title);
-}
-
-.item-title {
-  font-size: var(--fs-item-title);
-  text-transform: capitalize;
+.text-center {
+  text-align: center;
 }
 
 .text-truncated {

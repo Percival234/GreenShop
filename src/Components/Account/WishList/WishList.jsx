@@ -1,7 +1,7 @@
 import './WishList.scss';
 
 // import Card from '@Compontns/Card/Card';
-import ButtonInvert from '@UI/Buttons/ButtonInvert';
+import ButtonInvert from '@UI/Buttons/ButtonOutline/ButtonOutline';
 import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
 
 // перевіряти чи пустий чи ні цей список бажань

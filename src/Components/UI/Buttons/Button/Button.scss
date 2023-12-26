@@ -1,0 +1,14 @@
+.button {
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--clr-white);
+  font-weight: var(--fw-bold);
+  background: var(--clr-primary);
+  transition: 0.3s;
+  &:active,
+  &:hover {
+    background: var(--clr-primary-dark);
+  }
+}

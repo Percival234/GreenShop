@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { FiX } from 'react-icons/fi';
 import './SimpleForm.scss';
 
-import Button from '../../UI/Buttons/Button';
+import Button from '../../UI/Buttons/Button/Button';
 
 export default function SimpleForm({ id, placeholder, children }) {
   const inputRef = useRef(null);

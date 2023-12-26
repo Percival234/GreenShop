@@ -1,0 +1,10 @@
+.button-outline {
+  border: 1px solid var(--clr-primary);
+  color: var(--clr-primary);
+  padding: 11px 24px;
+  background: var(--clr-white);
+  &:hover,
+  &:active {
+    color: var(--clr-white);
+  }
+}

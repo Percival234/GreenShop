@@ -1,10 +1,18 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+
 import './ButtonSmall.scss';
 
-export default function ButtonSmall({ children, type, onClick, className }) {
+function ButtonSmall({ children, type, ...props }) {
   return (
-    <button onClick={onClick} type={type || 'button'} className={`button-small ${className}`}>
+    <button type={type || 'button'} className="button-small" {...props}>
       {children}
     </button>
   );
 }
+
+ButtonSmall.propTypes = {
+  children: PropTypes.string.isRequired,
+  type: PropTypes.string,
+};
+
+export default ButtonSmall;

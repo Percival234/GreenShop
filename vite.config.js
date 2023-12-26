@@ -9,7 +9,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // '@Root': path.resolve(__dirname, 'src/Root'),
+      '@Root': path.resolve(__dirname, 'src/Root'),
       '@Pages': path.resolve(__dirname, 'src/Pages'),
       '@Hooks': path.resolve(__dirname, 'src/Hooks'),
       '@Routes': path.resolve(__dirname, 'src/Routes'),

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Header.scss';
 
-import Logo from '@UI/Logo/Logo';
+import Logo from '@Components/Logo/Logo';
 import MenuDesktop from '../../MenuDesktop/MenuDesktop';
 import MenuMobile from '../../MenuMobile/MenuMobile';
 import HeaderAction from '../HeaderAction/HeaderAction';

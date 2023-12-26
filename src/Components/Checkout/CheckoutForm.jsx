@@ -3,7 +3,7 @@ import React from 'react';
 import CheckoutList from './CheckoutList';
 import Calculation from '../Cart/CartCalculation/CartCalculation';
 import Payment from '../Payment/Payment';
-import Button from '../UI/Buttons/Button';
+import Button from '../UI/Buttons/Button/Button';
 
 export default function CheckoutForm() {
   return (

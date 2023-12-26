@@ -1,0 +1,9 @@
+.link-underline {
+  text-transform: capitalize;
+  display: inline-block;
+  &:hover,
+  &:active {
+    text-decoration: underline;
+    color: var(--clr-primary-dark);
+  }
+}

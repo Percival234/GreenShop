@@ -4,8 +4,8 @@ import './Support.scss';
 import { AiOutlineUpload } from 'react-icons/ai';
 
 import TitleBorder from '../../UI/Titles/TitleBorder/TitleBorder';
-import Button from '../../UI/Buttons/Button';
-import ButtonInvert from '../../UI/Buttons/ButtonInvert';
+import Button from '../../UI/Buttons/Button/Button';
+import ButtonInvert from '../../UI/Buttons/ButtonOutline/ButtonOutline';
 
 export default function Support() {
   const [currentFile, setCurrentFile] = useState('');

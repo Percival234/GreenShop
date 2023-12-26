@@ -1,16 +1,16 @@
-import React from 'react';
-import { GrFacebookOption, GrLinkedinOption, GrTwitter } from 'react-icons/gr';
+import PropTypes from 'prop-types';
 
-import Rating from '../../UI/Rating/Rating';
+import Price from '@Components/Price/Price';
+import Title from '@UI/Titles/Title/Title';
+import Rating from '@Components/Rating/Rating';
 import ProductAction from '../ProductAction/ProductAction';
-import Price from '../../UI/Price/Price';
 
-export default function ProductInfo({
-  product: { productName, price, sale, reviews, id, shortDescription, size, category },
+function ProductInfo({
+  product: { id, name, price, sale, quantity, shortDescription, size, category, rating, comments },
 }) {
   return (
     <div className="product__info">
-      <h2 className="title">{productName}</h2>
+      <Title>{name}</Title>
       <div className="product__details">
         <div className="product__prices">
           <Price price={price} type="solid" sale={sale} />
@@ -18,13 +18,13 @@ export default function ProductInfo({
           <div className="product__price_sale">{salePrice}</div> */}
         </div>
         <div className="product__rating-info">
-          <Rating reviews={reviews} />
-          <div className="product__review-count">{reviews.length} Customer Reviews</div>
+          <Rating reviews={rating} />
+          <div className="product__review-count">{comments.length} Customer Reviews</div>
         </div>
       </div>
       <div className="product__sub-title">Short Description:</div>
       <p>{shortDescription}</p>
-      <ProductAction id={id} />
+      <ProductAction quantity={quantity} id={id} />
       <div className="product__sub-title">
         Size:<div className="product__result">{size}</div>
       </div>
@@ -34,22 +34,23 @@ export default function ProductInfo({
       <div className="product__sub-title">
         Category:<div className="product__result">{category}</div>
       </div>
-      <div className="product__sub-title">
-        Share this product:
-        <div className="product__social">
-          <a
-            href="twitter.com/i/flow/login?redirect_after_login=%2F"
-            className="product__social-link">
-            <GrTwitter />
-          </a>
-          <div className="product__social-link">
-            <GrFacebookOption />
-          </div>
-          <div className="product__social-link">
-            <GrLinkedinOption />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
+
+ProductInfo.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    sale: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    shortDescription: PropTypes.string.isRequired,
+    size: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    comments: PropTypes.array.isRequired,
+  }),
+};
+
+export default ProductInfo;
