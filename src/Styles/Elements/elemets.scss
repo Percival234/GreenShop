@@ -18,12 +18,6 @@ button {
   line-height: 1;
 }
 
-main {
-  flex-grow: 1;
-  margin-top: var(--header-height);
-  padding: var(--padding-small) 0px var(--padding-large);
-}
-
 input {
   font-weight: var(--fw-medium);
   width: 100%;
@@ -35,5 +29,5 @@ input {
 }
 
 :focus {
-  outline: none;
+  outline-color: var(--clr-primary);
 }

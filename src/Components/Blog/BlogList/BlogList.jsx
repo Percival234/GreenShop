@@ -1,3 +1,5 @@
+import Title from '@UI/Titles/Title/Title';
+
 import './BlogList.scss';
 
 // import BlogCard from '@Components/Blog/BlogCard/BlogCard';
@@ -7,7 +9,7 @@ export default function BlogList() {
     <section className="blog">
       <div className="blog__container">
         <div className="blog__intro">
-          <h2 className="title">Our Blog Posts</h2>
+          <Title>Our Blog Posts</Title>
           <p>We are an online plant shop offering a wide range of cheap and trendy plants.</p>
         </div>
         <div className="blog__list">

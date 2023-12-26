@@ -1,25 +1,16 @@
-@import '@Styles/Tools/mixins';
-
 .button-small {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  aspect-ratio: 1;
   border-radius: 5px;
   background: var(--clr-white);
-  font-size: 25px;
+  font-size: var(--fs-icon);
+  padding: 8px;
   color: var(--clr-gray);
   transition: 0.3s;
   &:hover,
   &:active {
     background: var(--clr-primary-light);
     color: var(--clr-primary-dark);
-  }
-}
-
-@include adaptation('tablet', max) {
-  .button-small {
-    width: 35px;
   }
 }

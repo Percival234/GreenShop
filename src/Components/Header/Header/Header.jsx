@@ -1,21 +1,18 @@
-import { useState } from 'react';
+import Logo from '@Components/Logo/Logo';
+import MenuMobile from '@Components/MenuMobile/MenuMobile';
+import MenuDesktop from '@Components/MenuDesktop/MenuDesktop';
+import HeaderAction from '@Components/Header/HeaderAction/HeaderAction';
+
 import './Header.scss';
 
-import Logo from '@Components/Logo/Logo';
-import MenuDesktop from '../../MenuDesktop/MenuDesktop';
-import MenuMobile from '../../MenuMobile/MenuMobile';
-import HeaderAction from '../HeaderAction/HeaderAction';
-
 export default function Header() {
-  const [vissible, setVissible] = useState(false);
-
   return (
     <header className="header">
       <div className="header__container container">
         <Logo />
         <MenuDesktop />
-        <MenuMobile vissible={vissible} />
-        <HeaderAction vissible={vissible} setVissible={setVissible} />
+        <MenuMobile />
+        <HeaderAction />
       </div>
     </header>
   );

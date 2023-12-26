@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { MdKeyboardArrowUp } from 'react-icons/md';
+
+import Button from '@UI/Buttons/Button/Button';
+
+import { useEventStore } from '@Store/eventStore';
+
 import './MenuMobile.scss';
 
-import { MdKeyboardArrowUp } from 'react-icons/md';
-import { FiLogIn } from 'react-icons/fi';
+export default function MenuMobile() {
+  const menu = useEventStore((state) => state.menu);
+  const toggle = useEventStore((state) => state.toggle);
+  const submenu = useEventStore((state) => state.submenu);
 
-import Button from '../UI/Buttons/Button/Button';
-
-export default function MenuMobile({ vissible }) {
-  const [subMenuVissible, setSubMenuVissible] = useState(false);
+  const toggleSubmenu = () => toggle('submenu');
 
   return (
-    <div className={`menu-mobile ${vissible ? 'open' : ''}`}>
+    <div className={`menu-mobile ${menu ? 'open' : ''}`}>
       <ul>
         <li>
           <NavLink activeclassname="active" className="menu-mobile__link" to="/">
@@ -25,10 +29,8 @@ export default function MenuMobile({ vissible }) {
         </li>
         <li>
           <button
-            onClick={() => setSubMenuVissible(!subMenuVissible)}
-            className={`menu-mobile__button menu-mobile__link ${
-              subMenuVissible ? 'selected' : ''
-            }`}>
+            onClick={toggleSubmenu}
+            className={`menu-mobile__button menu-mobile__link ${submenu ? 'selected' : ''}`}>
             Account <MdKeyboardArrowUp className="menu-mobile__icon" />
           </button>
           <div className="menu-mobile__sub-menu">
@@ -69,14 +71,12 @@ export default function MenuMobile({ vissible }) {
           </div>
         </li>
         <li>
-          <NavLink activeclassname="active" className="menu-mobile__link " to="/blog">
+          <NavLink activeclassname="active" className="menu-mobile__link" to="/blog">
             Plant Care
           </NavLink>
         </li>
       </ul>
-      <Button>
-        <FiLogIn /> Login
-      </Button>
+      <Button>Login</Button>
     </div>
   );
 }

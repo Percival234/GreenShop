@@ -2,16 +2,17 @@ import PropTypes from 'prop-types';
 
 import './ButtonSmall.scss';
 
-function ButtonSmall({ children, type, ...props }) {
+function ButtonSmall({ Icon, type, ariaLabel, ...props }) {
   return (
-    <button type={type || 'button'} className="button-small" {...props}>
-      {children}
+    <button type={type || 'button'} aria-label={ariaLabel} className="button-small" {...props}>
+      {Icon}
     </button>
   );
 }
 
 ButtonSmall.propTypes = {
-  children: PropTypes.string.isRequired,
+  Icon: PropTypes.node.isRequired,
+  ariaLabel: PropTypes.string.isRequired,
   type: PropTypes.string,
 };
 

@@ -12,8 +12,10 @@ import CheckoutPage from '@Pages/CheckoutPage';
 import NotFoundPage from '@Pages/NotFoundPage';
 import Orders from '@Components/Account/Order/Orders';
 import Support from '@Components/Account/Support/Support';
+import Reviews from '@Components/Reviews/Reviews/Reviews';
 import Wishlist from '@Components/Account/WishList/WishList';
 import UserData from '@Components/Account/UserData/UserData';
+import Description from '@Components/Description/Description';
 
 const isAdmin = true;
 const isAuthenticated = true;
@@ -70,13 +72,23 @@ const publicRoutes = [
   {
     path: 'product/:productId',
     element: <ProductPage />,
+    children: [
+      {
+        path: '',
+        element: <Description />,
+      },
+      {
+        path: 'reviews',
+        element: <Reviews />,
+      },
+    ],
   },
   {
     path: 'checkout',
     element: <CheckoutPage />,
   },
   {
-    path: 'blog',
+    path: 'blog/:id',
     element: <BlogPage />,
   },
 ];

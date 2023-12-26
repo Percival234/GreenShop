@@ -1,16 +1,19 @@
 .empty {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  border-radius: 10px;
-  border: 2px dashed var(--clr-primary);
-  text-transform: capitalize;
+  gap: 20px;
+  background: var(--clr-background);
   color: var(--clr-primary);
-  font-size: var(--fs-title);
-  padding: 100px;
+  padding: 80px 20px;
+  opacity: 0.75;
   &__icon {
-    font-size: 70px;
+    font-size: 50px;
+    line-height: 0;
+  }
+  &__text {
+    font-size: var(--fs-title);
   }
 }

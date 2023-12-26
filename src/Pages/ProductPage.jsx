@@ -1,28 +1,28 @@
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-// import Loading from '@Components/Loading/Loading';
-// import Contacts from '@Components/Contants/Contacts';
+// import PageLoading from "@Components/Loading/PageLoading/PageLoading";
+
+import Contacts from '@Components/Contants/Contacts';
 // import NewsLetter from '@Components/NewsLetter/NewsLetter';
-// import Related from '@Components/ProductPage/Related/Related/Related';
-// import ProductAbout from '@Components/ProductPage/ProductAbout/ProductAbout';
-// import ProductInfo from '@Components/ProductPage/ProductInfo/ProductInfo';
-// import ProductImage from '@Components/ProductPage/ProductImage/ProductImage';
+// import Related from '@Components/Related/Related/Related';
+import ProductInfo from '@Components/Product/ProductInfo/ProductInfo';
+import ProductAbout from '@Components/Product/ProductAbout/ProductAbout';
 
 export default function ProductPage() {
-  // const { productId } = useParams();
+  const { productId } = useParams();
 
-  // if (productId > 0) return <Loading />;
+  const product = productId;
+
+  // if(isLoading) return <PageLoading/>
+  // if(error) return <Error error={error}/>
 
   return (
     <>
-      <div className="product__container">
-        {/* <ProductImage image={product.image} alt={product.productName} />
-        <ProductInfo product={product} />
-        <ProductAbout reviews={product.reviews} fullDescription={product.fullDescription} /> */}
-      </div>
+      <ProductInfo product={product} />
+      <ProductAbout />
       {/* <Related category={product.category} /> */}
-      {/* <NewsLetter />
-      <Contacts /> */}
+      {/* <NewsLetter /> */}
+      <Contacts />
     </>
   );
 }

@@ -1,3 +1,5 @@
+import './Logo.scss';
+
 import LogoImage from '@Assets/icons/logo.svg';
 
 export default function Logo() {

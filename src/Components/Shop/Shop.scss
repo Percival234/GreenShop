@@ -1,0 +1,23 @@
+@import '@Styles/Tools/mixins';
+
+.shop {
+  padding: var(--padding-small) 0px;
+  &__container {
+    display: flex;
+    gap: 20px;
+  }
+  &__flex {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@include adaptation('tablet', max) {
+  .shop {
+    &__container {
+      flex-direction: column;
+    }
+  }
+}

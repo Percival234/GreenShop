@@ -1,4 +1,4 @@
-@import '../../Styles/Tools/mixins';
+@import '@Styles/Tools/mixins';
 
 .menu-mobile {
   display: none;
@@ -18,7 +18,7 @@
     padding: var(--padding-large) 0px;
     transform: translateX(100%);
     background: var(--clr-background);
-    transition: var(--transition-quick);
+    transition: 0.5s;
     &.open {
       transform: translateX(0%);
     }
@@ -26,6 +26,7 @@
       width: 100%;
       padding: 15px 25px;
       font-size: var(--fs-item-title);
+      color: var(--clr-black);
       &:last-of-type {
         border-bottom: 1px solid var(--clr-primary-light);
       }
@@ -44,7 +45,7 @@
       display: grid;
       grid-template-rows: 0fr;
       overflow: hidden;
-      transition: var(--transition-primary);
+      transition: 0.3s;
     }
     &__sub-list {
       min-height: 0;
@@ -70,9 +71,6 @@
       &.selected + .menu-mobile__sub-menu {
         grid-template-rows: 1fr;
       }
-    }
-    &__icon {
-      translate: var(--transition-quick);
     }
   }
 }

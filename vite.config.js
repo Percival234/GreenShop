@@ -17,6 +17,7 @@ export default defineConfig({
       '@Styles': path.resolve(__dirname, 'src/Styles'),
       '@Utils': path.resolve(__dirname, 'src/Utils'),
       '@UI': path.resolve(__dirname, 'src/Components/UI'),
+      '@Store': path.resolve(__dirname, 'src/Store'),
       // '@Providers': path.resolve(__dirname, 'src/Providers'),
       // '@Middleware': path.resolve(__dirname, 'src/Middleware'),
       '@Components': path.resolve(__dirname, 'src/Components'),
