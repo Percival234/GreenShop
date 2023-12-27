@@ -1,5 +1,4 @@
-import React from 'react';
-import CheckoutList from '../../Checkout/CheckoutList';
+// import CheckoutList from '../../Checkout/CheckoutList';
 
 export default function Order() {
   return (
@@ -20,7 +19,7 @@ export default function Order() {
       </div>
       <div className="order__details">
         <h3 className="order__title">Order Details</h3>
-        <CheckoutList />
+        {/* <CheckoutList /> */}
         <div className="order__details-item">
           Shiping<div className="order__result">$15.00</div>
         </div>

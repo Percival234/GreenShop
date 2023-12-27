@@ -1,7 +1,6 @@
-import React from 'react';
 import './Orders.scss';
 
-import TitleBorder from '../../UI/Titles/TitleBorder/TitleBorder';
+import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
 import Order from './Order';
 
 export default function Orders() {

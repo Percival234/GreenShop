@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 import './UserData.scss';
 
-import InputRequired from '../../UI/Inputs/InputWthLabel/InputWithLabel';
-import Button from '../../UI/Buttons/Button/Button';
-import ButtonInvert from '../../UI/Buttons/ButtonOutline/ButtonOutline';
+// import InputRequired from '../../UI/Inputs/InputWthLabel/InputWithLabel';
+import Button from '@UI/Buttons/Button/Button';
+import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
 
 export default function UserData() {
   return (
@@ -39,7 +39,7 @@ export default function UserData() {
         <h4 className="title-bordered">Account deletion</h4>
         <div className="account-details__delete">
           <p>Do you want to delete your account? All data will be cleared!</p>
-          <ButtonInvert>Delete</ButtonInvert>
+          <ButtonOutline>Delete</ButtonOutline>
         </div>
       </div>
     </div>

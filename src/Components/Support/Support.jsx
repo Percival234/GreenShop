@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import './Support.scss';
 
 import { AiOutlineUpload } from 'react-icons/ai';
 
-import TitleBorder from '../../UI/Titles/TitleBorder/TitleBorder';
-import Button from '../../UI/Buttons/Button/Button';
-import ButtonInvert from '../../UI/Buttons/ButtonOutline/ButtonOutline';
+import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
+import Button from '@UI/Buttons/Button/Button';
+import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
 
 export default function Support() {
   const [currentFile, setCurrentFile] = useState('');
@@ -56,7 +56,7 @@ export default function Support() {
                 )}
               </div>
               <button type="button" onClick={openFileExplorer} className="support__button">
-                <AiOutlineUpload className="icon" />
+                <AiOutlineUpload />
               </button>
             </div>
             {currentImage && <img src={currentImage} alt="support" className="support__image" />}
@@ -64,9 +64,9 @@ export default function Support() {
         </div>
         <div className="support__action">
           <Button>Send</Button>
-          <ButtonInvert onClick={clearValue} type="reset">
+          <ButtonOutline onClick={clearValue} type="reset">
             Clear all
-          </ButtonInvert>
+          </ButtonOutline>
         </div>
       </div>
     </div>

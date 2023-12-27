@@ -12,7 +12,6 @@
       "@UI/*": ["src/Components/UI/*"],
       "@Middleware/*": ["src/Middleware/*"],
       "@Store/*": ["src/Store/*"],
-      "@Providers/*": ["src/Providers/*"],
       "@Components/*": ["src/Components/*"],
     }
   },

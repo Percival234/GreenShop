@@ -5,7 +5,7 @@
   align-items: center;
   gap: 15px;
   &__button_menu {
-    display: none !important;
+    display: none;
   }
   &__cart-info {
     display: flex;
@@ -21,5 +21,11 @@
     color: var(--clr-white);
     border: 2px solid var(--clr-white);
     background: var(--clr-primary);
+  }
+}
+
+@include adaptation('tablet-wide', max) {
+  .header-action__button_menu {
+    display: block;
   }
 }

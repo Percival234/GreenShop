@@ -1,4 +1,3 @@
-import { FcGoogle } from 'react-icons/fc';
 import { NavLink, Routes, Route } from 'react-router-dom';
 
 import Login from './Login';
@@ -21,13 +20,6 @@ export default function Auth() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Routes>
-        <div className="auth__alternate">
-          <div className="auth__alternate-text">Or</div>
-        </div>
-        <button className="auth__button">
-          <FcGoogle className="icon" />
-          Continue with Google
-        </button>
       </div>
     </div>
   );

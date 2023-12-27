@@ -10,51 +10,44 @@ import AccountPage from '@Pages/AccountPage';
 import ProductPage from '@Pages/ProductPage';
 import CheckoutPage from '@Pages/CheckoutPage';
 import NotFoundPage from '@Pages/NotFoundPage';
-import Orders from '@Components/Account/Order/Orders';
-import Support from '@Components/Account/Support/Support';
+import Orders from '@Components/Orders/Orders';
+import Support from '@Components/Support/Support';
 import Reviews from '@Components/Reviews/Reviews/Reviews';
-import Wishlist from '@Components/Account/WishList/WishList';
-import UserData from '@Components/Account/UserData/UserData';
+import Wishlist from '@Components/WishList/WishList';
+import UserData from '@Components/UserData/UserData';
 import Description from '@Components/Description/Description';
 
-const isAdmin = true;
-const isAuthenticated = true;
+const adminRoutes = [
+  {
+    path: 'admin',
+    element: <AdminPage />,
+  },
+];
 
-const adminRoutes = isAdmin
-  ? [
+const authenticatedRoutes = [
+  {
+    path: 'account',
+    element: <AccountPage />,
+    children: [
       {
-        path: 'admin',
-        element: <AdminPage />,
+        path: '',
+        element: <UserData />,
       },
-    ]
-  : [];
-
-const authenticatedRoutes = isAuthenticated
-  ? [
       {
-        path: 'account',
-        element: <AccountPage />,
-        children: [
-          {
-            path: '',
-            element: <UserData />,
-          },
-          {
-            path: 'orders',
-            element: <Orders />,
-          },
-          {
-            path: 'wishlist',
-            element: <Wishlist />,
-          },
-          {
-            path: 'support',
-            element: <Support />,
-          },
-        ],
+        path: 'orders',
+        element: <Orders />,
       },
-    ]
-  : [];
+      {
+        path: 'wishlist',
+        element: <Wishlist />,
+      },
+      {
+        path: 'support',
+        element: <Support />,
+      },
+    ],
+  },
+];
 
 const publicRoutes = [
   {
