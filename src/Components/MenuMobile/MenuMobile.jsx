@@ -2,12 +2,12 @@ import { NavLink } from 'react-router-dom';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 
 import Button from '@UI/Buttons/Button/Button';
+import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
 
-import { useEventStore } from '@Store/eventStore';
 import { useUserStore } from '@Store/userStore';
+import { useEventStore } from '@Store/eventStore';
 
 import './MenuMobile.scss';
-import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
 
 export default function MenuMobile() {
   const menu = useEventStore((state) => state.menu);

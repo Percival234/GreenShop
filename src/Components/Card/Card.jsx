@@ -1,19 +1,21 @@
 import PropTypes from 'prop-types';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   AiOutlineHeart,
   //  AiTwotoneHeart
 } from 'react-icons/ai';
 import { FiSearch } from 'react-icons/fi';
 
-import './Card.scss';
-
 import Button from '@UI/Buttons/Button/Button';
 import ButtonSmall from '@UI/Buttons/ButtonSmall/ButtonSmall';
 
+import { SERVER_URL } from '../../CONSTANTS/CONSTANTS';
+
+import './Card.scss';
+
 // ! ціна повина  вираховуватись взалежності від знижки а не просто добавляти нулі в кінці і ставити красиву знижку
 
-function Card({ product: { id, name, image, size, price, sale, shortDescription } }) {
+function Card({ product: { _id, name, image, size, price, sale, description } }) {
   const sal = sale ? `${sale}%OFF` : '';
   const realPrice = `$${+(price - (price / 100) * sale).toFixed(2)}.00`;
   const salePrice = sale ? `$${price}.00` : '';
@@ -22,26 +24,26 @@ function Card({ product: { id, name, image, size, price, sale, shortDescription 
     <div className="card">
       <div className="card__sale">{sal}</div>
       <div className="card__image-container">
-        <img alt={name} src={image} className="card__image" />
+        <img alt={name} src={`${SERVER_URL}/static/products/${image}`} className="card__image" />
         <div className="card__navigation">
           <ButtonSmall>
             <AiOutlineHeart />
           </ButtonSmall>
-          <NavLink to={`/product/${id}`} className="button-small">
+          <Link to={`/product/${_id}`} className="button-small">
             <FiSearch />
-          </NavLink>
+          </Link>
         </div>
       </div>
       <div className="card__content">
-        <div className="card__size">{size}</div>
+        <div className="card__size">{size.size}</div>
         <div className="card__prices">
           <div className="card__price card__price_real">{realPrice}</div>
           <div className="card__price card__price_sale">{salePrice}</div>
         </div>
-        <Link to={`/product/${id}`} className="card__title item-title">
+        <Link to={`/product/${_id}`} className="card__title item-title">
           {name}
         </Link>
-        <p className="card__text text-truncated">{shortDescription}</p>
+        <p className="card__text text-truncated">{description}</p>
         <Button>Add to cart</Button>
       </div>
     </div>
@@ -50,13 +52,13 @@ function Card({ product: { id, name, image, size, price, sale, shortDescription 
 
 Card.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     sale: PropTypes.number.isRequired,
-    shortDescription: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
   }).isRequired,
 };
 
