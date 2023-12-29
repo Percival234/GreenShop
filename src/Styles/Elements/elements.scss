@@ -20,7 +20,8 @@ button {
 
 input {
   font-weight: var(--fw-medium);
-  width: 100%;
+  accent-color: var(--clr-primary);
+  cursor: pointer;
 }
 
 ::selection {

@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@Store/*": ["src/Store/*"],
       "@Root/*": ["src/Root/*"],
       "@Hooks/*": ["src/Hooks/*"],
       "@Pages/*": ["src/Pages/*"],
@@ -11,10 +12,15 @@
       "@Utils/*": ["src/Utils/*"],
       "@UI/*": ["src/Components/UI/*"],
       "@Middleware/*": ["src/Middleware/*"],
-      "@Store/*": ["src/Store/*"],
       "@Components/*": ["src/Components/*"],
+      "@Constants/*": ["src/CONSTANTS/*"]
     }
   },
-  "include": ["src/**/*.js", "src/**/*.jsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.js",
+    "src/**/*.jsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

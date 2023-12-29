@@ -1,27 +1,29 @@
-// import { BsStarFill } from 'react-icons/bs';
-// import './Rating.scss';
+import { BsStarFill } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 
-// export default function Rating({ rating }) {
-//   let formatedRating = '';
-//   // if (typeof reviews === 'number') {
-//   //   rating = reviews;
-//   // } else {
-//   //   rating = reviews.map((el) => el.rating).reduce((acc, el) => acc + el, 0) / reviews.length;
-//   //   formatedRating = Number.isInteger(rating) ? `${rating}.0` : +rating.toFixed(1);
-//   // }
-//   const ratingOverlayWidth = `${100 - (rating / 5) * 100}%`;
+import './Rating.scss';
 
-//   return (
-//     <div className="rating">
-//       <div className="rating__stars">
-//         <div className="rating__overlay" style={{ width: ratingOverlayWidth }}></div>
-//         <BsStarFill className="rating__star" />
-//         <BsStarFill className="rating__star" />
-//         <BsStarFill className="rating__star" />
-//         <BsStarFill className="rating__star" />
-//         <BsStarFill className="rating__star" />
-//       </div>
-//       <div className="rating__number">{formatedRating}</div>
-//     </div>
-//   );
-// }
+function Rating({ rating }) {
+  const formatedRating = Number.isInteger(rating) ? `${rating}.0` : +rating.toFixed(1);
+  const ratingOverlayWidth = `${100 - (rating / 5) * 100}%`;
+
+  return (
+    <div className="rating">
+      <div>{formatedRating}</div>
+      <div className="rating__stars">
+        <BsStarFill size={18} />
+        <BsStarFill size={18} />
+        <BsStarFill size={18} />
+        <BsStarFill size={18} />
+        <BsStarFill size={18} />
+        <div className="rating__overlay" style={{ width: ratingOverlayWidth }}></div>
+      </div>
+    </div>
+  );
+}
+
+Rating.propTypes = {
+  rating: PropTypes.number.isRequired,
+};
+
+export default Rating;

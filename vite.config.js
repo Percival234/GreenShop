@@ -18,6 +18,7 @@ export default defineConfig({
       '@Styles': path.resolve(__dirname, 'src/Styles'),
       '@Routes': path.resolve(__dirname, 'src/Routes'),
       '@UI': path.resolve(__dirname, 'src/Components/UI'),
+      '@Constants': path.resolve(__dirname, 'src/CONSTANTS'),
       '@Middleware': path.resolve(__dirname, 'src/Middleware'),
       '@Components': path.resolve(__dirname, 'src/Components'),
     },

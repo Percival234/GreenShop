@@ -1,11 +1,12 @@
 .button {
   padding: 12px 25px;
   border-radius: 5px;
-  text-align: center;
-  text-transform: capitalize;
-  color: var(--clr-white);
-  font-weight: var(--fw-bold);
   background: var(--clr-primary);
+  color: var(--clr-white);
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-item-title);
   transition: 0.3s;
   &:active,
   &:hover {

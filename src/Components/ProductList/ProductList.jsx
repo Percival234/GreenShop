@@ -7,12 +7,12 @@ import Empty from '@Components/Empty/Empty';
 import './ProductList.scss';
 
 function ProductList({ products }) {
-  if (!products.length) return <Empty text="No results" Icon={<FiShoppingCart />} />;
+  if (!products?.length) return <Empty text="No results" Icon={<FiShoppingCart />} />;
   return (
     <div className="product-list">
-      {products.map((product) => {
-        return <Card key={product.id} product={product} />;
-      })}
+      {products.map((product) => (
+        <Card key={product._id} product={product} />
+      ))}
     </div>
   );
 }

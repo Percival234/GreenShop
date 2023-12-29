@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-import './TextTrancated.scss';
+import './TextTruncated.scss';
 
-function TextTrancated({ children, rows }) {
+function TextTruncated({ children, rows }) {
   return (
     <p className="text-truncated" style={{ '--rows': rows }}>
       {children}
@@ -10,9 +10,9 @@ function TextTrancated({ children, rows }) {
   );
 }
 
-TextTrancated.propTypes = {
+TextTruncated.propTypes = {
   children: PropTypes.string.isRequired,
   rows: PropTypes.number.isRequired,
 };
 
-export default TextTrancated;
+export default TextTruncated;

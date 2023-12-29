@@ -1,13 +1,9 @@
-import React from 'react';
 import './Slide.scss';
 
-export default function Slide({ banner: { mobile, desktop } }) {
+export default function Slide({ banner }) {
   return (
     <div className="slider-slide">
-      <picture>
-        <source media="(max-width: 768px)" srcSet={mobile} />
-        <img src={desktop} alt="banner" />
-      </picture>
+      <img src={banner} alt="banner" />
     </div>
   );
 }

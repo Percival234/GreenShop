@@ -1,8 +1,7 @@
-import React from 'react';
-import './Aside.scss';
+import Filter from '@Components/Aside/Filter/Filter';
+import Advertising from '@Components/Aside/Advertising/Advertising';
 
-import Filter from '../Filter/Filter/Filter';
-import Advertising from '../Advertising/Advertising';
+import './Aside.scss';
 
 export default function Aside() {
   return (

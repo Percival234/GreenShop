@@ -1,14 +1,20 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+
 import './Price.scss';
 
-export default function Price({ price, sale, type, className }) {
-  const formatedPrice = sale ? `$${+(price - (price / 100) * sale).toFixed()}.00` : `$${price}.00`;
-
-  return <div className={`price_${type} ${className}`}>{formatedPrice}</div>;
+function Price({ price, sale }) {
+  const currentPrice = sale ? price - (price * sale) / 100 : price;
+  return (
+    <div className="prices">
+      <div className="prices__price_solid">{currentPrice.toFixed(2)}$</div>
+      {sale ? <div className="prices__price_fake">{price.toFixed(2)}$</div> : ''}
+    </div>
+  );
 }
 
-// закреслена ціна (вона повинна бути справжня);
+Price.propTypes = {
+  price: PropTypes.number.isRequired,
+  sale: PropTypes.number,
+};
 
-// жирна зелена ціна, яка може знижуватись на скидку якщо скидка є а якшо нема то чиста
-
-// просто ціна простим шрифтом передається просто число
+export default Price;

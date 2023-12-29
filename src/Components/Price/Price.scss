@@ -1,18 +1,17 @@
-.price {
-  &_solid {
-    font-weight: var(--fw-bold);
-    color: var(--clr-primary);
-  }
-  &_fake {
-    font-weight: var(--fw-regular);
-    color: var(--clr-grey);
-    text-decoration: line-through;
-  }
-  &_simple {
-    font-weight: var(--fw-regular);
-  }
-  &_medium {
-    font-weight: var(--fw-medium);
-    color: var(--clr-grey);
+.prices {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  &__price {
+    &_solid {
+      font-weight: var(--fw-bold);
+      color: var(--clr-primary);
+    }
+    &_fake {
+      font-weight: var(--fw-medium);
+      color: var(--clr-gray);
+      opacity: 0.8;
+      text-decoration: line-through;
+    }
   }
 }

@@ -1,8 +1,7 @@
-@import '../../Styles/Tools/mixins';
+@import '@Styles/Tools/mixins';
 
 .card {
   border-radius: 5px;
-  position: relative;
   background: var(--clr-background);
   overflow: hidden;
   &:hover {
@@ -11,26 +10,35 @@
       filter: brightness(0.5);
     }
     .card__navigation {
-      bottom: 20px;
+      bottom: 20%;
       opacity: 1;
     }
   }
-  &__sale {
+  &__detail {
     position: absolute;
-    top: 0%;
-    left: 0%;
-    z-index: 15;
-    background: var(--clr-primary);
-    color: var(--clr-white);
+    z-index: 10;
     font-size: var(--fs-item-title);
+    color: var(--clr-white);
     padding: 7px;
-    &:empty {
-      display: none;
+    background: var(--clr-primary);
+    &_sale {
+      font-size: var(--fs-sub-title);
+      font-weight: var(--fw-medium);
+      top: 0;
+      left: 0;
+      &:empty {
+        display: none;
+      }
+    }
+    &_size {
+      right: 0;
+      bottom: 0;
+      text-transform: capitalize;
     }
   }
   &__image-container {
     position: relative;
-    height: 200px;
+    height: 225px;
     overflow: hidden;
   }
   &__image {
@@ -70,19 +78,8 @@
     gap: 8px;
     position: relative;
   }
-  &__size {
-    position: absolute;
-    right: 0%;
-    top: 0%;
-    color: var(--clr-white);
-    background: var(--clr-primary);
-    font-size: var(--fs-item-title);
-    padding: 7px;
-    text-transform: capitalize;
-  }
   &__title {
     overflow: hidden;
-    text-overflow: ellipsis;
     font-weight: var(--fw-bold);
     transition: 0.2;
     &:hover,
@@ -91,8 +88,17 @@
       text-decoration: underline;
     }
   }
-  &__text {
-    font-size: var(--fs-text);
+  &__info {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+  }
+  &__rating {
+    gap: 2px;
+    display: flex;
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-item-title);
+    color: var(--clr-orange);
   }
   &__prices {
     display: flex;
@@ -105,7 +111,7 @@
       font-weight: var(--fw-bold);
     }
     &_sale {
-      color: var(--clr-grey-light);
+      color: var(--clr-gray-light);
       text-decoration: line-through;
     }
   }
