@@ -11,11 +11,11 @@ import ProductPage from '@Pages/ProductPage';
 import CheckoutPage from '@Pages/CheckoutPage';
 import NotFoundPage from '@Pages/NotFoundPage';
 import Orders from '@Components/Orders/Orders';
+import Reviews from '@Components/Reviews/Reviews';
 import Support from '@Components/Support/Support';
-import Reviews from '@Components/Reviews/Reviews/Reviews';
 import Wishlist from '@Components/WishList/WishList';
 import UserData from '@Components/UserData/UserData';
-import Description from '@Components/Description/Description';
+import ProductDetails from '@Components/Product/ProductDetails';
 
 const adminRoutes = [
   {
@@ -68,7 +68,7 @@ const publicRoutes = [
     children: [
       {
         path: '',
-        element: <Description />,
+        element: <ProductDetails />,
       },
       {
         path: 'reviews',

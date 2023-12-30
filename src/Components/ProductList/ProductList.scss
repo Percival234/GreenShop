@@ -1,5 +1,16 @@
+@import '@Styles/Tools/mixins';
+
 .product-list {
+  --width: 250px;
+  --gap: 15px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(var(--width), 1fr));
+  gap: var(--gap);
+}
+
+@include adaptation('tablet', max) {
+  .product-list {
+    --width: 200px;
+    --gap: 10px;
+  }
 }

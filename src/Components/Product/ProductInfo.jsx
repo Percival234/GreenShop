@@ -1,24 +1,27 @@
 import PropTypes from 'prop-types';
 
-import Price from '@Components/Price/Price';
 import Title from '@UI/Titles/Title/Title';
+import Price from '@Components/Price/Price';
 import Rating from '@Components/Rating/Rating/Rating';
-import ProductAction from '../ProductAction/ProductAction';
+import TitleItem from '@UI/Titles/TitleItem/TitleItem';
+import ProductAction from '@Components/Product/ProductAction';
 
 import { SERVER_URL } from '@Constants/CONSTANTS';
+
+import './Product.scss';
 
 function ProductInfo({
   product: {
     _id,
-    image,
     name,
-    price,
-    sale,
-    quantity,
-    description,
     size,
-    category,
+    sale,
+    image,
+    price,
     rating,
+    quantity,
+    category,
+    description,
     reviewsLength,
   },
 }) {
@@ -28,28 +31,31 @@ function ProductInfo({
         {sale ? <div className="product__sale">{sale}%OFF</div> : ''}
         <img src={`${SERVER_URL}/static/products/${image}`} alt={name} className="product__image" />
       </div>
-      <div className="product__info">
+      <div className="product__description">
         <Title>{name}</Title>
-        <div className="product__details">
-          <div className="product__prices">
+        <div className="product__info">
+          <div className="product__price">
             <Price price={price} sale={sale} />
           </div>
           <div className="product__rating-info">
-            <Rating rating={rating + 4.4} />
-            <div className="product__review-count">1{reviewsLength} Reviews</div>
+            <Rating rating={rating} />
+            <div>{reviewsLength} Reviews</div>
           </div>
         </div>
-        <div className="product__sub-title">Short Description:</div>
+        <TitleItem>Short Description:</TitleItem>
         <p>{description}</p>
         <ProductAction quantity={quantity} id={_id} />
-        <div className="product__sub-title">
-          ID: <div className="product__result">{_id}</div>
+        <div>
+          <strong>ID: </strong>
+          <span>{_id}</span>
         </div>
-        <div className="product__sub-title">
-          Category: <div className="product__result">{category.category}</div>
+        <div>
+          <strong>Category: </strong>
+          <span>{category.category}</span>
         </div>
-        <div className="product__sub-title">
-          Size: <div className="product__result">{size.size}</div>
+        <div>
+          <strong>Size: </strong>
+          <span>{size.size}</span>
         </div>
       </div>
     </div>
@@ -59,15 +65,15 @@ function ProductInfo({
 ProductInfo.propTypes = {
   product: PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
     sale: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
     size: PropTypes.object.isRequired,
+    image: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
     category: PropTypes.object.isRequired,
+    description: PropTypes.string.isRequired,
     reviewsLength: PropTypes.number.isRequired,
   }),
 };

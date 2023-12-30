@@ -1,32 +1,41 @@
+import { useUserStore } from '@Store/userStore';
+
+import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
+import ProductList from '@Components/ProductList/ProductList';
+import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
+
+import { useEffect } from 'react';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { clearWishlist } from '@API/API';
+
 import './WishList.scss';
 
-// import Card from '@Compontns/Card/Card';
-import ButtonInvert from '@UI/Buttons/ButtonOutline/ButtonOutline';
-import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
-
-// перевіряти чи пустий чи ні цей список бажань
-
 export default function Wishlist() {
+  const queryClient = useQueryClient();
+  const wishlist = useUserStore((state) => state.wishlist);
+
+  // const { mutate } = useMutation({ mutationFn: clearWishlist });
+
+  // const removeWishlist = async () => {
+  //   await mutate(
+  //     {},
+  //     {
+  //       onSuccess: () => {
+  //         queryClient.invalidateQueries(['wishlist']);
+  //       },
+  //     }
+  //   );
+  // };
+
+  useEffect(() => {
+    console.log(wishlist);
+  });
+
   return (
-    <div className="wish-list">
-      <TitleBorder>Wish list</TitleBorder>
-      <div className="products__list">
-        {/* {plants.map((product) => {
-          return (
-            <Card
-              key={product.id}
-              id={product.id}
-              productName={product.productName}
-              image={product.image}
-              price={product.price}
-              size={product.size}
-              sale={product.sale}
-              description={product.shortDescription}
-            />
-          );
-        })} */}
-      </div>
-      <ButtonInvert>Remove all</ButtonInvert>
+    <div className="wishlist">
+      <TitleBorder>Wishlist</TitleBorder>
+      <ProductList products={wishlist} />
+      {!!wishlist?.length && <ButtonOutline>Remove all</ButtonOutline>}
     </div>
   );
 }

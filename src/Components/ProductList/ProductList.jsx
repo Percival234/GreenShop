@@ -7,7 +7,7 @@ import Empty from '@Components/Empty/Empty';
 import './ProductList.scss';
 
 function ProductList({ products }) {
-  if (!products?.length) return <Empty text="No results" Icon={<FiShoppingCart />} />;
+  if (!products?.length) return <Empty text="No products" Icon={<FiShoppingCart />} />;
   return (
     <div className="product-list">
       {products.map((product) => (

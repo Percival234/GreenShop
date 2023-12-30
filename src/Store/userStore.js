@@ -6,6 +6,7 @@ export const useUserStore = create(
     user: null,
     isAuth: false,
     isAdmin: false,
+    wishlist: [],
     logout: () =>
       set((state) => {
         state.user = null;
@@ -32,6 +33,14 @@ export const useUserStore = create(
       set((state) => {
         state.isAuth = true;
         localStorage.setItem('token', token);
+      }),
+    getWishlist: (wishlist) =>
+      set((state) => {
+        state.wishlist = wishlist.products;
+      }),
+    clearWishlist: () =>
+      set((state) => {
+        state.wishlist = [];
       }),
   }))
 );

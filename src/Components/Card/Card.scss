@@ -92,39 +92,12 @@
     display: flex;
     gap: 15px;
     justify-content: space-between;
+    font-size: var(--fs-item-title);
   }
   &__rating {
     gap: 2px;
     display: flex;
     font-weight: var(--fw-medium);
-    font-size: var(--fs-item-title);
     color: var(--clr-orange);
-  }
-  &__prices {
-    display: flex;
-    gap: 15px;
-  }
-  &__price {
-    font-size: var(--fs-item-title);
-    &_real {
-      color: var(--clr-primary);
-      font-weight: var(--fw-bold);
-    }
-    &_sale {
-      color: var(--clr-gray-light);
-      text-decoration: line-through;
-    }
-  }
-}
-
-@include adaptation('tablet-wide', max) {
-  .card {
-    &__content {
-      gap: 5px;
-    }
-    &__size {
-      top: initial;
-      bottom: 100%;
-    }
   }
 }

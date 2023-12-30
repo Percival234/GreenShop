@@ -1,10 +1,6 @@
 @import '@Styles/Tools/mixins';
 
-.review {
-  position: relative;
-  border-radius: 10px;
-  border: 1px solid var(--clr-primary);
-  padding: 15px;
+.reviews {
   &__header {
     display: flex;
     justify-content: space-between;
@@ -50,10 +46,25 @@
     font-size: var(--fs-secondary);
     font-size: var(--fs-item-title);
   }
+  &__list {
+    padding: 0px 10px 15px 0px;
+    display: grid;
+    gap: 15px;
+    max-height: 600px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 7px;
+      background: var(--clr-primary-light);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--clr-primary);
+      border-radius: 3px;
+    }
+  }
 }
 
 @include adaptation('phone', max) {
-  .review {
+  .reviews {
     padding: 10px;
     &__date {
       position: absolute;

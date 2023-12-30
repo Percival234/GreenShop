@@ -21,6 +21,7 @@ export default defineConfig({
       '@Constants': path.resolve(__dirname, 'src/CONSTANTS'),
       '@Middleware': path.resolve(__dirname, 'src/Middleware'),
       '@Components': path.resolve(__dirname, 'src/Components'),
+      '@API': path.resolve(__dirname, 'src/API'),
     },
   },
 });

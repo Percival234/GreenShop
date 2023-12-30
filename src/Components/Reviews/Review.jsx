@@ -1,5 +1,3 @@
-import './Review.scss';
-
 // import {
 //   // HiThumbUp
 //   HiOutlineThumbUp,

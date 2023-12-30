@@ -6,6 +6,8 @@ import FilterPrice from '@Components/Aside/Filter/FilterPrice';
 import FilterCritery from '@Components/Aside/Filter/FilterCritery';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
+import { fetchCategories, fetchSizes } from '@API/API';
+
 import './Filter.scss';
 
 export default function Filter() {
@@ -14,13 +16,13 @@ export default function Filter() {
     isPending: categoriesIsPending,
     isError: categoriesIsError,
     error: categoriesError,
-  } = useQuery({ queryKey: ['category'] });
+  } = useQuery({ queryKey: ['category'], queryFn: fetchCategories });
   const {
     data: sizes,
     isPending: sizesIsPending,
     isError: sizesIsError,
     error: sizesError,
-  } = useQuery({ queryKey: ['size'] });
+  } = useQuery({ queryKey: ['size'], queryFn: fetchSizes });
 
   if (categoriesIsPending || sizesIsPending) return <PageLoading />;
   if (categoriesIsError || sizesIsError) return <Error error={categoriesError || sizesError} />;

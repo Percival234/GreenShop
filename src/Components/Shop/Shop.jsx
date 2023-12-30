@@ -7,10 +7,15 @@ import Pagination from '@Components/Pagination/Pagination';
 import ProductList from '@Components/ProductList/ProductList';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
+import { fetchProduct } from '@API/API';
+
 import './Shop.scss';
 
 export default function Shop() {
-  const { data, isPending, isError, error } = useQuery({ queryKey: ['product'] });
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ['product'],
+    queryFn: fetchProduct,
+  });
 
   if (isPending) return <PageLoading />;
   if (isError) return <Error error={error} />;

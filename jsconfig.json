@@ -13,7 +13,8 @@
       "@UI/*": ["src/Components/UI/*"],
       "@Middleware/*": ["src/Middleware/*"],
       "@Components/*": ["src/Components/*"],
-      "@Constants/*": ["src/CONSTANTS/*"]
+      "@Constants/*": ["src/CONSTANTS/*"],
+      "@API/*": ["src/API/*"]
     }
   },
   "include": [

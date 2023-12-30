@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
-import Contacts from '@Components/Contants/Contacts';
 import Error from '@Components/Error/Error';
-// import Related from '@Components/Related/Related/Related';
+import Related from '@Components/Related/Related';
+import Contacts from '@Components/Contants/Contacts';
+import ProductInfo from '@Components/Product/ProductInfo';
 import NewsLetter from '@Components/NewsLetter/NewsLetter';
-import ProductInfo from '@Components/Product/ProductInfo/ProductInfo';
+import ProductAbout from '@Components/Product/ProductAbout';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
-import ProductAbout from '@Components/Product/ProductAbout/ProductAbout';
 
 export default function ProductPage() {
   const { productId } = useParams();
@@ -25,8 +25,8 @@ export default function ProductPage() {
   return (
     <>
       <ProductInfo product={product} />
-      <ProductAbout id={productId} />
-      {/* <Related category={product.category} /> */}
+      <ProductAbout />
+      <Related category={product.category} />
       <NewsLetter />
       <Contacts />
     </>
