@@ -1,3 +1,4 @@
+import { useSearchParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 import Sort from '@Components/Sort/Sort';
@@ -7,14 +8,14 @@ import Pagination from '@Components/Pagination/Pagination';
 import ProductList from '@Components/ProductList/ProductList';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
-import { fetchProduct } from '@API/API';
+import { fetchProducts } from '@API/API';
 
 import './Shop.scss';
 
 export default function Shop() {
   const { data, isPending, isError, error } = useQuery({
-    queryKey: ['product'],
-    queryFn: fetchProduct,
+    queryKey: ['products'],
+    queryFn: fetchProducts,
   });
 
   if (isPending) return <PageLoading />;

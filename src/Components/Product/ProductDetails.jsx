@@ -6,6 +6,7 @@ import Empty from '@Components/Empty/Empty';
 import Error from '@Components/Error/Error';
 import TitleItem from '@UI/Titles/TitleItem/TitleItem';
 import LocalLoading from '@Components/Loading/LocalLoading/LocalLoading';
+import { fetchDetails } from '@API/API';
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -14,7 +15,7 @@ export default function ProductDetails() {
     isPending,
     isError,
     error,
-  } = useQuery({ queryKey: [`details/${productId}`] });
+  } = useQuery({ queryKey: ['details', productId], queryFn: () => fetchDetails(productId) });
 
   if (isPending) return <LocalLoading />;
   if (isError) return <Error error={error} />;

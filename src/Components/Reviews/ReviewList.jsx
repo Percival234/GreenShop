@@ -7,6 +7,8 @@ import Error from '@Components/Error/Error';
 import Review from '@Components/Reviews/Review';
 import LocalLoading from '@Components/Loading/LocalLoading/LocalLoading';
 
+import { fetchReviews } from '@API/API';
+
 export default function ReviewList() {
   const { productId } = useParams();
   const {
@@ -14,7 +16,7 @@ export default function ReviewList() {
     isPending,
     isError,
     error,
-  } = useQuery({ queryKey: [`reviews/${productId}`] });
+  } = useQuery({ queryKey: ['reviews', productId], queryFn: () => fetchReviews(productId) });
 
   if (isPending) return <LocalLoading />;
   if (isError) return <Error error={error} />;

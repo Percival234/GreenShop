@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function Error({ error }) {
   console.log(error);
-  return <div>{error.data.message}</div>;
+  return <div>{error.message}</div>;
 }
 
 Error.propTypes = {

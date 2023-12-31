@@ -1,4 +1,7 @@
 .wishlist {
   display: grid;
   gap: 20px;
+  &__button {
+    justify-self: center;
+  }
 }

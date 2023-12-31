@@ -34,13 +34,9 @@ export const useUserStore = create(
         state.isAuth = true;
         localStorage.setItem('token', token);
       }),
-    getWishlist: (wishlist) =>
+    setWishlist: (wishlist) =>
       set((state) => {
         state.wishlist = wishlist.products;
-      }),
-    clearWishlist: () =>
-      set((state) => {
-        state.wishlist = [];
       }),
   }))
 );

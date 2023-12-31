@@ -1,5 +1,4 @@
 .sort {
-  padding-bottom: 15px;
   font-size: var(--fs-item-title);
   &__order {
     display: flex;
@@ -23,7 +22,7 @@
     text-transform: capitalize;
     background: var(--clr-white);
     padding: 10px;
-    transition: var(--transition-quick);
+    transition: 0.3s;
     cursor: pointer;
     &.active,
     &:hover,

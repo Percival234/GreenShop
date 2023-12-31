@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import { FiSearch } from 'react-icons/fi';
-import { BsStarFill } from 'react-icons/bs';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { AiOutlineHeart, AiFillHeart, AiOutlineSearch, AiFillStar } from 'react-icons/ai';
 
 import Price from '@Components/Price/Price';
 import Button from '@UI/Buttons/Button/Button';
@@ -12,34 +11,45 @@ import TextTruncated from '@UI/Text/TextTruncated/TextTruncated';
 
 import { SERVER_URL } from '@Constants/CONSTANTS';
 
+import { useUserStore } from '@Store/userStore';
+
 import { updateWishlist } from '@API/API';
 
 import './Card.scss';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-// import { useEffect } from 'react';
-// import { useUserStore } from '@Store/userStore';
 
-function Card({ product: { _id, name, image, size, price, sale, description, rating } }) {
-  // const wishlist = useUserStore((state) => state.wishlist);
+const Card = ({ product: { _id, name, image, size, price, sale, description, rating } }) => {
+  const wishlist = useUserStore((state) => state.wishlist);
+  const queryClient = useQueryClient();
 
   const { mutate } = useMutation({
-    mutationFn: () => updateWishlist(_id),
+    mutationFn: (id) => updateWishlist(id),
   });
+
+  const isInWishlist = wishlist.some((product) => product._id === _id);
+
+  const update = () =>
+    mutate(_id, {
+      onSuccess: () => {
+        queryClient.invalidateQueries({
+          queryKey: ['wishlist'],
+        });
+      },
+    });
 
   return (
     <div className="card">
       <div className="card__image-container">
-        {sale ? <div className="card__detail card__detail_sale">{sale}%OFF</div> : ''}
+        {!!sale && <div className="card__detail card__detail_sale">{sale}%OFF</div>}
         <div className="card__detail card__detail_size">{size.size}</div>
         <img alt={name} src={`${SERVER_URL}/static/products/${image}`} className="card__image" />
         <div className="card__navigation">
-          {true ? (
-            <ButtonSmall Icon={<AiFillHeart />} ariaLabel="Remove from wishlist" onClick={mutate} />
+          {isInWishlist ? (
+            <ButtonSmall Icon={<AiFillHeart />} ariaLabel="Remove from wishlist" onClick={update} />
           ) : (
-            <ButtonSmall Icon={<AiOutlineHeart />} ariaLabel="Add to wishlist" onClick={mutate} />
+            <ButtonSmall Icon={<AiOutlineHeart />} ariaLabel="Add to wishlist" onClick={update} />
           )}
           <LinkSmall
-            Icon={<FiSearch />}
+            Icon={<AiOutlineSearch />}
             to={`/product/${_id}`}
             ariaLabel={`Navigate product page ${name}`}
           />
@@ -50,7 +60,7 @@ function Card({ product: { _id, name, image, size, price, sale, description, rat
           <Price price={price} sale={sale} />
           <div className="card__rating">
             {rating}
-            <BsStarFill size={16} />
+            <AiFillStar size={18} />
           </div>
         </div>
         <Link to={`/product/${_id}`} className="card__title item-title">
@@ -61,7 +71,7 @@ function Card({ product: { _id, name, image, size, price, sale, description, rat
       </div>
     </div>
   );
-}
+};
 
 Card.propTypes = {
   product: PropTypes.shape({

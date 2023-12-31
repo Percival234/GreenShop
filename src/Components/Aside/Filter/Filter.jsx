@@ -32,14 +32,26 @@ export default function Filter() {
       <fieldset className="filter__form">
         <TitleItem>Categories</TitleItem>
         {categories.map((category) => (
-          <FilterCritery key={category._id} title={category.category} count={category.count} />
+          <FilterCritery
+            key={category._id}
+            title={category.category}
+            count={category.count}
+            id={category._id}
+            param="categories"
+          />
         ))}
       </fieldset>
       <FilterPrice />
       <fieldset className="filter__form">
         <TitleItem>Sizes</TitleItem>
         {sizes.map((size) => (
-          <FilterCritery key={size._id} title={size.size} count={size.count} />
+          <FilterCritery
+            key={size._id}
+            title={size.size}
+            count={size.count}
+            id={size._id}
+            param="sizes"
+          />
         ))}
       </fieldset>
     </div>
