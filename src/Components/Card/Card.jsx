@@ -17,15 +17,15 @@ import { updateWishlist } from '@API/API';
 
 import './Card.scss';
 
-const Card = ({ product: { _id, name, image, size, price, sale, description, rating } }) => {
+const Card = ({
+  product: { _id, name, image, size, price, sale, description, rating, quantity },
+}) => {
   const wishlist = useUserStore((state) => state.wishlist);
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation({
     mutationFn: (id) => updateWishlist(id),
   });
-
-  const isInWishlist = wishlist.some((product) => product._id === _id);
 
   const update = () =>
     mutate(_id, {
@@ -37,13 +37,13 @@ const Card = ({ product: { _id, name, image, size, price, sale, description, rat
     });
 
   return (
-    <div className="card">
+    <div className={quantity ? 'card' : 'card disactive'}>
       <div className="card__image-container">
         {!!sale && <div className="card__detail card__detail_sale">{sale}%OFF</div>}
         <div className="card__detail card__detail_size">{size.size}</div>
         <img alt={name} src={`${SERVER_URL}/static/products/${image}`} className="card__image" />
         <div className="card__navigation">
-          {isInWishlist ? (
+          {wishlist.some((product) => product._id === _id) ? (
             <ButtonSmall Icon={<AiFillHeart />} ariaLabel="Remove from wishlist" onClick={update} />
           ) : (
             <ButtonSmall Icon={<AiOutlineHeart />} ariaLabel="Add to wishlist" onClick={update} />
@@ -67,7 +67,7 @@ const Card = ({ product: { _id, name, image, size, price, sale, description, rat
           {name}
         </Link>
         <TextTruncated rows={2}>{description}</TextTruncated>
-        <Button>Add to cart</Button>
+        <Button disabled={!quantity}>Add to cart</Button>
       </div>
     </div>
   );
@@ -83,6 +83,7 @@ Card.propTypes = {
     sale: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
   }).isRequired,
 };
 

@@ -1,6 +1,6 @@
 import Shop from '@Components/Shop/Shop';
+import Slider from '@Components/Slider/Slider';
 import Contacts from '@Components/Contants/Contacts';
-import Slider from '@Components/Slider/Slider/Slider';
 import BlogList from '@Components/Blog/BlogList/BlogList';
 import NewsLetter from '@Components/NewsLetter/NewsLetter';
 

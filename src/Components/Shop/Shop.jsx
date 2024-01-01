@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 import Sort from '@Components/Sort/Sort';
@@ -13,7 +12,7 @@ import { fetchProducts } from '@API/API';
 import './Shop.scss';
 
 export default function Shop() {
-  const { data, isPending, isError, error } = useQuery({
+  const { data, isPending, isFetching, isError, error } = useQuery({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
@@ -23,6 +22,7 @@ export default function Shop() {
 
   return (
     <div className="shop">
+      {isFetching && <div className="shop__loading"></div>}
       <div className="shop__container">
         <Aside />
         <div className="shop__flex">

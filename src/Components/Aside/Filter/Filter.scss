@@ -1,17 +1,20 @@
+@import '@Styles/Tools/mixins.scss';
+
 .filter {
+  width: minmax(300px, 100%);
   background: var(--clr-background);
   padding: 20px;
   display: grid;
-  gap: 30px;
+  gap: 20px;
   &__form {
     display: grid;
-    gap: 10px;
+    gap: 8px;
   }
   &__item {
     display: flex;
     gap: 10px;
     padding: 5px;
-    font-size: var(--fs-item-primary);
+    font-size: var(--fs-item-title);
   }
   &__label {
     flex: 1;
@@ -25,11 +28,9 @@
       color: var(--clr-primary);
     }
   }
-  &__checkbox {
-    &:checked ~ .filter__label {
-      color: var(--clr-primary-dark);
-      font-weight: var(--fw-medium);
-    }
+  &__checkbox:checked ~ .filter__label {
+    color: var(--clr-primary-dark);
+    font-weight: var(--fw-medium);
   }
   &__double-range {
     position: relative;

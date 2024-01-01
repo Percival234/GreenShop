@@ -1,51 +1,55 @@
+@import '@Styles/Tools/mixins.scss';
+
 .sort {
   font-size: var(--fs-item-title);
-  &__order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__container {
     display: flex;
     align-items: center;
     gap: 5px;
   }
   &__select {
     position: relative;
-    width: 130px;
-    &.active {
-      & .sort__option-current {
-        background: var(--clr-background);
-      }
-      & .sort__option-menu {
-        max-height: none;
-        border: 2px solid var(--clr-primary-light);
-      }
-    }
+    width: 170px;
+  }
+  &__menu {
+    border: 1px solid var(--clr-primary-light);
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    z-index: 50;
   }
   &__option {
     text-transform: capitalize;
     background: var(--clr-white);
     padding: 10px;
-    transition: 0.3s;
     cursor: pointer;
-    &.active,
+    transition: 0.3s;
     &:hover,
     &:active {
       background: var(--clr-background);
+      color: var(--clr-primary);
     }
-    &.active {
-      color: var(--clr-primary-dark);
-      font-weight: var(--fw-bold);
+    &.hidden {
+      display: none;
     }
   }
   &__option-current {
     text-decoration: underline;
     color: var(--clr-primary);
-    background: var(--clr-white);
+    font-weight: var(--fw-medium);
   }
-  &__option-menu {
-    width: 100%;
-    position: absolute;
-    right: 0%;
-    top: 100%;
-    z-index: 100;
-    max-height: 0px;
-    overflow: hidden;
+}
+
+@include adaptation('phone', max) {
+  .sort {
+    align-items: start;
+    flex-direction: column-reverse;
+    gap: 10px;
+    &__filter-button {
+      display: block;
+    }
   }
 }

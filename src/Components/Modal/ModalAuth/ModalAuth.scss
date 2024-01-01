@@ -1,0 +1,51 @@
+@import '@Styles/Tools/mixins.scss';
+
+.auth {
+  display: grid;
+  justify-items: center;
+  gap: 35px;
+  padding: 30px 25px;
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    & span {
+      display: block;
+      height: 20px;
+      width: 2px;
+      background: var(--clr-black);
+    }
+  }
+  &__nav-link {
+    font-size: var(--fs-title);
+    font-weight: var(--fw-medium);
+    &.active {
+      color: var(--clr-primary);
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+    }
+  }
+  &__form {
+    display: grid;
+    justify-content: stretch;
+    gap: 25px;
+  }
+  &__fields {
+    display: grid;
+    gap: 10px;
+  }
+}
+
+@include adaptation('phablet', max) {
+  .auth {
+    padding: 15px;
+    &__navigation,
+    &__title,
+    &__inputs {
+      margin-bottom: 15px;
+    }
+    &__alternate {
+      margin: 15px 0px;
+    }
+  }
+}

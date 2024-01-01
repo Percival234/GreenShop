@@ -1,34 +1,36 @@
 .slider {
-  padding: 0px 15px;
   &__container {
-    padding: 0px;
-    max-width: 1200px;
     position: relative;
     overflow: hidden;
   }
   &__line {
     display: flex;
-    transition: 0.5s;
+    transition: 0.7s ease;
   }
-  &__pagination {
+  &__pag {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
   }
-  &__pagination-point {
-    width: 20px;
+  &__pag-point {
+    width: 25px;
     aspect-ratio: 1;
     border-radius: 50%;
     display: block;
-    background: var(--clr-grey-light);
+    background: var(--clr-gray-light);
     opacity: 0.2;
     cursor: pointer;
     transition: 0.2s;
     &.active {
       opacity: 0.8;
     }
+  }
+  &__slide {
+    flex: 1 0 100%;
+    position: relative;
+    height: 400px;
   }
 }

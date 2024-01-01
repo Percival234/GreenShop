@@ -1,9 +1,9 @@
-import ImageBannerSale from '@Assets/images/banner-sale.jpg';
+import { ADVERTISING } from '@Constants/CONSTANTS';
 
 export default function Advertising() {
   return (
     <div className="hidden-tablet">
-      <img src={ImageBannerSale} alt="sale" />
+      <img src={ADVERTISING} width="300px" alt="sale" />
     </div>
   );
 }

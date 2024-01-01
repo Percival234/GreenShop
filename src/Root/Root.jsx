@@ -2,15 +2,14 @@ import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
+import Footer from '@Components/Footer/Footer';
+import Header from '@Components/Header/Header/Header';
+import ModalAuth from '@Components/Modal/ModalAuth/ModalAuth';
+import PageLoading from '@Components/Loading/PageLoading/PageLoading';
+
 import { useUserStore } from '@Store/userStore';
 
 import { fetchUser, fetchWishlist } from '@API/API';
-
-import Footer from '@Components/Footer/Footer';
-import Header from '@Components/Header/Header/Header';
-import PageLoading from '@Components/Loading/PageLoading/PageLoading';
-// import Modal from '@Components/Modal/Modal';
-// import AlertList from '@Components/Alert/AlertList/AlertList';
 
 export default function Root() {
   const setUser = useUserStore((state) => state.setUser);
@@ -38,6 +37,8 @@ export default function Root() {
     if (wishlistIsSuccess) setWishlist(wishlist);
   }, [setWishlist, wishlist, wishlistIsSuccess]);
 
+  // useScrollToTop();
+
   if (isPending) return <PageLoading />;
 
   return (
@@ -49,9 +50,7 @@ export default function Root() {
         </div>
       </main>
       <Footer />
-      {/* <Modal>
-      </Modal>
-      <AlertList /> */}
+      <ModalAuth />
     </div>
   );
 }
