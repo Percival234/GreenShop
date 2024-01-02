@@ -25,13 +25,23 @@ export default function Root() {
   });
 
   useEffect(() => {
+    console.log('user fetch effect', user);
     if (isSuccess) setUser(user);
   }, [isSuccess, user, setUser]);
 
-  const { data: wishlist, isSuccess: wishlistIsSuccess } = useQuery({
+  const {
+    data: wishlist,
+    isSuccess: wishlistIsSuccess,
+    refetch,
+  } = useQuery({
     queryKey: ['wishlist'],
     queryFn: fetchWishlist,
+    enabled: false,
   });
+
+  useEffect(() => {
+    if (user) refetch();
+  }, [user, refetch]);
 
   useEffect(() => {
     if (wishlistIsSuccess) setWishlist(wishlist);

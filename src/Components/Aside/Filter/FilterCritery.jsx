@@ -26,6 +26,7 @@ function FilterCritery({ title, count, id, param }) {
         prev.delete(param);
       }
 
+      prev.delete('page');
       return prev;
     });
     client.invalidateQueries({ queryKey: ['products'] });

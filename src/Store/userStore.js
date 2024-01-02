@@ -24,13 +24,9 @@ export const useUserStore = create(
           console.log('user setted');
         }
       }),
-    register: (token) =>
+    setIsAuth: (token) =>
       set((state) => {
-        state.isAuth = true;
-        localStorage.setItem('token', token);
-      }),
-    login: (token) =>
-      set((state) => {
+        console.log('set ueer in setIsAuth');
         state.isAuth = true;
         localStorage.setItem('token', token);
       }),

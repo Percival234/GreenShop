@@ -5,7 +5,7 @@
   gap: 20px;
   &__list {
     display: grid;
-    gap: var(--padding-large);
+    gap: var(--padding-small);
   }
   &__item {
     display: grid;
@@ -17,7 +17,6 @@
     display: grid;
     grid-auto-flow: column;
     padding: 15px;
-
     border-bottom: 1px solid var(--clr-gray-light);
   }
   &__info-item {

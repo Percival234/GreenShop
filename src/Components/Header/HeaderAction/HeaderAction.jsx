@@ -25,7 +25,9 @@ export default function HeaderAction() {
       {/* {cartListLength !== 0 && (
           <div className="header-action__cart-info">{Math.min(cartListLength, 99)}</div>
         )} */}
-      <ButtonLogin />
+      <div className="hidden-tablet-wide">
+        <ButtonLogin />
+      </div>
       <div className="header-action__button_menu">
         <ButtonSmall
           ariaLabel="Menu button"

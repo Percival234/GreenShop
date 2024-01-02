@@ -6,9 +6,21 @@ const axiosInstance = axios.create({
   baseURL: `${SERVER_URL}/api/`,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
   },
 });
+
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export async function fetchProducts() {
   const params = new URLSearchParams(window.location.search);
@@ -20,12 +32,9 @@ export async function fetchProducts() {
   }
 
   const queryString = new URLSearchParams(query).toString();
-
-  // Вивести отриманий URL-рядок запиту
-  console.log(queryString);
+  // console.log(queryString);
 
   const response = await axiosInstance.get(`product?${queryString}`);
-  // console.log(response.data);
   return response.data;
 }
 export async function fetchRelated(categoryId, productId) {
@@ -34,10 +43,45 @@ export async function fetchRelated(categoryId, productId) {
   );
   return response.data;
 }
+
+//!============================
+
 export async function fetchUser() {
+  console.log('user fetch');
+  console.log(axiosInstance.defaults.headers);
   const response = await axiosInstance.get(`user/current`);
   return response.data;
 }
+
+export async function loginUser({ loginEmail, loginPassword }) {
+  const response = await axiosInstance.post(`user/login`, {
+    email: loginEmail,
+    password: loginPassword,
+  });
+
+  return response.data;
+}
+
+export async function registerUser({ registerEmail, registerPassword }) {
+  const response = await axiosInstance.post(`user/register`, {
+    email: registerEmail,
+    password: registerPassword,
+  });
+
+  return response.data;
+}
+
+export async function updateUser(userData) {
+  const response = await axiosInstance.patch(`user`, userData);
+  return response.data;
+}
+
+export async function deleteUser() {
+  const response = await axiosInstance.delete(`user`);
+  return response.data;
+}
+
+//----------------
 export async function fetchCategories() {
   const response = await axiosInstance.get(`category`);
   return response.data;
@@ -64,6 +108,10 @@ export async function fetchDetails(productId) {
 }
 export async function fetchReviews(productId) {
   const response = await axiosInstance.get(`reviews/${productId}`);
+  return response.data;
+}
+export async function fetchOrders() {
+  const response = await axiosInstance.get(`order`);
   return response.data;
 }
 export async function fetchProduct(productId) {

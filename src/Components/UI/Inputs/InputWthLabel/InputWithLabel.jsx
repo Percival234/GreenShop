@@ -1,22 +1,18 @@
 import PropTypes from 'prop-types';
 
+import Input from '@UI/Inputs/Input/Input';
+
 import './InputWithLabel.scss';
 
-function InputWithLabel({ label, id, placeholder, type, required, ...props }) {
+function InputWithLabel({ label, id, required, ...props }) {
   return (
     <div className="label-input">
       <label
-        className={`label-input__label ${required ? 'label-input__required' : ''}`}
+        className={required ? 'label-input__label label-input__required' : 'label-input__label'}
         htmlFor={id}>
         {label}
       </label>
-      <input
-        className="label-input__input"
-        type={type}
-        placeholder={placeholder}
-        required={required}
-        {...props}
-      />
+      <Input required={required} {...props} />
     </div>
   );
 }
@@ -24,8 +20,6 @@ function InputWithLabel({ label, id, placeholder, type, required, ...props }) {
 InputWithLabel.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
   required: PropTypes.bool,
 };
 

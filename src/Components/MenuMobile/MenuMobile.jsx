@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 
-import Button from '@UI/Buttons/Button/Button';
-import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
+import ButtonLogin from '@Components/Buttons/ButtonLogin';
+import ButtonLogout from '@Components/Buttons/ButtonLogout';
 
 import { useUserStore } from '@Store/userStore';
 import { useEventStore } from '@Store/eventStore';
@@ -81,7 +81,8 @@ export default function MenuMobile() {
           </NavLink>
         </li>
       </ul>
-      {isAuth ? <ButtonOutline>Log out</ButtonOutline> : <Button>Login</Button>}
+      <ButtonLogout />
+      <ButtonLogin />
     </div>
   );
 }

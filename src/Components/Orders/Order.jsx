@@ -1,12 +1,12 @@
 // import CheckoutList from '../../Checkout/CheckoutList';
 
-export default function Order() {
+export default function Order({ order: { _id, date, shipping, total, payment } }) {
   return (
-    <div className="order__item">
+    <div className="orders__item">
       <div className="order__info">
         <div className="order__info-item">
-          Order Number
-          <div className="order__info-result">19586687</div>
+          Order ID
+          <div className="order__info-result">{_id}</div>
         </div>
         <div className="order__info-item">
           Date

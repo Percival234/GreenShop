@@ -4,7 +4,7 @@
   display: grid;
   justify-items: center;
   gap: 35px;
-  padding: 30px 25px;
+  padding: 10px 20px;
   &__nav {
     display: flex;
     align-items: center;
@@ -28,11 +28,12 @@
   &__form {
     display: grid;
     justify-content: stretch;
-    gap: 25px;
+    gap: 10px;
   }
   &__fields {
     display: grid;
-    gap: 10px;
+    gap: 12px;
+    margin-top: 20px;
   }
 }
 

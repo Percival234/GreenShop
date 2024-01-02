@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+
 import AccountMenu from '@Components/AccountMenu/AccountMenu';
 
 import './AccountPage.scss';
@@ -6,11 +7,9 @@ import './AccountPage.scss';
 export default function AccountPage() {
   return (
     <div className="account">
-      <div className="account__container">
-        <AccountMenu />
-        <div className="account__info">
-          <Outlet />
-        </div>
+      <AccountMenu />
+      <div className="account__page">
+        <Outlet />
       </div>
     </div>
   );

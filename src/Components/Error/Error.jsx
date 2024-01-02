@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 function Error({ error }) {
-  console.log(error);
   return <div>{error.message}</div>;
 }
 

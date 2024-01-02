@@ -6,6 +6,7 @@ import Empty from '@Components/Empty/Empty';
 import Error from '@Components/Error/Error';
 import TitleItem from '@UI/Titles/TitleItem/TitleItem';
 import LocalLoading from '@Components/Loading/LocalLoading/LocalLoading';
+
 import { fetchDetails } from '@API/API';
 
 export default function ProductDetails() {

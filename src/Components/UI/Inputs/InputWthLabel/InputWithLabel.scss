@@ -1,11 +1,13 @@
 .label-input {
-  display: flex;
   &__label {
-    // padding-bottom: 5px;
+    text-transform: capitalize;
+    font-size: var(--fs-secondary);
+    margin-bottom: 5px;
   }
-  &__input {
-    padding: 10px 15px;
-    border: 2px solid var(--clr-gray-light);
-    border-radius: 5px;
+  &__required::after {
+    content: '*';
+    font-size: var(--fs-item-title);
+    color: var(--clr-red);
+    margin-left: 3px;
   }
 }
