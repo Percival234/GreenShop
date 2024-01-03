@@ -9,7 +9,9 @@ import LocalLoading from '@Components/Loading/LocalLoading/LocalLoading';
 
 import { fetchDetails } from '@API/API';
 
-export default function ProductDetails() {
+import './Details.scss';
+
+export default function Details() {
   const { productId } = useParams();
   const {
     data: details,
@@ -23,13 +25,13 @@ export default function ProductDetails() {
   if (!details?.length) return <Empty Icon={<FiInfo />} text="No details" />;
 
   return (
-    <div className="product__details">
-      {details.map(({ _id, title, text }) => {
-        <div key={_id}>
-          <TitleItem>{title}</TitleItem>
-          <p>{text}</p>
-        </div>;
-      })}
+    <div className="details">
+      {details.map(({ _id, title, description }) => (
+        <div key={_id} className="details__detail">
+          <TitleItem>{`${title}:`}</TitleItem>
+          <p>{description}</p>
+        </div>
+      ))}
     </div>
   );
 }

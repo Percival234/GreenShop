@@ -12,18 +12,18 @@ export default function ModalAuth() {
   const handleAuth = () => setLoginIsVisible(!loginIsVisible);
 
   return (
-    <Modal name="auth">
-      <div className="auth">
-        <div className="auth__nav">
+    <Modal name="authModal">
+      <div className="auth-modal">
+        <div className="auth-modal__nav">
           <button
             onClick={handleAuth}
-            className={loginIsVisible ? 'auth__nav-link active' : 'auth__nav-link'}>
+            className={loginIsVisible ? 'auth-modal__nav-link active' : 'auth-modal__nav-link'}>
             Login
           </button>
           <span></span>
           <button
             onClick={handleAuth}
-            className={!loginIsVisible ? 'auth__nav-link active' : 'auth__nav-link'}>
+            className={!loginIsVisible ? 'auth-modal__nav-link active' : 'auth-modal__nav-link'}>
             Register
           </button>
         </div>

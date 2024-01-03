@@ -1,22 +1,21 @@
 .modal {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   &__body {
-    position: relative;
-    display: flex;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 1000;
-    transform: translate(-50%, -50%);
     border-radius: 10px;
     border-bottom: 10px solid var(--clr-primary);
     background: var(--clr-white);
     padding: 40px;
-    max-width: min(calc(100% - 30px), 580px);
+    margin: 15px;
   }
   &__button {
     &_close {
@@ -43,6 +42,5 @@
     bottom: 0%;
     left: 0%;
     right: 0%;
-    background: rgba(0, 0, 0, 0.5);
   }
 }

@@ -1,16 +1,21 @@
-// import React from 'react';
-import './UserData.scss';
-
 // import InputRequired from '../../UI/Inputs/InputWthLabel/InputWithLabel';
 import Button from '@UI/Buttons/Button/Button';
+import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
 import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
 
+import { useEventStore } from '@Store/eventStore';
+
+import './UserData.scss';
+
 export default function UserData() {
+  const open = useEventStore((state) => state.open);
+  const openUserDeleteModal = () => open('userDeleteModal');
+
   return (
     <div className="account-details">
       <div className="account-details__forms">
         <div className="account-details__form">
-          <h4 className="title-bordered">Personal information</h4>
+          <TitleBorder>Personal information</TitleBorder>
           <div className="account-details__inputs">
             {/* <InputRequired required label="first name" />
             <InputRequired required label="last name" />
@@ -26,7 +31,7 @@ export default function UserData() {
           <Button>Save changes</Button>
         </div>
         <div className="account-details__form">
-          <h4 className="title-bordered">Password change</h4>
+          <TitleBorder>Password change</TitleBorder>
           <div className="account-details__inputs">
             {/* <InputRequired required label="current password" />
             <InputRequired required label="new password" />
@@ -39,7 +44,7 @@ export default function UserData() {
         <h4 className="title-bordered">Account deletion</h4>
         <div className="account-details__delete">
           <p>Do you want to delete your account? All data will be cleared!</p>
-          <ButtonOutline>Delete</ButtonOutline>
+          <ButtonOutline onClick={openUserDeleteModal}>Delete</ButtonOutline>
         </div>
       </div>
     </div>

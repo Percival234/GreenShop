@@ -99,15 +99,15 @@ export async function clearWishlist() {
   return response.data;
 }
 export async function updateWishlist(productId) {
-  const response = await axiosInstance.patch(`wishlist`, { productId: productId });
+  const response = await axiosInstance.patch(`wishlist`, { productId });
   return response.data;
 }
 export async function fetchDetails(productId) {
-  const response = await axiosInstance.get(`details/${productId}`);
+  const response = await axiosInstance.get(`detail/${productId}`);
   return response.data;
 }
 export async function fetchReviews(productId) {
-  const response = await axiosInstance.get(`reviews/${productId}`);
+  const response = await axiosInstance.get(`review/${productId}`);
   return response.data;
 }
 export async function fetchOrders() {
@@ -116,5 +116,13 @@ export async function fetchOrders() {
 }
 export async function fetchProduct(productId) {
   const response = await axiosInstance.get(`product/${productId}`);
+  return response.data;
+}
+export async function postReview(review) {
+  const response = await axiosInstance.post(`review`, { review });
+  return response.data;
+}
+export async function deleteReview() {
+  const response = await axiosInstance.delete(`review`);
   return response.data;
 }

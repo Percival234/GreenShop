@@ -5,13 +5,11 @@ export const useUserStore = create(
   immer((set) => ({
     user: null,
     isAuth: false,
-    isAdmin: false,
     wishlist: [],
     logout: () =>
       set((state) => {
         state.user = null;
         state.isAuth = false;
-        state.isAdmin = false;
         localStorage.removeItem('token');
       }),
     setUser: (user) =>
@@ -20,13 +18,10 @@ export const useUserStore = create(
           console.log(user);
           state.user = user;
           state.isAuth = true;
-          state.isAdmin = state.user.roles.includes('ADMIN_ROLE');
-          console.log('user setted');
         }
       }),
     setIsAuth: (token) =>
       set((state) => {
-        console.log('set ueer in setIsAuth');
         state.isAuth = true;
         localStorage.setItem('token', token);
       }),

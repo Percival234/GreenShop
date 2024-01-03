@@ -5,24 +5,16 @@ import CartPage from '@Pages/CartPage';
 import HomePage from '@Pages/HomePage';
 import ShopPage from '@Pages/ShopPage';
 import BlogPage from '@Pages/BlogPage';
-import AdminPage from '@Pages/AdminPage';
 import AccountPage from '@Pages/AccountPage';
 import ProductPage from '@Pages/ProductPage';
 import CheckoutPage from '@Pages/CheckoutPage';
 import NotFoundPage from '@Pages/NotFoundPage';
 import Orders from '@Components/Orders/Orders';
 import Reviews from '@Components/Reviews/Reviews';
+import Details from '@Components/Details/Details';
 import Support from '@Components/Support/Support';
 import Wishlist from '@Components/WishList/WishList';
 import UserData from '@Components/UserData/UserData';
-import ProductDetails from '@Components/Product/ProductDetails';
-
-const adminRoutes = [
-  {
-    path: 'admin',
-    element: <AdminPage />,
-  },
-];
 
 const authenticatedRoutes = [
   {
@@ -68,7 +60,7 @@ const publicRoutes = [
     children: [
       {
         path: '',
-        element: <ProductDetails />,
+        element: <Details />,
       },
       {
         path: 'reviews',
@@ -90,7 +82,7 @@ const allRoutes = [
   {
     path: '',
     element: <Root />,
-    children: [...publicRoutes, ...adminRoutes, ...authenticatedRoutes],
+    children: [...publicRoutes, ...authenticatedRoutes],
   },
   {
     path: '*',

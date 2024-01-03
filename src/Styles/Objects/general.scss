@@ -19,16 +19,16 @@
     display: none;
   }
 }
-.scroll-overflow {
-  &::-webkit-scrollbar {
-    width: 7px;
-    background: var(--clr-primary-light);
-  }
-  &::-webkit-scrollbar-thumb {
-    background: var(--clr-primary);
-    border-radius: 5px;
-  }
+
+::-webkit-scrollbar {
+  width: 7px;
+  background: var(--clr-primary-light);
 }
+::-webkit-scrollbar-thumb {
+  background: var(--clr-primary);
+  border-radius: 5px;
+}
+
 .main {
   flex-grow: 1;
   margin-top: var(--header-height);

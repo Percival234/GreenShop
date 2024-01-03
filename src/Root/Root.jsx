@@ -5,7 +5,9 @@ import { useQuery } from '@tanstack/react-query';
 import Footer from '@Components/Footer/Footer';
 import Header from '@Components/Header/Header/Header';
 import ModalAuth from '@Components/Modal/ModalAuth/ModalAuth';
+import ModalLogout from '@Components/Modal/ModalLogout/ModalLogout';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
+import ModalUserDelete from '@Components/Modal/ModalUserDelete/ModalUserDelete';
 
 import { useUserStore } from '@Store/userStore';
 
@@ -36,7 +38,7 @@ export default function Root() {
   } = useQuery({
     queryKey: ['wishlist'],
     queryFn: fetchWishlist,
-    enabled: false,
+    // enabled: false,
   });
 
   useEffect(() => {
@@ -61,6 +63,8 @@ export default function Root() {
       </main>
       <Footer />
       <ModalAuth />
+      <ModalUserDelete />
+      <ModalLogout />
     </div>
   );
 }

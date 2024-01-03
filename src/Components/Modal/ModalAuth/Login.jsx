@@ -29,7 +29,7 @@ export default function Login() {
   const submitLogin = (data) => {
     mutate(data, {
       onSuccess: (res) => {
-        setIsAuth(res.token);
+        setIsAuth(res?.token);
         queryClient.invalidateQueries({
           queryKey: ['user'],
         });
@@ -38,9 +38,9 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit(submitLogin)} className="auth__form">
+    <form onSubmit={handleSubmit(submitLogin)} className="auth-modal__form">
       <p>Enter your email and password to login</p>
-      <div className="auth__fields">
+      <div className="auth-modal__fields">
         <Input
           name="loginEmail"
           register={register}

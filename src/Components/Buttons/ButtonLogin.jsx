@@ -7,7 +7,7 @@ export default function ButtonLogin() {
   const isAuth = useUserStore((state) => state.isAuth);
   const open = useEventStore((state) => state.open);
 
-  const openAuthModal = () => open('auth');
+  const openAuthModal = () => open('authModal');
 
   return isAuth || <Button onClick={openAuthModal}>Login</Button>;
 }

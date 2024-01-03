@@ -38,7 +38,7 @@ function ProductInfo({
             <Price price={price} sale={sale} />
           </div>
           <div className="product__rating-info">
-            <Rating rating={rating} />
+            <Rating number rating={rating} />
             <div>{reviewsLength} Reviews</div>
           </div>
         </div>

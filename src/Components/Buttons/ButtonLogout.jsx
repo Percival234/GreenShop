@@ -7,7 +7,7 @@ export default function ButtonLogout() {
   const isAuth = useUserStore((state) => state.isAuth);
   const open = useEventStore((state) => state.open);
 
-  const openLogoutModal = () => open('logout');
+  const openLogoutModal = () => open('logoutModal');
 
   return isAuth && <ButtonOutline onClick={openLogoutModal}>Logout</ButtonOutline>;
 }
