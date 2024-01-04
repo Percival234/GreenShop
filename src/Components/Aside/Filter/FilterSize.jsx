@@ -17,6 +17,7 @@ export default function FilterSize() {
 
   if (isPending) return <PageLoading />;
   if (isError) return <Error error={error} />;
+
   return (
     <fieldset className="filter__form">
       <TitleItem>Sizes</TitleItem>

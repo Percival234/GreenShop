@@ -1,10 +1,10 @@
 export default function debounce(func, time) {
   let timer;
-  return () => {
+  return (...args) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
       timer = null;
-      func.apply(this, arguments);
+      func.apply(this, args);
     }, time);
   };
 }

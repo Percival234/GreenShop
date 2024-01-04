@@ -3,7 +3,7 @@ import { AiOutlineHistory } from 'react-icons/ai';
 
 import Error from '@Components/Error/Error';
 import Empty from '@Components/Empty/Empty';
-import Order from '@Components/Orders/Order';
+import Order from '@Components/Order/Order';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
 import { fetchOrders } from '@API/API';

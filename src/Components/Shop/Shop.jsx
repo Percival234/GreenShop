@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import Sort from '@Components/Sort/Sort';
 import Error from '@Components/Error/Error';
+import Search from '@Components/Search/Search';
 import Aside from '@Components/Aside/Aside/Aside';
 import Pagination from '@Components/Pagination/Pagination';
 import ProductList from '@Components/ProductList/ProductList';
@@ -26,6 +27,7 @@ export default function Shop() {
       <div className="shop__container">
         <Aside />
         <div className="shop__flex">
+          <Search />
           <Sort />
           <ProductList products={data.products} />
           <Pagination pagesCount={data.pagesCount} />

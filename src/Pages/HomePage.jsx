@@ -1,7 +1,7 @@
 import Shop from '@Components/Shop/Shop';
+import Blogs from '@Components/Blog/Blogs';
 import Slider from '@Components/Slider/Slider';
 import Contacts from '@Components/Contants/Contacts';
-import BlogList from '@Components/Blog/BlogList/BlogList';
 import NewsLetter from '@Components/NewsLetter/NewsLetter';
 
 export default function HomePage() {
@@ -9,7 +9,7 @@ export default function HomePage() {
     <>
       <Slider />
       <Shop />
-      <BlogList />
+      <Blogs />
       <NewsLetter />
       <Contacts />
     </>

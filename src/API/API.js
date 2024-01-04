@@ -118,6 +118,14 @@ export async function fetchProduct(productId) {
   const response = await axiosInstance.get(`product/${productId}`);
   return response.data;
 }
+export async function fetchBlog(id) {
+  const response = await axiosInstance.get(`blog/${id}`);
+  return response.data;
+}
+export async function fetchBlogs() {
+  const response = await axiosInstance.get(`blog`);
+  return response.data;
+}
 export async function postReview(review) {
   const response = await axiosInstance.post(`review`, { review });
   return response.data;

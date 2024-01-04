@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 import Footer from '@Components/Footer/Footer';
-import Header from '@Components/Header/Header/Header';
+import Header from '@Components/Header/Header';
 import ModalAuth from '@Components/Modal/ModalAuth/ModalAuth';
 import ModalLogout from '@Components/Modal/ModalLogout/ModalLogout';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';

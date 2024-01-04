@@ -4,6 +4,12 @@ import SubTitle from '@UI/Titles/SubTitle/SubTitle';
 import LinkSocial from '@UI/Links/LinkSocial/LinkSocial';
 import LinkUnderline from '@UI/Links/LinkUnderline/LinkUnderline';
 
+import {
+  BLOG_HOW_TO_BUY_ID,
+  BLOG_HOW_TO_RETURN_ID,
+  BLOG_PRIVATE_POLICY_ID,
+} from '@Constants/CONSTANTS';
+
 import './Footer.scss';
 
 export default function Footer() {
@@ -13,15 +19,15 @@ export default function Footer() {
         <div className="footer__action">
           <div className="footer__menu">
             <SubTitle>My Account</SubTitle>
-            <LinkUnderline to="/account" text="Account" />
-            <LinkUnderline to="/account/wishlist" text="Wishes" />
-            <LinkUnderline to="/account/support" text="Support" />
+            <LinkUnderline to="/account">Account</LinkUnderline>
+            <LinkUnderline to="/account/wishlist">Wishlist</LinkUnderline>
+            <LinkUnderline to="/account/support">Support</LinkUnderline>
           </div>
           <div className="footer__menu">
             <SubTitle>Help & Guide</SubTitle>
-            <LinkUnderline to="/account" text="How To Return" />
-            <LinkUnderline to="/account/wishlist" text="Product Policy" />
-            <LinkUnderline to="/account/support" text="How To Buy" />
+            <LinkUnderline to={`/blog/${BLOG_HOW_TO_RETURN_ID}`}>How to return</LinkUnderline>
+            <LinkUnderline to={`/blog/${BLOG_PRIVATE_POLICY_ID}`}>Product policy</LinkUnderline>
+            <LinkUnderline to={`/blog/${BLOG_HOW_TO_BUY_ID}`}>How to buy</LinkUnderline>
           </div>
           <div className="footer__menu">
             <SubTitle center>Social Media</SubTitle>

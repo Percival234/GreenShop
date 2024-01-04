@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 import RelatedSlide from '@Components/Related/RelatedSlide';
 
-import debounce from '@Utils/Debounce';
+import debounce from '@Utils/debounce';
 
 function RelatedSlider({ related }) {
   const sliderLineRef = useRef(null);

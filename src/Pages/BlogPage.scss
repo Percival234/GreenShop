@@ -1,0 +1,27 @@
+.article {
+  &__image-container {
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  h1 {
+    text-align: center;
+    font-size: calc(var(--fs-title) * 1.5);
+    margin-bottom: 15px;
+  }
+  h2 {
+    font-size: var(--fs-sub-title);
+  }
+  p {
+    padding: 10px 0px;
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 20px;
+  }
+}

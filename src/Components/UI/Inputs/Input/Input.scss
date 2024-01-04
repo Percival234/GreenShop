@@ -13,10 +13,5 @@
   &:focus {
     color: var(--clr);
     outline-color: var(--clr);
-    &::placeholder {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: 0.3s;
-    }
   }
 }

@@ -7,7 +7,14 @@
 @import './Generic/animations.scss';
 @import './Settings/variables.scss';
 
-//
+input,
+textarea {
+  &:focus::placeholder {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: 0.3s;
+  }
+}
 
 .modal-checkout {
   width: 580px;

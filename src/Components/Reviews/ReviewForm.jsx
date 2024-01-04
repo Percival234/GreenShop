@@ -7,9 +7,13 @@ import Button from '@UI/Buttons/Button/Button';
 
 import { postReview } from '@API/API';
 
-function ReviewForm() {
+import { useRequiedAuth } from '@Hooks/useRequiedAuth';
+
+export default function ReviewForm() {
   const { productId } = useParams();
   const queryClient = useQueryClient();
+  const authCheck = useRequiedAuth();
+
   const {
     handleSubmit,
     register,
@@ -17,8 +21,6 @@ function ReviewForm() {
     watch,
     reset,
   } = useForm();
-
-  const ratingValue = watch('rating');
 
   const { mutate } = useMutation({ mutationFn: (review) => postReview(review) });
 
@@ -31,15 +33,13 @@ function ReviewForm() {
     mutate(review, {
       onSuccess: () => {
         reset();
-        queryClient.invalidateQueries({
-          queryKey: ['reviews'],
-        });
+        queryClient.invalidateQueries(['reviews', 'product']);
       },
     });
   };
 
   return (
-    <form onSubmit={handleSubmit(submitReview)} className="reviews__form">
+    <form onSubmit={handleSubmit(authCheck(submitReview))} className="reviews__form">
       <textarea
         {...register('review', {
           required: 'Review text is required',
@@ -48,7 +48,7 @@ function ReviewForm() {
         placeholder="Create review"
         className="reviews__textarea"></textarea>
       <div className="reviews__actions">
-        <fieldset className="rating-form">
+        <div className="rating-form">
           <input
             type="radio"
             className="rating-form__input"
@@ -101,15 +101,11 @@ function ReviewForm() {
           <label className="rating-form__label" htmlFor="rating-star-1">
             <AiFillStar size={50} />
           </label>
-        </fieldset>
-        <div className="rating-form__rate">{ratingValue || 0}</div>
+        </div>
+        <div className="rating-form__rate">{watch('rating') || 0}</div>
         <div className="form-error">{errors?.rating?.message || errors?.review?.message}</div>
         <Button type="submit">Send Review</Button>
       </div>
     </form>
   );
 }
-
-ReviewForm.propTypes = {};
-
-export default ReviewForm;

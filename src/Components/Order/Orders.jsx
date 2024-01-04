@@ -1,4 +1,4 @@
-import OrderList from '@Components/Orders/OrderList';
+import OrderList from '@Components/Order/OrderList';
 import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
 
 import './Orders.scss';

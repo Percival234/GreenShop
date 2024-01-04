@@ -22,7 +22,7 @@ export default function Contacts() {
           </div>
           <div className="contacts__item">
             <LuPhone size={20} className="contacts__icon" />
-            <div>+88 01911 717 490</div>
+            <div>+098-765-04-90</div>
           </div>
         </div>
       </div>

@@ -1,0 +1,39 @@
+@import '@Styles/Tools/mixins';
+
+.header {
+  position: fixed;
+  background: var(--clr-white);
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 100%;
+  border-bottom: 2px solid var(--clr-primary-light);
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: var(--header-height);
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &__cart-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 3px;
+      right: 0px;
+      height: 20px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      font-size: 11px;
+      color: var(--clr-white);
+      border: 2px solid var(--clr-white);
+      background: var(--clr-primary);
+    }
+  }
+}

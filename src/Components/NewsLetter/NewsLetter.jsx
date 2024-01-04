@@ -1,6 +1,3 @@
-import Input from '@UI/Inputs/Input/Input';
-import Button from '@UI/Buttons/Button/Button';
-import SubTitle from '@UI/Titles/SubTitle/SubTitle';
 import TitleItem from '@UI/Titles/TitleItem/TitleItem';
 
 import ImageFlowerPotOne from '@Assets/icons/flowerpot-1.svg';
@@ -35,18 +32,6 @@ export default function NewsLetter() {
             <TitleItem>Watering Graden</TitleItem>
             <p>We are an online plant shop offering a wide range of cheap and trendy plants.</p>
           </div>
-        </div>
-        <div className="newsletter__item newsletter__form">
-          <SubTitle>Would you like to join newsletters?</SubTitle>
-          <p>
-            We usually post offers and challenges in newsletter. We’re your online houseplant
-            destination. We offer a wide range of houseplants and accessories shipped directly from
-            our greenhouse to yours!
-          </p>
-          <form>
-            <Input type="email" placeholder="Enter your email address..." />
-            <Button type="sumbit">Join</Button>
-          </form>
         </div>
       </div>
     </section>

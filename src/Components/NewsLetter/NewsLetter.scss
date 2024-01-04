@@ -3,17 +3,14 @@
   &__container {
     display: grid;
     justify-items: center;
-    // @include adaptive-property(gap, 40, 20);
     gap: 30px;
   }
-
   &__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px 60px;
   }
-
   &__item {
     flex: 1 0 300px;
     display: flex;
@@ -23,12 +20,6 @@
     text-align: center;
     gap: 10px;
   }
-
-  &__form {
-    max-width: 600px;
-    gap: 15px;
-  }
-
   &__image-container {
     position: relative;
     padding-left: 10px;
