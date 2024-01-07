@@ -1,0 +1,101 @@
+@import '@Styles/Tools/mixins.scss';
+
+.checkout {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: var(--padding-large);
+  }
+  &__order {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-right: 5px;
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-right: 10px;
+    border-radius: 5px;
+    background: var(--clr-background);
+  }
+  &__item-data {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 10px;
+  }
+  &__image-container {
+    width: 60px;
+    aspect-ratio: 1;
+  }
+  &__title {
+    min-width: 7ch;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: var(--fs-item-title);
+  }
+  &__qty {
+    white-space: nowrap;
+  }
+  &__price {
+    font-size: var(--fs-item-title);
+    font-weight: var(--fw-bold);
+    color: var(--clr-primary);
+  }
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__form {
+    display: grid;
+    gap: var(--padding-small);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+  }
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@include adaptation('tablet-wide', max) {
+  .checkout {
+    &__container {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@include adaptation('tablet', max) {
+  .checkout {
+    &__column,
+    &__item,
+    &__item-data {
+      gap: 10px;
+    }
+    &__list {
+      min-height: 150px;
+    }
+    &__item {
+      padding-right: 0px;
+    }
+    &__image-container {
+      width: 50px;
+    }
+    &__qty {
+      display: none;
+    }
+  }
+}

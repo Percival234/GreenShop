@@ -1,6 +1,7 @@
 .contacts {
   padding: var(--padding-small) 20px;
   background: var(--clr-primary-light);
+  border-radius: 5px;
   &__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

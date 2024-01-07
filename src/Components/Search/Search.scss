@@ -3,11 +3,10 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   background: var(--clr-background);
   padding: 10px;
-
   &__field {
     background: transparent;
     width: 100%;

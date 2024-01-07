@@ -14,7 +14,7 @@ export default function Slider() {
   });
 
   return (
-    <div className="slider">
+    <div className="slider hidden-tablet">
       <div className="slider__container">
         <div
           className="slider__line"
@@ -33,7 +33,7 @@ export default function Slider() {
             </div>
           ))}
         </div>
-        <div className="slider__pag hidden-tablet">
+        <div className="slider__pag">
           {BANNERS.map((_, index) => (
             <div
               key={index}

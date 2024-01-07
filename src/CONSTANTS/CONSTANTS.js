@@ -9,7 +9,7 @@ export const SORT_ORDERS = ['default', 'rating', 'alphabet', 'ascending price', 
 export const BANNERS = [
   `${SERVER_URL}/static/banners/banner-1.jpg`,
   `${SERVER_URL}/static/banners/banner-2.jpg`,
-  `${SERVER_URL}/static/banners/banner-2.jpg`,
+  `${SERVER_URL}/static/banners/banner-3.jpg`,
 ];
 export const ADVERTISING = `${SERVER_URL}/static/banners/banner-sale.jpg`;
 
@@ -20,3 +20,5 @@ export const BLOG_PRIVATE_POLICY_ID = '6596b6f7b6f94559de43bb9b';
 
 export const REGEX_EMAIL =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+export const SHIPPING = 25;

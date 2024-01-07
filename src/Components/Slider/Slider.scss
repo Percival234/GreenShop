@@ -1,4 +1,6 @@
 .slider {
+  border-radius: 5px;
+  overflow: hidden;
   &__container {
     position: relative;
     overflow: hidden;
@@ -9,14 +11,14 @@
   }
   &__pag {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     position: absolute;
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
   }
   &__pag-point {
-    width: 25px;
+    width: 22px;
     aspect-ratio: 1;
     border-radius: 50%;
     display: block;
@@ -31,6 +33,5 @@
   &__slide {
     flex: 1 0 100%;
     position: relative;
-    height: 400px;
   }
 }

@@ -130,6 +130,10 @@ export async function postReview(review) {
   const response = await axiosInstance.post(`review`, { review });
   return response.data;
 }
+export async function postOrder(order) {
+  const response = await axiosInstance.post(`order`, { order });
+  return response.data;
+}
 export async function deleteReview() {
   const response = await axiosInstance.delete(`review`);
   return response.data;

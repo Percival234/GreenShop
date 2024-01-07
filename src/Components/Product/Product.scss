@@ -11,7 +11,7 @@
     aspect-ratio: 1;
     overflow: hidden;
     position: relative;
-    border-radius: 5px;
+    border-radius: 10px;
     width: min(450px, 100%);
   }
   &__image {
@@ -74,7 +74,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 44px;
+    // width: 44px;
     aspect-ratio: 1;
     border-radius: 5px;
     border: 2px solid var(--clr-primary);

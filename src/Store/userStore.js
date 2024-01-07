@@ -15,7 +15,6 @@ export const useUserStore = create(
     setUser: (user) =>
       set((state) => {
         if (user?._id) {
-          console.log(user);
           state.user = user;
           state.isAuth = true;
         }

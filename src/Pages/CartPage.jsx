@@ -1,5 +1,5 @@
-import CartList from '@Components/Cart/CartList/CartList';
-import CartTotal from '@Components/Cart/CartTotal/CartTotal';
+import CartList from '@Components/Cart/CartList';
+import CartTotal from '@Components/Cart/CartTotal';
 
 import './CartPage.scss';
 
