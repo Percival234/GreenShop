@@ -8,20 +8,30 @@ import Button from '@UI/Buttons/Button/Button';
 import LinkSmall from '@UI/Links/LinkSmall/LinkSmall';
 import ButtonSmall from '@UI/Buttons/ButtonSmall/ButtonSmall';
 import TextTruncated from '@UI/Text/TextTruncated/TextTruncated';
+import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
 
 import { SERVER_URL } from '@Constants/CONSTANTS';
 
 import { useUserStore } from '@Store/userStore';
+import { useCartStore } from '@Store/cartStore';
 
 import { updateWishlist } from '@API/API';
 
 import './Card.scss';
 
-const Card = ({
-  product: { _id, name, image, size, price, sale, description, rating, quantity },
-}) => {
+const Card = ({ product }) => {
+  const { _id, name, image, size, price, sale, description, rating, quantity } = product;
+
   const wishlist = useUserStore((state) => state.wishlist);
+  const cartItems = useCartStore((state) => state.cartItems);
+  const addToCart = useCartStore((state) => state.addToCart);
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
   const queryClient = useQueryClient();
+
+  const isInCart = cartItems.some((item) => item.product._id === _id);
+
+  const handleAddToCart = () => addToCart(product, 1);
+  const handleRemoveFromCart = () => removeFromCart(_id);
 
   const { mutate } = useMutation({
     mutationFn: (id) => updateWishlist(id),
@@ -67,7 +77,11 @@ const Card = ({
           {name}
         </Link>
         <TextTruncated rows={2}>{description}</TextTruncated>
-        <Button disabled={!quantity}>Add to cart</Button>
+        {isInCart ? (
+          <ButtonOutline onClick={handleRemoveFromCart}>Remove from cart</ButtonOutline>
+        ) : (
+          <Button onClick={handleAddToCart}>Add to cart</Button>
+        )}
       </div>
     </div>
   );

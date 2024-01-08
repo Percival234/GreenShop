@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 
 import Sort from '@Components/Sort/Sort';
-import Error from '@Components/Error/Error';
 import Search from '@Components/Search/Search';
 import Aside from '@Components/Aside/Aside/Aside';
 import Pagination from '@Components/Pagination/Pagination';
 import ProductList from '@Components/ProductList/ProductList';
+import ServerError from '@Components/Error/ServerError/ServerError';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
 import { fetchProducts } from '@API/API';
@@ -19,7 +19,7 @@ export default function Shop() {
   });
 
   if (isPending) return <PageLoading />;
-  if (isError) return <Error error={error} />;
+  if (isError) return <ServerError error={error} />;
 
   return (
     <div className="shop">

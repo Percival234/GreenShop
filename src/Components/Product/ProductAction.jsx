@@ -6,22 +6,26 @@ import {
   // AiFillHeart
 } from 'react-icons/ai';
 
+import PropTypes from 'prop-types';
+
 import Button from '@UI/Buttons/Button/Button';
 import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
 
 import { useCartStore } from '@Store/cartStore';
 
-export default function ProductAction({ id, quantity }) {
+function ProductAction({ product }) {
   const [counter, setCounter] = useState(1);
-  const { cart, addToCart, removeFromCart } = useCartStore((state) => state);
+  const cartItems = useCartStore((state) => state.cartItems);
+  const addToCart = useCartStore((state) => state.addToCart);
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
 
-  const isInCart = cart.find((el) => el.id === id);
+  const isInCart = cartItems.find((item) => item.product._id === product._id);
 
   const increaseCount = () => setCounter(counter + 1);
   const decreaseCount = () => setCounter(counter - 1);
 
-  const handleAddToCart = () => addToCart(id, counter);
-  const handleRemoveFromCart = () => removeFromCart(id);
+  const handleAddToCart = () => addToCart(product, counter);
+  const handleRemoveFromCart = () => removeFromCart(product._id);
 
   return (
     <div className="product__action">
@@ -35,7 +39,7 @@ export default function ProductAction({ id, quantity }) {
         </button>
         <div className="counter__count">{counter}</div>
         <button
-          disabled={counter >= quantity}
+          disabled={counter >= product.quantity}
           type="button"
           className="counter__button"
           onClick={increaseCount}>
@@ -56,3 +60,9 @@ export default function ProductAction({ id, quantity }) {
     </div>
   );
 }
+
+ProductAction.propTypes = {
+  product: PropTypes.object.isRequired,
+};
+
+export default ProductAction;

@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { AiOutlineHistory } from 'react-icons/ai';
 
-import Error from '@Components/Error/Error';
 import Empty from '@Components/Empty/Empty';
 import Order from '@Components/Order/Order';
+import ServerError from '@Components/Error/ServerError/ServerError';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
 import { fetchOrders } from '@API/API';
@@ -17,7 +17,7 @@ function OrderList() {
   } = useQuery({ queryKey: ['order'], queryFn: fetchOrders });
 
   if (isPending) return <PageLoading />;
-  if (isError) return <Error error={error} />;
+  if (isError) return <ServerError error={error} />;
   if (!orders.length) return <Empty text="Order history is empty" Icon={<AiOutlineHistory />} />;
 
   return (

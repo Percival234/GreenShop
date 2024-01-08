@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 import Empty from '@Components/Empty/Empty';
-import Error from '@Components/Error/Error';
 import TitleItem from '@UI/Titles/TitleItem/TitleItem';
+import ServerError from '@Components/Error/ServerError/ServerError';
 import LocalLoading from '@Components/Loading/LocalLoading/LocalLoading';
 
 import { fetchDetails } from '@API/API';
@@ -21,7 +21,7 @@ export default function Details() {
   } = useQuery({ queryKey: ['details', productId], queryFn: () => fetchDetails(productId) });
 
   if (isPending) return <LocalLoading />;
-  if (isError) return <Error error={error} />;
+  if (isError) return <ServerError error={error} />;
   if (!details?.length) return <Empty Icon={<FiInfo />} text="No details" />;
 
   return (

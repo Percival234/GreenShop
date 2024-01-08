@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import Blog from '@Components/Blog/Blog';
 import Title from '@UI/Titles/Title/Title';
-import Error from '@Components/Error/Error';
+import ServerError from '@Components/Error/ServerError/ServerError';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
 import { fetchBlogs } from '@API/API';
@@ -18,7 +18,7 @@ export default function Blogs() {
   } = useQuery({ queryKey: ['blogs'], queryFn: fetchBlogs });
 
   if (isPending) return <PageLoading />;
-  if (isError) return <Error error={error} />;
+  if (isError) return <ServerError error={error} />;
 
   return (
     <section className="blog">

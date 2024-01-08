@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
-import Error from '@Components/Error/Error';
 import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
 import RelatedSlider from '@Components/Related/RelatedSlider';
+import ServerError from '@Components/Error/ServerError/ServerError';
 import LocalLoading from '@Components/Loading/LocalLoading/LocalLoading';
 
 import { fetchRelated } from '@API/API';
@@ -25,7 +25,7 @@ function Related({ category }) {
   });
 
   if (isPending) return <LocalLoading />;
-  if (isError) return <Error error={error} />;
+  if (isError) return <ServerError error={error} />;
 
   return (
     <div className="related">

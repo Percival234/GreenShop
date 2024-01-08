@@ -1,44 +1,44 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
+import { SHIPPING } from '@Constants/CONSTANTS';
+
 export const useCartStore = create(
   immer((set) => ({
-    cart: [],
-    addToCart: (id, count) =>
+    cartItems: [],
+    shipping: SHIPPING,
+    totalPrice: 0,
+    payment: 'cash',
+    setTotalPrice: () =>
       set((state) => {
-        state.cart.push({ id, count });
+        state.totalPrice = state.cartItems.reduce(
+          (acc, item) => acc + (item.product.price - item.product.price * item.product.sale),
+          0
+        );
+      }),
+    addToCart: (product, count) =>
+      set((state) => {
+        state.cartItems.push({ product, count });
+        state.setTotalPrice();
       }),
     removeFromCart: (id) =>
       set((state) => {
-        state.cart = state.cart.filter((item) => item.id !== id);
+        state.cartItems = state.cartItems.filter((item) => item.product._id !== id);
+        state.setTotalPrice();
       }),
-    increaseItemcount: (id) =>
+    increaseItemCount: (id) =>
       set((state) => {
-        if (!state.cart.find((item) => item.id === id)) {
-          state.cart = [...state.cart, { id, count: 1 }];
-        } else {
-          state.cart = state.cart.map((item) => {
-            if (item.id === id) {
-              return { ...item, count: item.count + 1 };
-            } else {
-              return item;
-            }
-          });
-        }
+        state.cartItems = state.cartItems.map((item) => {
+          return item.product._id === id ? { ...item, count: item.count + 1 } : item;
+        });
+        state.setTotalPrice();
       }),
-    decreaseItemcount: (id) =>
+    decreaseItemCount: (id) =>
       set((state) => {
-        if (state.cart.find((item) => item.id === id)?.count === 1) {
-          state.cart = state.cart.filter((item) => item.id !== id);
-        } else {
-          state.cart = state.cart.map((item) => {
-            if (item.id === id) {
-              return { ...item, count: item.count - 1 };
-            } else {
-              return item;
-            }
-          });
-        }
+        state.cartItems = state.cartItems.map((item) => {
+          return item.product._id === id ? { ...item, count: item.count - 1 } : item;
+        });
+        state.setTotalPrice();
       }),
   }))
 );

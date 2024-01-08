@@ -48,39 +48,28 @@ export async function fetchRelated(categoryId, productId) {
 
 export async function fetchUser() {
   console.log('user fetch');
-  console.log(axiosInstance.defaults.headers);
   const response = await axiosInstance.get(`user/current`);
   return response.data;
 }
 
-export async function loginUser({ loginEmail, loginPassword }) {
-  const response = await axiosInstance.post(`user/login`, {
-    email: loginEmail,
-    password: loginPassword,
-  });
-
+export async function loginUser(userData) {
+  const response = await axiosInstance.post(`user/login`, userData);
   return response.data;
 }
 
-export async function registerUser({ registerEmail, registerPassword }) {
-  const response = await axiosInstance.post(`user/register`, {
-    email: registerEmail,
-    password: registerPassword,
-  });
-
+export async function registerUser(userData) {
+  const response = await axiosInstance.post(`user/register`, userData);
   return response.data;
 }
 
 export async function updateUser(userData) {
-  const response = await axiosInstance.patch(`user`, userData);
+  const response = await axiosInstance.patch(`user`, { userData });
   return response.data;
 }
-
 export async function deleteUser() {
   const response = await axiosInstance.delete(`user`);
   return response.data;
 }
-
 //----------------
 export async function fetchCategories() {
   const response = await axiosInstance.get(`category`);

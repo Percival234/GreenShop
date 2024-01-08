@@ -10,8 +10,8 @@ import { SERVER_URL } from '@Constants/CONSTANTS';
 
 import './Product.scss';
 
-function ProductInfo({
-  product: {
+function ProductInfo({ product }) {
+  const {
     _id,
     name,
     size,
@@ -23,8 +23,8 @@ function ProductInfo({
     category,
     description,
     reviewsLength,
-  },
-}) {
+  } = product;
+
   return (
     <div className="product__container">
       <div className="product__image-container">
@@ -44,7 +44,7 @@ function ProductInfo({
         </div>
         <TitleItem>Short Description:</TitleItem>
         <p>{description}</p>
-        <ProductAction quantity={quantity} id={_id} />
+        <ProductAction product={product} />
         <div>
           <strong>ID: </strong>
           <span>{_id}</span>
@@ -56,6 +56,10 @@ function ProductInfo({
         <div>
           <strong>Size: </strong>
           <span>{size.size}</span>
+        </div>
+        <div>
+          <strong>Quantity: </strong>
+          <span>{quantity}</span>
         </div>
       </div>
     </div>

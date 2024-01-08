@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 
-import Error from '@Components/Error/Error';
 import TitleItem from '@UI/Titles/TitleItem/TitleItem';
 import FilterCritery from '@Components/Aside/Filter/FilterCritery';
+import ServerError from '@Components/Error/ServerError/ServerError';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
 import { fetchSizes } from '@API/API';
@@ -16,7 +16,7 @@ export default function FilterSize() {
   } = useQuery({ queryKey: ['size'], queryFn: fetchSizes });
 
   if (isPending) return <PageLoading />;
-  if (isError) return <Error error={error} />;
+  if (isError) return <ServerError error={error} />;
 
   return (
     <fieldset className="filter__form">

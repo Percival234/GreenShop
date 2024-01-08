@@ -1,7 +1,8 @@
 .account {
   display: flex;
-  gap: var(--padding-large);
+  flex-wrap: wrap;
+  gap: var(--padding-small);
   &__page {
-    flex: 1;
+    flex: 1 1 600px;
   }
 }

@@ -1,73 +1,76 @@
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { AiOutlineDelete, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-// import { useEffect, useState, useCallback } from 'react';
 
 import ButtonSmall from '@UI/Buttons/ButtonSmall/ButtonSmall';
 
 import { useCartStore } from '@Store/cartStore';
 
-export default function CartItem({ item: { id, count } }) {
+import { SERVER_URL } from '@Constants/CONSTANTS';
+
+function CartItem({ item: { product, count } }) {
   const removeFromCart = useCartStore((state) => state.removeFromCart);
-  const increaseItemQuantity = useCartStore((state) => state.increaseItemQuantity);
-  const decreaseItemQuantity = useCartStore((state) => state.decreaseItemQuantity);
+  const increaseItemCount = useCartStore((state) => state.increaseItemCount);
+  const decreaseItemCount = useCartStore((state) => state.decreaseItemCount);
 
-  const handleIncreaseItemQuantity = () => increaseItemQuantity(id);
-  const handleDecreaseItemQuantity = () => decreaseItemQuantity(id);
+  const handleIncreaseItemQuantity = () => increaseItemCount(product._id);
+  const handleDecreaseItemQuantity = () => decreaseItemCount(product._id);
 
-  const handleRemoveFromCart = () => removeFromCart(id);
+  const handleRemoveFromCart = () => removeFromCart(product._id);
 
   return (
     <div className="cart-item">
-      {/* <div className="cart-item__image-container">
-        <Image src={product.image} alt={product.productName} className="cart-item__image" />
+      <div className="cart-item__image-container">
+        <img
+          src={`${SERVER_URL}/static/products/${product.image}`}
+          alt={product.name}
+          className="cart-item__image"
+        />
       </div>
-      <div className="cart-item__data">
-        <NavLink to={`/product/${id}`} className="cart-item__name">
-          {product.productName}
-  </NavLink>*/}
-      <div className="cart-item__id hidden-tablet">
-        ID: <div className="cart-item__result">{id}</div>
+      <div className="cart-item__content">
+        <div className="cart-item__left">
+          <Link className="cart-item__name" to={`/product/${product._id}`}>
+            {product.name}
+          </Link>
+          <div className="cart-item__price cart-item__price_simple">
+            ${(product.price - (product.price / 100) * product.sale).toFixed(2)}
+          </div>
+          <div className="cart-item__counter">
+            <button
+              disabled={count <= 1}
+              onClick={handleDecreaseItemQuantity}
+              className="cart-item__counter-button">
+              <AiOutlineMinus size={25} />
+            </button>
+            <div className="cart-item__count">{count}</div>
+            <button
+              disabled={count >= product.quantity}
+              onClick={handleIncreaseItemQuantity}
+              className="cart-item__counter-button">
+              <AiOutlinePlus size={25} />
+            </button>
+          </div>
+        </div>
+        <div className="cart-item__right">
+          <ButtonSmall
+            onClick={handleRemoveFromCart}
+            Icon={<AiOutlineDelete size={25} />}
+            ariaLabel="Remove from cart"
+          />
+          <div className="cart-item__price cart-item__price_total">
+            ${(count * (product.price - (product.price / 100) * product.sale)).toFixed(2)}
+          </div>
+        </div>
       </div>
-      {/* <Price
-          className="cart-item__price"
-          sale={product.sale}
-          price={product.price}
-          type="medium"
-        /> */}
-      {/* </div> */}
-      {/* // <Price */}
-      {/* //   className="hidden-tablet cart-item__price"
-      //   sale={product.sale}
-      //   price={product.price}
-      //   type="medium"
-      // /> */}
-      <div className="cart-item__counter">
-        <button
-          disabled={count <= 1}
-          onClick={handleDecreaseItemQuantity}
-          type="button"
-          className="cart-item__button cart-item__button_counter">
-          <AiOutlineMinus />
-        </button>
-        <div className="cart-item__count">{count}</div>
-        <button
-          disabled={count >= 20}
-          onClick={handleIncreaseItemQuantity}
-          type="button"
-          className="cart-item__button cart-item__button_counter">
-          <AiOutlinePlus />
-        </button>
-      </div>
-      {/* <Price
-        className="cart-total__price"
-        sale={product.sale}
-        price={product.price * amount}
-        type="solid"
-      /> */}
-      <ButtonSmall
-        onClick={handleRemoveFromCart}
-        Icon={<AiOutlineDelete size={20} />}
-        ariaLabel="Remove from cart"
-      />
     </div>
   );
 }
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    product: PropTypes.object.isRequired,
+    count: PropTypes.number.isRequired,
+  }),
+};
+
+export default CartItem;

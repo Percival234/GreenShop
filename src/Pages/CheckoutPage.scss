@@ -2,8 +2,8 @@
 
 .checkout {
   &__container {
-    display: grid;
-    grid-template-columns: 1fr 400px;
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--padding-large);
   }
   &__order {
@@ -66,15 +66,7 @@
   &__column {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-  }
-}
-
-@include adaptation('tablet-wide', max) {
-  .checkout {
-    &__container {
-      grid-template-columns: 1fr;
-    }
+    gap: 5px;
   }
 }
 

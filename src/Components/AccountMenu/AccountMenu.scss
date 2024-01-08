@@ -1,18 +1,20 @@
+@import '@Styles/Tools/mixins.scss';
+
 .account-menu {
-  min-width: 250px;
+  padding-top: 20px;
+  width: 250px;
   background: var(--clr-background);
   border-radius: 5px;
-  &__nav {
-    display: grid;
-    border-bottom: 1px solid var(--clr-gray-light);
-    padding-bottom: 10px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   &__link {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px 20px;
     text-transform: capitalize;
+    font-size: var(--fs-item-title);
     &.active {
       color: var(--clr-primary);
       font-weight: var(--fw-medium);
@@ -21,15 +23,45 @@
       background: var(--clr-white);
     }
   }
-  &__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding: 12px 20px;
+}
+
+@include adaptation('tablet-wide', max) {
+  .account-menu {
     width: 100%;
-    color: var(--clr-primary);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-item-title);
+    padding-top: 0;
+    &__nav {
+      display: flex;
+    }
+    &__link {
+      flex: 1 1 100%;
+      padding: 10px;
+      border-bottom: 3px solid transparent;
+      &.active {
+        border-left: 0px;
+        border-bottom-color: var(--clr-primary);
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+@include adaptation('phone-wide', max) {
+  .account-menu {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      background: linear-gradient(90deg, transparent, var(--clr-white));
+    }
+    &__nav {
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 }

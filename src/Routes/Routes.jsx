@@ -13,7 +13,7 @@ import Reviews from '@Components/Reviews/Reviews';
 import Details from '@Components/Details/Details';
 import Support from '@Components/Support/Support';
 import Wishlist from '@Components/WishList/WishList';
-import UserData from '@Components/UserData/UserData';
+import AccountInfo from '@Components/AccountInfo/AccountInfo';
 
 const authenticatedRoutes = [
   {
@@ -22,7 +22,7 @@ const authenticatedRoutes = [
     children: [
       {
         path: '',
-        element: <UserData />,
+        element: <AccountInfo />,
       },
       {
         path: 'orders',

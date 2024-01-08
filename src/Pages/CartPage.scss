@@ -2,16 +2,8 @@
 
 .cart {
   &__container {
-    display: grid;
-    grid-template-columns: 1fr 330px;
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--padding-large);
-  }
-}
-
-@include adaptation('tablet-wide', max) {
-  .cart {
-    &__container {
-      grid-template-columns: 1fr;
-    }
   }
 }

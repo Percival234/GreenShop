@@ -1,17 +1,12 @@
 .input {
-  --clr: var(--clr-primary);
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--clr-gray);
   border-radius: 5px;
   font-weight: var(--fw-medium);
   font-size: var(--fs-primary);
-  &.error {
-    --clr: var(--clr-red);
-    animation: shake 0.3s linear;
-  }
   &:focus {
-    color: var(--clr);
-    outline-color: var(--clr);
+    color: var(--clr-primary);
+    outline-color: var(--clr-primary);
   }
 }

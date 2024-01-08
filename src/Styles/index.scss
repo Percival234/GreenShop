@@ -64,11 +64,10 @@ span {
   color: var(--clr-gray);
 }
 
-.form-error {
-  min-height: 1.5rem;
-  color: var(--clr-red);
-  font-weight: var(--fw-medium);
-  max-width: 250px;
+button:disabled {
+  opacity: 0.5;
+  cursor: auto;
+  pointer-events: none;
 }
 
 .counter {

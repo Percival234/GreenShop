@@ -1,8 +1,11 @@
 @import '@Styles/Tools/mixins';
 
 .cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1 1 600px;
   &__list {
-    padding: 15px 0px;
     display: grid;
     gap: 10px;
   }
@@ -34,6 +37,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  flex: 1 1 350px;
   &__result {
     display: grid;
     width: 100%;
@@ -43,58 +47,60 @@
 }
 
 .cart-item {
-  display: grid;
-  grid-template-columns:
-    auto
-    minmax(160px, 1fr) minmax(80px, 160px)
-    minmax(auto, 130px) minmax(95px, 150px) 50px;
-  gap: 15px;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;
+  justify-content: center;
   background: var(--clr-background);
   border-radius: 5px;
-  position: relative;
   overflow: hidden;
   font-size: var(--fs-item-title);
   &__image-container {
-    width: 70px;
     aspect-ratio: 1;
     overflow: hidden;
+    width: 200px;
   }
   &__image {
     object-fit: cover;
     width: 100%;
     height: 100%;
   }
-  &__data {
-    display: grid;
-    gap: 5px;
-    font-weight: var(--fw-medium);
-    & .cart-item__price {
-      display: none;
-      justify-self: flex-start;
-    }
-  }
-  &__id {
-    font-size: var(--fs-primary);
+  &__content {
     display: flex;
-    gap: 5px;
+    justify-content: space-between;
+    gap: 10px;
+    flex: 1 1 auto;
+    padding: 15px;
   }
-  &__result {
-    font-weight: var(--fw-regular);
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
   }
   &__name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: 0.3s;
+    font-size: var(--fs-sub-title);
+    font-weight: var(--fw-bold);
     &:hover,
     &:active {
       color: var(--clr-primary-dark);
-      text-decoration: underline;
     }
   }
   &__price {
-    justify-self: center;
+    font-weight: var(--fw-bold);
+    &_simple {
+      color: var(--clr-gray);
+      font-size: var(--fs-sub-title);
+    }
+    &_total {
+      color: var(--clr-primary);
+      font-size: var(--fs-icon);
+    }
   }
   &__counter {
     display: flex;
@@ -103,61 +109,36 @@
     gap: 10px;
   }
   &__count {
-    width: 3ch;
+    width: 2ch;
     text-align: center;
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-icon);
   }
-  &__button {
+  &__counter-button {
     display: flex;
     align-items: center;
     justify-content: center;
     aspect-ratio: 1;
+    background: var(--clr-primary);
+    width: 40px;
+    border-radius: 50%;
+    color: var(--clr-white);
     transition: 0.3s;
-    &_counter {
-      background: var(--clr-primary);
-      min-width: 25px;
-      border-radius: 50%;
-      color: var(--clr-white);
-      font-size: var(--fs-item-title);
-      &:hover,
-      &:active {
-        background: var(--clr-primary-dark);
-      }
-    }
-  }
-}
-
-@include adaptation('tablet', max) {
-  .cart-item {
-    grid-template-columns: auto repeat(3, 1fr) 60px;
-    &__data {
-      & .cart-item__price {
-        display: block;
-      }
+    &:hover,
+    &:active {
+      background: var(--clr-primary-dark);
     }
   }
 }
 
 @include adaptation('phablet', max) {
   .cart-item {
-    position: relative;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: repeat(2, auto);
-    padding-right: 10px;
-    gap: 0px 10px;
+    flex-direction: column;
     &__image-container {
-      grid-row: 3 span;
-      width: 80px;
+      width: 100%;
     }
-    &__data {
-      padding: 5px 0px;
-    }
-    &__counter {
-      justify-self: flex-start;
-      grid-column: 2;
-      gap: 5px;
-    }
-    &__total-price {
-      grid-column: 3;
+    &__name {
+      // max-width: 200px;
     }
   }
 }

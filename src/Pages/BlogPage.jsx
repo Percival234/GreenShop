@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
-import Error from '@Components/Error/Error';
+import ServerError from '@Components/Error/ServerError/ServerError';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
 import { fetchBlog } from '@API/API';
@@ -20,7 +20,7 @@ export default function BlogPage() {
   } = useQuery({ queryKey: ['blog', id], queryFn: () => fetchBlog(id) });
 
   if (isPending) return <PageLoading />;
-  if (isError) return <Error error={error} />;
+  if (isError) return <ServerError error={error} />;
 
   return (
     <article className="article">
