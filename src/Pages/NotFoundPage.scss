@@ -1,0 +1,15 @@
+.not-found {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: var(--padding-small);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-title);
+  &__text {
+    font-size: 50px;
+    color: var(--clr-primary);
+  }
+}

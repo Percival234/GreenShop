@@ -22,7 +22,7 @@ export default function Register() {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
+    watch,
   } = useForm();
 
   const { mutate, isPending, error } = useMutation({
@@ -71,8 +71,7 @@ export default function Register() {
         <InputPass
           register={{
             ...register('registerPasswordConfirm', {
-              validate: (value) =>
-                value === getValues('registerPassword') || 'Passwords do not match',
+              validate: (value) => value === watch('registerPassword') || 'Passwords do not match',
               required: 'Password confirm is required',
             }),
           }}

@@ -7,6 +7,7 @@ import Header from '@Components/Header/Header';
 import ModalAuth from '@Components/Modal/ModalAuth/ModalAuth';
 import ModalLogout from '@Components/Modal/ModalLogout/ModalLogout';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
+import ModalCheckout from '@Components/Modal/ModalCheckout/ModalCheckout';
 import ModalUserDelete from '@Components/Modal/ModalUserDelete/ModalUserDelete';
 
 import { useUserStore } from '@Store/userStore';
@@ -38,7 +39,6 @@ export default function Root() {
   } = useQuery({
     queryKey: ['wishlist'],
     queryFn: fetchWishlist,
-    // enabled: false,
   });
 
   useEffect(() => {
@@ -48,8 +48,6 @@ export default function Root() {
   useEffect(() => {
     if (wishlistIsSuccess) setWishlist(wishlist);
   }, [setWishlist, wishlist, wishlistIsSuccess]);
-
-  // useScrollToTop();
 
   if (isPending) return <PageLoading />;
 
@@ -65,6 +63,7 @@ export default function Root() {
       <ModalAuth />
       <ModalUserDelete />
       <ModalLogout />
+      <ModalCheckout />
     </div>
   );
 }

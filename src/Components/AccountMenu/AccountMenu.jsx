@@ -2,17 +2,10 @@ import { NavLink } from 'react-router-dom';
 import { AiOutlineHeart, AiOutlineWarning, AiOutlineUser, AiOutlineHistory } from 'react-icons/ai';
 
 import SubTitle from '@UI/Titles/SubTitle/SubTitle';
-import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
-
-import { useEventStore } from '@Store/eventStore';
 
 import './AccountMenu.scss';
 
 export default function AccountMenu() {
-  const open = useEventStore((state) => state.open);
-
-  const openLogoutModal = () => open('logoutModal');
-
   return (
     <div className="account-menu">
       <div className="hidden-tablet-wide">
@@ -36,9 +29,6 @@ export default function AccountMenu() {
           Support
         </NavLink>
       </nav>
-      <div className="hidden-tablet-wide">
-        <ButtonOutline onClick={openLogoutModal}>Logout</ButtonOutline>
-      </div>
     </div>
   );
 }

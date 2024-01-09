@@ -32,3 +32,28 @@ input {
 :focus {
   outline-color: var(--clr-primary);
 }
+
+input,
+textarea {
+  &:focus::placeholder {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: 0.3s;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+:disabled {
+  opacity: 0.5;
+  cursor: auto;
+  pointer-events: none;
+}
+
+span {
+  color: var(--clr-gray);
+}

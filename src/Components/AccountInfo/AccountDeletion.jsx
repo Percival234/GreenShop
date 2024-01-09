@@ -8,9 +8,9 @@ export default function AccountDeletion() {
   const openUserDeleteModal = () => open('userDeleteModal');
 
   return (
-    <div className="account-details__form account-details__form_full">
+    <div className="account-deletion">
       <TitleBorder>Account deletion</TitleBorder>
-      <div className="account-details__delete">
+      <div className="account-deletion__content">
         <p>Do you want to delete your account? All data will be cleared!</p>
         <ButtonOutline onClick={openUserDeleteModal}>Delete</ButtonOutline>
       </div>

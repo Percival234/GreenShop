@@ -4,10 +4,13 @@ import { useParams } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import Button from '@UI/Buttons/Button/Button';
+import FormError from '@Components/Error/FormError/FormError';
+import ButtonLoading from '@Components/Loading/ButtonLoading/ButtonLoading';
 
 import { postReview } from '@API/API';
 
 import { useRequiedAuth } from '@Hooks/useRequiedAuth';
+import TextArea from '@UI/TextArea/TextArea';
 
 export default function ReviewForm() {
   const { productId } = useParams();
@@ -22,7 +25,7 @@ export default function ReviewForm() {
     reset,
   } = useForm();
 
-  const { mutate } = useMutation({ mutationFn: (review) => postReview(review) });
+  const { mutate, error, isPending } = useMutation({ mutationFn: (review) => postReview(review) });
 
   const submitReview = (data) => {
     const review = {
@@ -40,13 +43,15 @@ export default function ReviewForm() {
 
   return (
     <form onSubmit={handleSubmit(authCheck(submitReview))} className="reviews__form">
-      <textarea
-        {...register('review', {
-          required: 'Review text is required',
-          maxLength: 500,
-        })}
+      <TextArea
+        register={{
+          ...register('review', {
+            required: 'Review text is required',
+            maxLength: 500,
+          }),
+        }}
         placeholder="Create review"
-        className="reviews__textarea"></textarea>
+      />
       <div className="reviews__actions">
         <div className="rating-form">
           <input
@@ -103,8 +108,14 @@ export default function ReviewForm() {
           </label>
         </div>
         <div className="rating-form__rate">{watch('rating') || 0}</div>
-        <div className="form-error">{errors?.rating?.message || errors?.review?.message}</div>
-        <Button type="submit">Send Review</Button>
+        <FormError
+          error={
+            errors?.rating?.message || errors?.review?.message || error?.response?.data?.message
+          }
+        />
+        <Button disabled={isPending} type="submit">
+          {isPending ? <ButtonLoading /> : 'Send Review'}
+        </Button>
       </div>
     </form>
   );

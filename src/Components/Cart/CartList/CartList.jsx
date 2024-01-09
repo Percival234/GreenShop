@@ -1,9 +1,9 @@
-import CartItem from '@Components/Cart/CartItem';
+import CartItem from '@Components/Cart/CartItem/CartItem';
 import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
 
 import { useCartStore } from '@Store/cartStore';
 
-import './Cart.scss';
+import './CartList.scss';
 
 export default function CartList() {
   const cartItems = useCartStore((state) => state.cartItems);

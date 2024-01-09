@@ -8,6 +8,8 @@ import { useCartStore } from '@Store/cartStore';
 
 import { SERVER_URL } from '@Constants/CONSTANTS';
 
+import './CartItem.scss';
+
 function CartItem({ item: { product, count } }) {
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const increaseItemCount = useCartStore((state) => state.increaseItemCount);

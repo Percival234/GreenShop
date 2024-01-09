@@ -12,18 +12,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 20px;
     min-height: var(--header-height);
   }
   &__action {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
   }
   &__cart-info {
     position: relative;
   }
   &__cart-length {
+    pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;

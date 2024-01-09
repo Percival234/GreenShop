@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@API/*": ["src/API/*"],
       "@Store/*": ["src/Store/*"],
       "@Root/*": ["src/Root/*"],
       "@Hooks/*": ["src/Hooks/*"],
@@ -9,12 +10,11 @@
       "@Styles/*": ["src/Styles/*"],
       "@Routes/*": ["src/Routes/*"],
       "@Assets/*": ["src/Assets/*"],
-      "@Utils/*": ["src/Utils/*"],
+      "@Helpers/*": ["src/Helpers/*"],
       "@UI/*": ["src/Components/UI/*"],
       "@Middleware/*": ["src/Middleware/*"],
       "@Components/*": ["src/Components/*"],
-      "@Constants/*": ["src/CONSTANTS/*"],
-      "@API/*": ["src/API/*"]
+      "@Constants/*": ["src/CONSTANTS/*"]
     }
   },
   "include": [

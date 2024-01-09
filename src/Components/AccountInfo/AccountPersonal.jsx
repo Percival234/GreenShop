@@ -55,76 +55,74 @@ function AccountPersonal() {
   };
 
   return (
-    <form onSubmit={handleSubmit(personalUpdateSubmit)} className="account__form">
+    <form onSubmit={handleSubmit(personalUpdateSubmit)}>
       <TitleBorder>Personal information</TitleBorder>
-      <div className="account-details__inputs">
-        <InputWithLabel
-          register={{
-            ...register('personalFirstname', {
-              required: 'First name is required',
-              validate: (value) => value.length >= 3 || 'First name is too short',
-            }),
-          }}
-          label="First name"
-        />
-        <FormError error={errors?.personalFirstname?.message} />
-        <InputWithLabel
-          register={{
-            ...register('personalLastname', {
-              required: 'Last name is required',
-              validate: (value) => value.length >= 3 || 'Last name is too short',
-            }),
-          }}
-          label="Last name"
-        />
-        <FormError error={errors?.personalLastname?.message} />
-        <InputWithLabel
-          register={{
-            ...register('personalEmail', {
-              required: 'Email is required',
-              pattern: {
-                value: REGEX_EMAIL,
-                message: 'Please enter valid email',
-              },
-            }),
-          }}
-          label="Email"
-        />
-        <FormError error={errors?.personalEmail?.message} />
-        <InputWithLabel
-          register={{
-            ...register('personalPhone', {
-              required: 'Phone number is required',
-              validate: (value) =>
-                (value.length > 9 && value.length < 12) || 'Uncorrect phone number',
-            }),
-          }}
-          type="number"
-          label="Phone number"
-        />
-        <FormError error={errors?.personalPhone?.message} />
-        <InputWithLabel
-          register={{
-            ...register('personalCity', {
-              required: 'City / town is required',
-              validate: (value) => value.length >= 3 || 'Uncorrect City / town name',
-            }),
-          }}
-          label="City / town"
-        />
-        <FormError error={errors?.personalCity?.message} />
-        <InputWithLabel
-          register={{
-            ...register('personalAddress', {
-              required: 'Address is required',
-              validate: (value) => value.length >= 3 || 'Uncorrect address',
-            }),
-          }}
-          label="Street address"
-          placeholder="House number and street name"
-        />
-        <FormError error={errors?.personalAddress?.message} />
-      </div>
+      <InputWithLabel
+        register={{
+          ...register('personalFirstname', {
+            required: 'First name is required',
+            validate: (value) => value.length >= 3 || 'First name is too short',
+          }),
+        }}
+        label="First name"
+      />
+      <FormError error={errors?.personalFirstname?.message} />
+      <InputWithLabel
+        register={{
+          ...register('personalLastname', {
+            required: 'Last name is required',
+            validate: (value) => value.length >= 3 || 'Last name is too short',
+          }),
+        }}
+        label="Last name"
+      />
+      <FormError error={errors?.personalLastname?.message} />
+      <InputWithLabel
+        register={{
+          ...register('personalEmail', {
+            required: 'Email is required',
+            pattern: {
+              value: REGEX_EMAIL,
+              message: 'Please enter valid email',
+            },
+          }),
+        }}
+        label="Email"
+      />
+      <FormError error={errors?.personalEmail?.message} />
+      <InputWithLabel
+        register={{
+          ...register('personalPhone', {
+            required: 'Phone number is required',
+            validate: (value) =>
+              (value.length > 9 && value.length < 12) || 'Uncorrect phone number',
+          }),
+        }}
+        type="number"
+        label="Phone number"
+      />
+      <FormError error={errors?.personalPhone?.message} />
+      <InputWithLabel
+        register={{
+          ...register('personalCity', {
+            required: 'City / town is required',
+            validate: (value) => value.length >= 3 || 'Uncorrect City / town name',
+          }),
+        }}
+        label="City / town"
+      />
+      <FormError error={errors?.personalCity?.message} />
+      <InputWithLabel
+        register={{
+          ...register('personalAddress', {
+            required: 'Address is required',
+            validate: (value) => value.length >= 3 || 'Uncorrect address',
+          }),
+        }}
+        label="Street address"
+        placeholder="House number and street name"
+      />
+      <FormError error={errors?.personalAddress?.message} />
       <ServerError error={error} />
       <Button disabled={isPending} type="submit">
         {isPending ? <ButtonLoading /> : 'Save changes'}

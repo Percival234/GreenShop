@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { SERVER_URL } from '@Constants/CONSTANTS';
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
   baseURL: `${SERVER_URL}/api/`,
   headers: {
     'Content-Type': 'application/json',
@@ -32,7 +32,6 @@ export async function fetchProducts() {
   }
 
   const queryString = new URLSearchParams(query).toString();
-  // console.log(queryString);
 
   const response = await axiosInstance.get(`product?${queryString}`);
   return response.data;
@@ -47,8 +46,16 @@ export async function fetchRelated(categoryId, productId) {
 //!============================
 
 export async function fetchUser() {
-  console.log('user fetch');
   const response = await axiosInstance.get(`user/current`);
+  return response.data;
+}
+
+export async function updateImage(file) {
+  const response = await axiosInstance.post(`user/upload`, file, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
   return response.data;
 }
 
@@ -63,7 +70,7 @@ export async function registerUser(userData) {
 }
 
 export async function updateUser(userData) {
-  const response = await axiosInstance.patch(`user`, { userData });
+  const response = await axiosInstance.patch(`user`, userData);
   return response.data;
 }
 export async function deleteUser() {
@@ -120,10 +127,18 @@ export async function postReview(review) {
   return response.data;
 }
 export async function postOrder(order) {
-  const response = await axiosInstance.post(`order`, { order });
+  const response = await axiosInstance.post(`order`, order);
   return response.data;
 }
 export async function deleteReview() {
   const response = await axiosInstance.delete(`review`);
+  return response.data;
+}
+export async function postReport(report) {
+  const response = await axiosInstance.post('report', report, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
   return response.data;
 }

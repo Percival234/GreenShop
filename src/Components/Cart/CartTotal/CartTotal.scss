@@ -1,0 +1,12 @@
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 350px;
+  &__result {
+    display: grid;
+    width: 100%;
+    gap: 30px;
+    align-items: stretch;
+  }
+}

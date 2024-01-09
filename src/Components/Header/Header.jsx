@@ -1,8 +1,9 @@
-import { FiSearch, FiShoppingCart, FiUser } from 'react-icons/fi';
+import { FiLogOut, FiSearch, FiShoppingCart, FiUser } from 'react-icons/fi';
 
 import Logo from '@Components/Logo/Logo';
 import Button from '@UI/Buttons/Button/Button';
 import LinkSmall from '@UI/Links/LinkSmall/LinkSmall';
+import ButtonSmall from '@UI/Buttons/ButtonSmall/ButtonSmall';
 
 import { useUserStore } from '@Store/userStore';
 import { useCartStore } from '@Store/cartStore';
@@ -16,6 +17,7 @@ export default function Header() {
   const cartItems = useCartStore((state) => state.cartItems);
 
   const openAuthModal = () => open('authModal');
+  const openLogoutModal = () => open('logoutModal');
 
   return (
     <header className="header">
@@ -30,7 +32,10 @@ export default function Header() {
             <LinkSmall ariaLabel="Navigate to shopping cart" to="/cart" Icon={<FiShoppingCart />} />
           </div>
           {isAuth ? (
-            <LinkSmall ariaLabel="Navigate to account" to="/account" Icon={<FiUser />} />
+            <>
+              <LinkSmall ariaLabel="Navigate to account" to="/account" Icon={<FiUser />} />
+              <ButtonSmall onClick={openLogoutModal} ariaLabel="Logout" Icon={<FiLogOut />} />
+            </>
           ) : (
             <Button onClick={openAuthModal}>Login</Button>
           )}

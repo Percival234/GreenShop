@@ -7,7 +7,6 @@ function Input({ register, type, ...props }) {
 }
 
 Input.propTypes = {
-  // name: PropTypes.string.isRequired,
   register: PropTypes.object.isRequired,
   type: PropTypes.string,
 };
