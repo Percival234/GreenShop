@@ -1,0 +1,32 @@
+.reviews-form {
+  display: flex;
+  gap: var(--padding-small);
+  &__rating {
+    flex: 1;
+  }
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+  }
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: row-reverse;
+  &__rate {
+    font-size: 60px;
+    text-align: center;
+  }
+  &__label {
+    cursor: pointer;
+    color: var(--clr-gray-light);
+  }
+  &__input {
+    display: none;
+    &:checked ~ .rating-form__label {
+      color: var(--clr-orange);
+    }
+  }
+}

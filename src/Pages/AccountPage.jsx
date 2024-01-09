@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import AccountMenu from '@Components/AccountMenu/AccountMenu';
+import AccountMenu from '@Components/Account/AccountMenu/AccountMenu';
 
 import './AccountPage.scss';
 

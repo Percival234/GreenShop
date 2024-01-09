@@ -16,6 +16,11 @@ function Modal({ name, children, confirm, cancel }) {
 
   const closeModal = useCallback(() => close(name), [close, name]);
 
+  const confirmModalAction = () => {
+    confirm();
+    closeModal();
+  };
+
   useEffect(() => {
     const handleEscKey = (event) => {
       if (event.key === 'Escape') closeModal();
@@ -35,14 +40,16 @@ function Modal({ name, children, confirm, cancel }) {
       <div className="modal">
         <div className="modal__backdrop" onClick={closeModal}></div>
         <div className="modal__body">
-          <button type="button" onClick={closeModal} className="modal__button_close">
-            <FiX size={33} />
+          <button type="button" onClick={closeModal} className="modal__close">
+            <FiX size={32} />
           </button>
-          {children}
-          <div className="modal__action">
-            {cancel && <ButtonOutline onClick={closeModal}>Cancel</ButtonOutline>}
-            {confirm && <Button onClick={confirm}>Confirm</Button>}
-          </div>
+          <div className="modal__children">{children}</div>
+          {(cancel || confirm) && (
+            <div className="modal__action">
+              {cancel && <ButtonOutline onClick={closeModal}>Cancel</ButtonOutline>}
+              {confirm && <Button onClick={confirmModalAction}>Confirm</Button>}
+            </div>
+          )}
         </div>
       </div>
     ),

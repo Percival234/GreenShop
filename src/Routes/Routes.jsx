@@ -8,12 +8,12 @@ import AccountPage from '@Pages/AccountPage';
 import ProductPage from '@Pages/ProductPage';
 import CheckoutPage from '@Pages/CheckoutPage';
 import NotFoundPage from '@Pages/NotFoundPage';
-import Orders from '@Components/Order/Orders';
-import Reviews from '@Components/Reviews/Reviews';
 import Details from '@Components/Details/Details';
 import Support from '@Components/Support/Support';
 import Wishlist from '@Components/WishList/WishList';
-import AccountInfo from '@Components/AccountInfo/AccountInfo';
+import Orders from '@Components/Order/Orders/Orders';
+import Reviews from '@Components/Reviews/Reviews/Reviews';
+import AccountInfo from '@Components/Account/AccountInfo/AccountInfo';
 
 const authenticatedRoutes = [
   {

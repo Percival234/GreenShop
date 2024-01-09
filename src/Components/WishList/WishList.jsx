@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
-import ProductList from '@Components/ProductList/ProductList';
+import ProductList from '@Components/Product/ProductList/ProductList';
 import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
 
 import { useUserStore } from '@Store/userStore';

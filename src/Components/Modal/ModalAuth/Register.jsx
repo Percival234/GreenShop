@@ -82,6 +82,7 @@ export default function Register() {
         error={
           errors?.registerEmail?.message ||
           errors?.registerPassword?.message ||
+          errors?.registerPasswordConfirm?.message ||
           error?.response?.data?.message
         }
       />

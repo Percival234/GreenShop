@@ -1,0 +1,55 @@
+.product-action {
+  margin: 15px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  &__buttons {
+    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 45px;
+    flex: 1 1 auto;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    border-radius: 5px;
+    border: 2px solid var(--clr-primary);
+    color: var(--clr-primary);
+    transition: 0.3s;
+    &:hover,
+    &:active {
+      border-color: var(--clr-primary-dark);
+      color: var(--clr-white);
+      background: var(--clr-primary-dark);
+    }
+  }
+  &__counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &__counter-count {
+    font-size: 24px;
+    width: 3ch;
+    text-align: center;
+  }
+  &__counter-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    aspect-ratio: 1;
+    transition: 0.3s;
+    border-radius: 50%;
+    background: var(--clr-primary);
+    color: var(--clr-white);
+    font-size: var(--fs-title);
+    &:hover,
+    &:active {
+      background: var(--clr-primary-dark);
+    }
+  }
+}

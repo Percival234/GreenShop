@@ -22,13 +22,14 @@ import './Card.scss';
 const Card = ({ product }) => {
   const { _id, name, image, size, price, sale, description, rating, quantity } = product;
 
+  const client = useQueryClient();
   const wishlist = useUserStore((state) => state.wishlist);
   const cartItems = useCartStore((state) => state.cartItems);
   const addToCart = useCartStore((state) => state.addToCart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
-  const queryClient = useQueryClient();
 
   const isInCart = cartItems.some((item) => item.product._id === _id);
+  const isInWishlist = wishlist.some((product) => product._id === _id);
 
   const handleAddToCart = () => addToCart(product, 1);
   const handleRemoveFromCart = () => removeFromCart(_id);
@@ -39,11 +40,7 @@ const Card = ({ product }) => {
 
   const update = () =>
     mutate(_id, {
-      onSuccess: () => {
-        queryClient.invalidateQueries({
-          queryKey: ['wishlist'],
-        });
-      },
+      onSuccess: () => client.invalidateQueries({ queryKey: ['wishlist'] }),
     });
 
   return (
@@ -53,7 +50,7 @@ const Card = ({ product }) => {
         <div className="card__detail card__detail_size">{size.size}</div>
         <img alt={name} src={`${SERVER_URL}/static/products/${image}`} className="card__image" />
         <div className="card__navigation">
-          {wishlist.some((product) => product._id === _id) ? (
+          {isInWishlist ? (
             <ButtonSmall Icon={<AiFillHeart />} ariaLabel="Remove from wishlist" onClick={update} />
           ) : (
             <ButtonSmall Icon={<AiOutlineHeart />} ariaLabel="Add to wishlist" onClick={update} />

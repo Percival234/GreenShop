@@ -1,19 +1,18 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
-import Related from '@Components/Related/Related';
 import Contacts from '@Components/Contants/Contacts';
-import ProductInfo from '@Components/Product/ProductInfo';
+import Related from '@Components/Related/Related/Related';
 import NewsLetter from '@Components/NewsLetter/NewsLetter';
-import ProductAbout from '@Components/Product/ProductAbout';
 import ServerError from '@Components/Error/ServerError/ServerError';
+import ProductInfo from '@Components/Product/ProductInfo/ProductInfo';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
+import ProductAbout from '@Components/Product/ProductAbout/ProductAbout';
 
 import { fetchProduct } from '@API/API';
 
 export default function ProductPage() {
   const { productId } = useParams();
-
   const {
     data: product,
     isPending,

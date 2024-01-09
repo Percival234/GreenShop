@@ -4,7 +4,7 @@ import Sort from '@Components/Sort/Sort';
 import Search from '@Components/Search/Search';
 import Aside from '@Components/Aside/Aside/Aside';
 import Pagination from '@Components/Pagination/Pagination';
-import ProductList from '@Components/ProductList/ProductList';
+import ProductList from '@Components/Product/ProductList/ProductList';
 import ServerError from '@Components/Error/ServerError/ServerError';
 import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 

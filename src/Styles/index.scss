@@ -13,26 +13,26 @@
   gap: 50px;
 }
 
-.counter {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  &__count {
-    font-size: 24px;
-    width: 3ch;
-    text-align: center;
+.upload {
+  min-width: 200px;
+  &__info {
+    display: flex;
+  }
+  &__file {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    border-bottom: 2px solid var(--clr-primary);
+    padding: 0px 5px;
+    color: var(--clr-gray-light);
+    font-size: var(--fs-secondary);
   }
   &__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    aspect-ratio: 1;
-    transition: 0.3s;
-    border-radius: 50%;
+    padding: 8px 15px;
+    border-radius: 5px 5px 0px 0px;
     background: var(--clr-primary);
     color: var(--clr-white);
-    font-size: var(--fs-title);
+    transition: 0.3s;
     &:hover,
     &:active {
       background: var(--clr-primary-dark);

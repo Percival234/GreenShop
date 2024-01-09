@@ -10,30 +10,31 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     position: fixed;
     border-radius: 10px;
     border-bottom: 10px solid var(--clr-primary);
     background: var(--clr-white);
-    padding: 40px;
+    padding: 30px;
     margin: 15px;
   }
-  &__button {
-    &_close {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      width: 34px;
-      aspect-ratio: 1;
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: var(--transition-quick);
-      &:hover,
-      &:active {
-        background: var(--clr-primary-light);
-        color: var(--clr-primary-dark);
-      }
+  &__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 34px;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-quick);
+    &:hover,
+    &:active {
+      background: var(--clr-primary-light);
+      color: var(--clr-primary-dark);
     }
   }
   &__backdrop {
@@ -42,5 +43,10 @@
     bottom: 0%;
     left: 0%;
     right: 0%;
+  }
+  &__action {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
   }
 }
