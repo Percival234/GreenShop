@@ -81,3 +81,9 @@
     font-size: var(--fs-item-title);
   }
 }
+
+@include adaptation('tablet') {
+  .filter__button {
+    display: none;
+  }
+}

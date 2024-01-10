@@ -26,15 +26,11 @@ export default function AccountPassword() {
     const userData = {
       password: data.passwordResetNewPassword,
     };
-    mutate(userData, {
-      onSuccess: (res) => {
-        // console.log(res);
-      },
-    });
+    mutate(userData);
   };
 
   return (
-    <form onSubmit={handleSubmit(passwordResetSubmit)}>
+    <form id="password-reset" onSubmit={handleSubmit(passwordResetSubmit)}>
       <TitleBorder>Password change</TitleBorder>
       <InputWithLabel
         register={{

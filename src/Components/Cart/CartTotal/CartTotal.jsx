@@ -18,7 +18,9 @@ export default function CartTotal() {
           Proceed to checkout
         </Link>
       </div>
-      <LinkUnderline to={`/blog/${BLOG_HOW_TO_BUY_ID}`}>Read more about payment</LinkUnderline>
+      <div className="cart-total__link">
+        <LinkUnderline to={`/blog/${BLOG_HOW_TO_BUY_ID}`}>Read more about payment</LinkUnderline>
+      </div>
     </div>
   );
 }

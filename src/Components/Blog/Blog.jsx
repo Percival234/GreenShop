@@ -18,7 +18,7 @@ function Blog({ blog: { _id, image, title, description, createdAt } }) {
           {title}
         </Link>
         <TextTruncated rows={2}>{description}</TextTruncated>
-        <LinkUnderline to={`/blog/${_id}`}>Read more</LinkUnderline>
+        <LinkUnderline to={`/blog/${_id}`}>Details...</LinkUnderline>
       </div>
     </div>
   );

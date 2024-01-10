@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 
@@ -9,27 +9,22 @@ import './Search.scss';
 
 export default function Search() {
   const client = useQueryClient();
-  const [search, setSearch] = useState('');
-  const [debouncedSearch] = useDebounce(search, 500);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get('search') || '');
+  const debouncedSearch = useDebounce(search, 500);
 
-  const handleSearch = useCallback(() => {
+  useEffect(() => {
     setSearchParams((prev) => {
-      if (search) prev.set('search', search);
+      if (debouncedSearch) prev.set('search', debouncedSearch);
       else prev.delete('search');
+
       prev.delete('page');
       return prev;
     });
     client.invalidateQueries({ queryKey: ['products'] });
-  }, [setSearchParams, client, search]);
+  }, [debouncedSearch, client, setSearchParams]);
 
-  useEffect(() => {
-    handleSearch();
-  }, [debouncedSearch]);
-
-  const onChange = (event) => {
-    setSearch(event.target.value);
-  };
+  const onChange = (event) => setSearch(event.target.value);
 
   return (
     <div className="search">
@@ -40,6 +35,7 @@ export default function Search() {
         type="text"
         placeholder="Search"
         className="search__field"
+        id="search"
       />
     </div>
   );

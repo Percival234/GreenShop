@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import Footer from '@Components/Footer/Footer';
 import Header from '@Components/Header/Header';
@@ -17,6 +17,11 @@ import { fetchUser, fetchWishlist } from '@API/API';
 export default function Root() {
   const setUser = useUserStore((state) => state.setUser);
   const setWishlist = useUserStore((state) => state.setWishlist);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [pathname]);
 
   const {
     data: user,
@@ -28,7 +33,6 @@ export default function Root() {
   });
 
   useEffect(() => {
-    console.log('user fetch effect', user);
     if (isSuccess) setUser(user);
   }, [isSuccess, user, setUser]);
 

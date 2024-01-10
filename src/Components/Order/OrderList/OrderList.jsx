@@ -10,7 +10,7 @@ import { fetchOrders } from '@API/API';
 
 import './OrderList.scss';
 
-function OrderList() {
+export default function OrderList() {
   const {
     data: orders,
     isPending,
@@ -30,7 +30,3 @@ function OrderList() {
     </div>
   );
 }
-
-OrderList.propTypes = {};
-
-export default OrderList;

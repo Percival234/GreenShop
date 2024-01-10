@@ -34,9 +34,9 @@ export default function FilterPrice() {
   };
 
   return (
-    <fieldset className="filter__form">
+    <div className="filter__form">
       <TitleItem>Price Range</TitleItem>
-      <div className="filter__double-range">
+      <label className="filter__double-range">
         <input
           className="filter__range"
           type="range"
@@ -57,12 +57,12 @@ export default function FilterPrice() {
           id="max-price"
           onChange={handlePriceValue}
         />
-      </div>
-      <label className="filter__item">
+      </label>
+      <div className="filter__item">
         Price:
         <div className="filter__price">{`$${minPrice} - $${maxPrice}`}</div>
-      </label>
+      </div>
       <Button onClick={handlePrice}>Find</Button>
-    </fieldset>
+    </div>
   );
 }

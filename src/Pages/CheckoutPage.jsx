@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 
 import Button from '@UI/Buttons/Button/Button';
+import Payment from '@Components/Payment/Payment';
 import TitleBorder from '@UI/Titles/TitleBorder/TitleBorder';
 import FormError from '@Components/Error/FormError/FormError';
 import ServerError from '@Components/Error/ServerError/ServerError';
@@ -17,20 +19,25 @@ import { REGEX_EMAIL } from '@Constants/CONSTANTS';
 
 import { useCartStore } from '@Store/cartStore';
 import { useUserStore } from '@Store/userStore';
+import { useEventStore } from '@Store/eventStore';
 
 import './CheckoutPage.scss';
 
 export default function CheckoutPage() {
+  const navigate = useNavigate();
+  const open = useEventStore((state) => state.open);
   const {
     formState: { errors },
     handleSubmit,
     register,
     setValue,
   } = useForm();
-  const cartItems = useCartStore((state) => state.cartItems);
+  const { cartItems, totalPrice, shipping, payment, setOrder, clearCart } = useCartStore(
+    (state) => state
+  );
   const user = useUserStore((state) => state.user);
 
-  const { mutation, isPending, error } = useMutation({ mutationFn: (data) => postOrder(data) });
+  const { mutate, isPending, error } = useMutation({ mutationFn: (data) => postOrder(data) });
 
   useEffect(() => {
     if (user) {
@@ -44,8 +51,32 @@ export default function CheckoutPage() {
   }, [user, setValue]);
 
   const submitOrder = (data) => {
-    console.log(data);
+    const order = {
+      userId: user?._id,
+      firstname: data.checkoutFirstname,
+      lastname: data.checkoutLastname,
+      email: data.checkoutEmail,
+      phone: data.checkoutPhone,
+      address: data.checkoutAddress,
+      city: data.checkoutCity,
+      totalPrice,
+      shipping,
+      payment,
+      cartItems: cartItems.map((item) => ({ product: item.product._id, count: item.count })),
+    };
+    mutate(order, {
+      onSuccess: (res) => {
+        setOrder(res.order);
+        navigate('/');
+        clearCart();
+        open('checkoutModal');
+      },
+    });
   };
+
+  useEffect(() => {
+    if (!cartItems.length) navigate('/');
+  }, [cartItems, navigate]);
 
   return (
     <form onSubmit={handleSubmit(submitOrder)} className="checkout">
@@ -127,8 +158,9 @@ export default function CheckoutPage() {
       <div className="checkout__order">
         <TitleBorder>Your Order</TitleBorder>
         <div className="checkout__info">
-          <CheckoutList />
+          <CheckoutList products={cartItems} />
           <CartCalculation />
+          <Payment />
           <ServerError error={error} />
           <Button type="submit">{isPending ? <ButtonLoading /> : 'Place Order'}</Button>
         </div>

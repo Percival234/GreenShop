@@ -37,14 +37,17 @@ export default function ReviewForm() {
     };
     mutate(review, {
       onSuccess: () => {
-        reset();
         client.invalidateQueries(['reviews', 'product']);
+        reset();
       },
     });
   };
 
   return (
-    <form onSubmit={handleSubmit(authCheck(submitReview))} className="reviews-form">
+    <form
+      id="review-form"
+      onSubmit={handleSubmit(authCheck(submitReview))}
+      className="reviews-form">
       <TextArea
         register={{
           ...register('review', {

@@ -77,7 +77,11 @@ export default function AccountImage() {
               <div className="upload__file">
                 {watch('uploadImage')?.[0]?.name || 'Upload image (less than 2MB, jpeg, jpg)'}
               </div>
-              <button type="button" onClick={openFileExplorer} className="upload__button">
+              <button
+                aria-label="upload image"
+                type="button"
+                onClick={openFileExplorer}
+                className="upload__button">
                 <AiOutlineUpload size={22} />
               </button>
             </div>

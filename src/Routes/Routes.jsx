@@ -15,69 +15,64 @@ import Orders from '@Components/Order/Orders/Orders';
 import Reviews from '@Components/Reviews/Reviews/Reviews';
 import AccountInfo from '@Components/Account/AccountInfo/AccountInfo';
 
-const authenticatedRoutes = [
-  {
-    path: 'account',
-    element: <AccountPage />,
-    children: [
-      {
-        path: '',
-        element: <AccountInfo />,
-      },
-      {
-        path: 'orders',
-        element: <Orders />,
-      },
-      {
-        path: 'wishlist',
-        element: <Wishlist />,
-      },
-      {
-        path: 'support',
-        element: <Support />,
-      },
-    ],
-  },
-];
-
-const publicRoutes = [
-  {
-    path: '',
-    element: <HomePage />,
-  },
-  {
-    path: 'cart',
-    element: <CartPage />,
-  },
-  {
-    path: 'product/:productId',
-    element: <ProductPage />,
-    children: [
-      {
-        path: '',
-        element: <Details />,
-      },
-      {
-        path: 'reviews',
-        element: <Reviews />,
-      },
-    ],
-  },
-  {
-    path: 'checkout',
-    element: <CheckoutPage />,
-  },
-  {
-    path: 'blog/:id',
-    element: <BlogPage />,
-  },
-];
-
-const allRoutes = [
+const routes = [
   {
     path: '',
     element: <Root />,
-    children: [...publicRoutes, ...authenticatedRoutes],
+    children: [
+      {
+        path: '',
+        element: <HomePage />,
+      },
+      {
+        path: 'cart',
+        element: <CartPage />,
+      },
+      {
+        path: 'product/:productId',
+        element: <ProductPage />,
+        children: [
+          {
+            path: '',
+            element: <Details />,
+          },
+          {
+            path: 'reviews',
+            element: <Reviews />,
+          },
+        ],
+      },
+      {
+        path: 'checkout',
+        element: <CheckoutPage />,
+      },
+      {
+        path: 'blog/:id',
+        element: <BlogPage />,
+      },
+      {
+        path: 'account',
+        element: <AccountPage />,
+        children: [
+          {
+            path: '',
+            element: <AccountInfo />,
+          },
+          {
+            path: 'orders',
+            element: <Orders />,
+          },
+          {
+            path: 'wishlist',
+            element: <Wishlist />,
+          },
+          {
+            path: 'support',
+            element: <Support />,
+          },
+        ],
+      },
+    ],
   },
   {
     path: '*',
@@ -85,4 +80,4 @@ const allRoutes = [
   },
 ];
 
-export const router = createBrowserRouter(allRoutes);
+export const router = createBrowserRouter(routes);

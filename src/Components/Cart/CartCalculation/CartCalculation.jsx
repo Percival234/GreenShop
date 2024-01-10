@@ -1,10 +1,22 @@
+import { useEffect } from 'react';
+
 import { useCartStore } from '@Store/cartStore';
 
 import './CartCalculation.scss';
 
 export default function CartCalculation() {
-  const totalPrice = useCartStore((state) => state.totalPrice);
-  const shipping = useCartStore((state) => state.shipping);
+  const { totalPrice, shipping, cartItems, setTotalPrice } = useCartStore((state) => state);
+
+  useEffect(() => {
+    setTotalPrice(
+      cartItems.reduce(
+        (acc, item) =>
+          acc + (item.product.price - (item.product.price / 100) * item.product.sale) * item.count,
+        0
+      )
+    );
+  }, [cartItems, setTotalPrice]);
+
   return (
     <div className="cart-calculation">
       <div className="cart-calculation__info">

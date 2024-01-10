@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './TitleBorder.scss';
 
 function TitleBorder({ children }) {
-  return <h4 className="title-border">{children}</h4>;
+  return <h3 className="title-border">{children}</h3>;
 }
 
 TitleBorder.propTypes = {

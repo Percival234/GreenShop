@@ -19,7 +19,7 @@ export default function FilterCategory() {
   if (isError) return <ServerError error={error} />;
 
   return (
-    <fieldset className="filter__form">
+    <div className="filter__form">
       <TitleItem>Categories</TitleItem>
       {categories.map((category) => (
         <FilterCritery
@@ -30,6 +30,6 @@ export default function FilterCategory() {
           param="categories"
         />
       ))}
-    </fieldset>
+    </div>
   );
 }

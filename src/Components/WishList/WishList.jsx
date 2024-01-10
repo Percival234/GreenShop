@@ -22,12 +22,12 @@ export default function Wishlist() {
     });
 
   return (
-    <div className="wishlist">
+    <>
       <TitleBorder>Wishlist</TitleBorder>
       <ProductList products={wishlist} />
       <div className="wishlist__button">
         {!!wishlist?.length && <ButtonOutline onClick={deleteWishlist}>Remove all</ButtonOutline>}
       </div>
-    </div>
+    </>
   );
 }

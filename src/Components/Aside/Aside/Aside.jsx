@@ -8,13 +8,11 @@ import './Aside.scss';
 export default function Aside() {
   const filter = useEventStore((state) => state.filter);
   return (
-    !filter && (
-      <aside className="aside">
-        <div className="aside__sticky">
-          <Filter />
-          <Advertising />
-        </div>
-      </aside>
-    )
+    <aside className={!filter ? 'aside' : 'aside hidden'}>
+      <div className="aside__sticky">
+        <Filter />
+        <Advertising />
+      </div>
+    </aside>
   );
 }

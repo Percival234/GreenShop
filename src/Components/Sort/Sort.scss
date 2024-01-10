@@ -46,13 +46,8 @@
   }
 }
 
-@include adaptation('phone', max) {
-  .sort {
-    align-items: start;
-    flex-direction: column-reverse;
-    gap: 10px;
-    &__filter-button {
-      display: block;
-    }
+@include adaptation('phablet', max) {
+  .sort__select {
+    width: 110px;
   }
 }

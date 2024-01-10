@@ -6,10 +6,10 @@ import './InputWithLabel.scss';
 
 function InputWithLabel({ label, ...props }) {
   return (
-    <div className="label-input">
-      <label className="label-input__label">{label}</label>
+    <label className="label-input">
+      <div className="label-input__label">{label}</div>
       <Input {...props} />
-    </div>
+    </label>
   );
 }
 

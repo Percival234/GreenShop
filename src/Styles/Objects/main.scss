@@ -1,0 +1,12 @@
+@import '../Tools/mixins.scss';
+
+.main {
+  flex-grow: 1;
+  padding: var(--padding-small) 0px;
+}
+
+@include adaptation('tablet', max) {
+  .main {
+    padding-top: 0px;
+  }
+}

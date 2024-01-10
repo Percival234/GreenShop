@@ -39,6 +39,7 @@ function CartItem({ item: { product, count } }) {
           </div>
           <div className="cart-item__counter">
             <button
+              aria-label="Decrease count"
               disabled={count <= 1}
               onClick={handleDecreaseItemQuantity}
               className="cart-item__counter-button">
@@ -46,6 +47,7 @@ function CartItem({ item: { product, count } }) {
             </button>
             <div className="cart-item__count">{count}</div>
             <button
+              aria-label="Increase count"
               disabled={count >= product.quantity}
               onClick={handleIncreaseItemQuantity}
               className="cart-item__counter-button">

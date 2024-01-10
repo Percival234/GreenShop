@@ -3,17 +3,15 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 import RelatedSlide from '@Components/Related/RelatedSlide/RelatedSlide';
 
-import debounce from '@Helpers/debounce';
-
 import './RelatedSlider.scss';
 
 function RelatedSlider({ related }) {
   const sliderLineRef = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0);
   const [relatedArrays, setRalatedArrays] = useState([]);
   const [relatedPerSlide, setRalatedPerSlide] = useState(0);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [documentWidth, setDocumentWidth] = useState(window.innerWidth);
   const [touchPosition, setTouchPosition] = useState(null);
+  const [documentWidth, setDocumentWidth] = useState(window.innerWidth);
 
   const changeSlide = useCallback(
     (index = activeSlide) => setActiveSlide(index % relatedArrays.length),
@@ -51,13 +49,11 @@ function RelatedSlider({ related }) {
   }, [documentWidth, relatedPerSlide, related]);
 
   useEffect(() => {
-    const debouncedHandleResize = debounce(() => {
-      setDocumentWidth(window.innerWidth);
-    }, 200);
+    const handleResize = () => setDocumentWidth(window.innerWidth);
 
-    window.addEventListener('resize', debouncedHandleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('resize', debouncedHandleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -66,7 +62,7 @@ function RelatedSlider({ related }) {
       <div
         ref={sliderLineRef}
         style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-        className="relate-slider__line"
+        className="related-slider__line"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}>
         {relatedArrays.map((slide, index) => (

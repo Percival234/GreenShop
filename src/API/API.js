@@ -49,7 +49,6 @@ export async function fetchUser() {
   const response = await axiosInstance.get(`user/current`);
   return response.data;
 }
-
 export async function updateImage(file) {
   const response = await axiosInstance.post(`user/upload`, file, {
     headers: {
@@ -58,40 +57,36 @@ export async function updateImage(file) {
   });
   return response.data;
 }
-
 export async function loginUser(userData) {
   const response = await axiosInstance.post(`user/login`, userData);
   return response.data;
 }
-
 export async function registerUser(userData) {
   const response = await axiosInstance.post(`user/register`, userData);
   return response.data;
 }
-
 export async function updateUser(userData) {
-  const response = await axiosInstance.patch(`user`, userData);
+  const response = await axiosInstance.patch('user', userData);
   return response.data;
 }
 export async function deleteUser() {
-  const response = await axiosInstance.delete(`user`);
+  const response = await axiosInstance.delete('user');
   return response.data;
 }
-//----------------
 export async function fetchCategories() {
-  const response = await axiosInstance.get(`category`);
+  const response = await axiosInstance.get('category');
   return response.data;
 }
 export async function fetchSizes() {
-  const response = await axiosInstance.get(`size`);
+  const response = await axiosInstance.get('size');
   return response.data;
 }
 export async function fetchWishlist() {
-  const response = await axiosInstance.get(`wishlist`);
+  const response = await axiosInstance.get('wishlist');
   return response.data;
 }
 export async function clearWishlist() {
-  const response = await axiosInstance.delete(`wishlist`);
+  const response = await axiosInstance.delete('wishlist');
   return response.data;
 }
 export async function updateWishlist(productId) {
@@ -123,7 +118,7 @@ export async function fetchBlogs() {
   return response.data;
 }
 export async function postReview(review) {
-  const response = await axiosInstance.post(`review`, { review });
+  const response = await axiosInstance.post(`review`, review);
   return response.data;
 }
 export async function postOrder(order) {

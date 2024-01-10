@@ -1,35 +1,6 @@
-@import '@Styles/Tools/mixins.scss';
-
 .modal-checkout {
-  width: 580px;
-  &__top {
-    display: grid;
-    justify-items: center;
-    gap: 15px;
-    padding: 30px 0px 15px;
-    background: var(--clr-primary-light);
-    border-bottom: 1px solid var(--clr-gray-light);
-  }
-  &__text {
-    font-size: 14px;
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid var(--clr-gray-light);
-  }
-}
-
-@include adaptation('phablet', max) {
-  .modal-checkout {
-    &__top {
-      gap: 5px;
-      padding: 10px 0px;
-    }
-    &__image {
-      width: 50px;
-    }
-    &__text {
-      font-size: 12px;
-      padding-top: 10px;
-    }
-  }
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  padding: 20px 20px 0px;
 }

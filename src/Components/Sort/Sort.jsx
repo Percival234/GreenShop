@@ -29,7 +29,6 @@ export default function Sort() {
   };
 
   const handleSortVisible = () => setIsVisible(!isVisible);
-
   const handleFiltersVisible = () => toggle('filter');
 
   return (
@@ -59,7 +58,9 @@ export default function Sort() {
           )}
         </div>
       </div>
-      <Button onClick={handleFiltersVisible}>Filters</Button>
+      <div className="filter__button">
+        <Button onClick={handleFiltersVisible}>Filters</Button>
+      </div>
     </div>
   );
 }

@@ -11,6 +11,8 @@ import ProductAbout from '@Components/Product/ProductAbout/ProductAbout';
 
 import { fetchProduct } from '@API/API';
 
+import './ProductPage.scss';
+
 export default function ProductPage() {
   const { productId } = useParams();
   const {
@@ -24,12 +26,12 @@ export default function ProductPage() {
   if (isError) return <ServerError error={error} />;
 
   return (
-    <>
+    <div className={product.quantity ? 'product' : 'product disactive'}>
       <ProductInfo product={product} />
       <ProductAbout />
       <Related category={product?.category} />
       <NewsLetter />
       <Contacts />
-    </>
+    </div>
   );
 }

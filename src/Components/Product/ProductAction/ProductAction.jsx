@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus, AiFillHeart } from 'react-icons/ai';
 
@@ -11,10 +12,14 @@ import { useUserStore } from '@Store/userStore';
 
 import { updateWishlist } from '@API/API';
 
+import { useRequiedAuth } from '@Hooks/useRequiedAuth';
+
 import './ProductAction.scss';
 
 function ProductAction({ product }) {
+  const navigate = useNavigate();
   const client = useQueryClient();
+  const checkAuth = useRequiedAuth();
   const [counter, setCounter] = useState(1);
   const wishlist = useUserStore((state) => state.wishlist);
   const cartItems = useCartStore((state) => state.cartItems);
@@ -39,10 +44,16 @@ function ProductAction({ product }) {
       onSuccess: () => client.invalidateQueries({ queryKey: ['wishlist'] }),
     });
 
+  const buyNow = () => {
+    handleAddToCart();
+    navigate('/checkout');
+  };
+
   return (
     <div className="product-action">
       <div className="product-action__counter">
         <button
+          aria-label="Decrease count"
           disabled={counter <= 1}
           type="button"
           className="product-action__counter-button"
@@ -51,6 +62,7 @@ function ProductAction({ product }) {
         </button>
         <div className="product-action__counter-count">{counter}</div>
         <button
+          aria-label="Increase count"
           disabled={counter >= product.quantity}
           type="button"
           className="product-action__counter-button"
@@ -59,7 +71,9 @@ function ProductAction({ product }) {
         </button>
       </div>
       <div className="product-action__buttons">
-        <Button>Buy now</Button>
+        <Button type="button" onClick={buyNow}>
+          Buy now
+        </Button>
         {isInCart ? (
           <ButtonOutline onClick={handleRemoveFromCart}>Remove from cart</ButtonOutline>
         ) : (
@@ -68,7 +82,7 @@ function ProductAction({ product }) {
         {isInWishlist ? (
           <button
             type="button"
-            onClick={update}
+            onClick={checkAuth(update)}
             aria-label="Remove from wishlist"
             className="product-action__button">
             <AiFillHeart size={30} />
@@ -76,7 +90,7 @@ function ProductAction({ product }) {
         ) : (
           <button
             type="button"
-            onClick={update}
+            onClick={checkAuth(update)}
             aria-label="Add to wishlist"
             className="product-action__button">
             <AiOutlineHeart size={30} />

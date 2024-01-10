@@ -1,16 +1,21 @@
-import CheckoutItem from '../CheckoutItem/CheckoutItem';
+import PropTypes from 'prop-types';
 
-import { useCartStore } from '@Store/cartStore';
+import CheckoutItem from '@Components/Checkout/CheckoutItem/CheckoutItem';
 
 import './CheckoutList.scss';
 
-export default function CheckoutList() {
-  const cartItems = useCartStore((state) => state.cartItems);
+function CheckoutList({ products }) {
   return (
     <div className="checkout-list">
-      {cartItems.map((item) => (
+      {products.map((item) => (
         <CheckoutItem key={item.product._id} item={item} />
       ))}
     </div>
   );
 }
+
+CheckoutList.propTypes = {
+  products: PropTypes.array.isRequired,
+};
+
+export default CheckoutList;

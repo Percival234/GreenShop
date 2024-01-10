@@ -18,7 +18,7 @@ export default function FilterSale() {
   };
 
   return (
-    <fieldset className="filter__form">
+    <div className="filter__form">
       <TitleItem>Sale</TitleItem>
       <div className="filter__item">
         <input
@@ -33,6 +33,6 @@ export default function FilterSale() {
           <div>Only sale</div>
         </label>
       </div>
-    </fieldset>
+    </div>
   );
 }

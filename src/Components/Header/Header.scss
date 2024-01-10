@@ -1,7 +1,7 @@
 @import '@Styles/Tools/mixins';
 
 .header {
-  position: fixed;
+  position: sticky;
   background: var(--clr-white);
   top: 0;
   left: 0;

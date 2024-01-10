@@ -18,7 +18,7 @@ export default function FilterAvailable() {
   };
 
   return (
-    <fieldset className="filter__form">
+    <div className="filter__form">
       <TitleItem>Available</TitleItem>
       <div className="filter__item">
         <input
@@ -33,6 +33,6 @@ export default function FilterAvailable() {
           <div>Only Available</div>
         </label>
       </div>
-    </fieldset>
+    </div>
   );
 }

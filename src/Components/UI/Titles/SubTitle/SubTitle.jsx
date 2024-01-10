@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './SubTitle.scss';
 
 function SubTitle({ children, center }) {
-  return <h4 className={`${center ? 'text-center' : ''} sub-title`}>{children}</h4>;
+  return <h3 className={`${center ? 'text-center' : ''} sub-title`}>{children}</h3>;
 }
 
 SubTitle.propTypes = {

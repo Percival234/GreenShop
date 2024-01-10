@@ -17,6 +17,8 @@ import { useCartStore } from '@Store/cartStore';
 
 import { updateWishlist } from '@API/API';
 
+import { useRequiedAuth } from '@Hooks/useRequiedAuth';
+
 import './Card.scss';
 
 const Card = ({ product }) => {
@@ -27,6 +29,7 @@ const Card = ({ product }) => {
   const cartItems = useCartStore((state) => state.cartItems);
   const addToCart = useCartStore((state) => state.addToCart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const authCheck = useRequiedAuth();
 
   const isInCart = cartItems.some((item) => item.product._id === _id);
   const isInWishlist = wishlist.some((product) => product._id === _id);
@@ -51,9 +54,17 @@ const Card = ({ product }) => {
         <img alt={name} src={`${SERVER_URL}/static/products/${image}`} className="card__image" />
         <div className="card__navigation">
           {isInWishlist ? (
-            <ButtonSmall Icon={<AiFillHeart />} ariaLabel="Remove from wishlist" onClick={update} />
+            <ButtonSmall
+              Icon={<AiFillHeart />}
+              ariaLabel="Remove from wishlist"
+              onClick={authCheck(update)}
+            />
           ) : (
-            <ButtonSmall Icon={<AiOutlineHeart />} ariaLabel="Add to wishlist" onClick={update} />
+            <ButtonSmall
+              Icon={<AiOutlineHeart />}
+              ariaLabel="Add to wishlist"
+              onClick={authCheck(update)}
+            />
           )}
           <LinkSmall
             Icon={<AiOutlineSearch />}

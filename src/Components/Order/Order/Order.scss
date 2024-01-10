@@ -1,74 +1,46 @@
 @import '@Styles/Tools/mixins';
 
-.order {
+.order-item {
   display: grid;
   gap: 20px;
-  &__item {
-    display: grid;
-    border: 2px solid var(--clr-gray-light);
-    border-radius: 10px;
-    overflow: hidden;
-  }
+  padding: 25px;
+  background: var(--clr-background);
+  border-radius: 5px;
   &__info {
-    display: grid;
-    grid-auto-flow: column;
-    padding: 15px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
     border-bottom: 1px solid var(--clr-gray-light);
   }
   &__info-item {
+    flex: 1;
     display: grid;
     gap: 5px;
     white-space: nowrap;
-    padding: 0px 25px;
-    &:not(:last-of-type) {
-      border-right: 1px solid var(--clr-gray-light);
-    }
   }
   &__info-result {
     font-weight: var(--fw-bold);
   }
   &__details {
-    padding: 10px 40px 30px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
   &__details-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  &__result {
-    color: var(--clr-primary);
     font-weight: var(--fw-bold);
     font-size: var(--fs-item-title);
-  }
-  &__title {
-    padding: 10px 0px;
-    border-bottom: 2px solid var(--clr-primary-light);
-    font-size: var(--fs-item-title);
-    font-weight: var(--fw-medium);
   }
 }
 
 @include adaptation('phablet', max) {
-  .order {
+  .order-item {
+    padding: 5px;
     &__info {
-      grid-auto-flow: row;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    &__info-item {
-      font-size: var(--fs-secondary);
-      grid-auto-flow: row;
-      padding: 0px;
-      &:not(:last-of-type) {
-        border: 0px;
-      }
-    }
-    &__details {
-      padding: 10px 15px;
-      gap: 10px;
+      padding: 5px;
     }
   }
 }

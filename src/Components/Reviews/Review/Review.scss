@@ -1,11 +1,9 @@
 @import '@Styles/Tools/mixins';
 
 .reviews-item {
-  &__item {
-    border-radius: 10px;
-    background: var(--clr-background);
-    padding: 15px;
-  }
+  border-radius: 10px;
+  background: var(--clr-background);
+  padding: 15px;
   &__top {
     display: flex;
     gap: 10px;
@@ -19,6 +17,7 @@
   &__info {
     display: flex;
     flex-direction: column;
+    align-items: start;
     gap: 5px;
   }
   &__image-container {

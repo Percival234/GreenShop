@@ -1,8 +1,6 @@
 @import '../Tools/mixins.scss';
-
-.text-center {
-  text-align: center;
-}
+@import './app.scss';
+@import './main.scss';
 
 @include adaptation('tablet-wide', max) {
   .hidden-tablet-wide {
@@ -18,31 +16,4 @@
   .hidden-phablet {
     display: none;
   }
-}
-
-::-webkit-scrollbar {
-  width: 7px;
-  background: var(--clr-primary-light);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--clr-primary);
-  border-radius: 5px;
-}
-
-.main {
-  flex-grow: 1;
-  margin-top: var(--header-height);
-  padding: var(--padding-small) 0px var(--padding-large);
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  min-width: 320px;
-}
-
-::placeholder {
-  color: var(--clr-gray);
-  opacity: 0.8;
 }

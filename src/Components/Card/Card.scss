@@ -1,21 +1,10 @@
-@import '@Styles/Tools/mixins';
-
 .card {
   border-radius: 5px;
   background: var(--clr-background);
   overflow: hidden;
   &.disactive {
     opacity: 0.5;
-  }
-  &:hover {
-    .card__image {
-      transform: scale(1.05);
-      filter: brightness(0.5);
-    }
-    .card__navigation {
-      bottom: 20%;
-      opacity: 1;
-    }
+    pointer-events: none;
   }
   &__detail {
     position: absolute;
@@ -43,6 +32,16 @@
     position: relative;
     height: 225px;
     overflow: hidden;
+    &:hover {
+      .card__image {
+        transform: scale(1.05);
+        filter: brightness(0.5);
+      }
+      .card__navigation {
+        bottom: 20%;
+        opacity: 1;
+      }
+    }
   }
   &__image {
     object-fit: cover;

@@ -13,11 +13,13 @@ import { postReport } from '@API/API';
 
 import validateImage from '@Helpers/validateImage';
 
+import { useRequiedAuth } from '@Hooks/useRequiedAuth';
+
 import './Support.scss';
 
 export default function Support() {
   const fileRef = useRef(null);
-
+  const authCheck = useRequiedAuth();
   const {
     register,
     handleSubmit,
@@ -52,7 +54,7 @@ export default function Support() {
   return (
     <div className="support">
       <TitleBorder>Support</TitleBorder>
-      <form onSubmit={handleSubmit(submitReport)} className="support__form">
+      <form onSubmit={handleSubmit(authCheck(submitReport))} className="support__form">
         <p>If you encounter any issues, please feel free to contact us, and we will assist you!</p>
         <TextArea
           register={{
@@ -78,7 +80,11 @@ export default function Support() {
             <div className="upload__file">
               {watch('uploadReportImage')?.[0]?.name || 'Upload photo (less than 2MB, jpeg, jpg)'}
             </div>
-            <button type="button" onClick={openFileExplorer} className="upload__button">
+            <button
+              aria-label="upload image"
+              type="button"
+              onClick={openFileExplorer}
+              className="upload__button">
               <AiOutlineUpload size={22} />
             </button>
           </div>

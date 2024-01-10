@@ -19,7 +19,7 @@ export default function FilterSize() {
   if (isError) return <ServerError error={error} />;
 
   return (
-    <fieldset className="filter__form">
+    <div className="filter__form">
       <TitleItem>Sizes</TitleItem>
       {sizes.map((size) => (
         <FilterCritery
@@ -30,6 +30,6 @@ export default function FilterSize() {
           param="sizes"
         />
       ))}
-    </fieldset>
+    </div>
   );
 }
