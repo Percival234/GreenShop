@@ -9,10 +9,11 @@
   &__buttons {
     gap: 10px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr) 45px;
+    grid-template-columns: repeat(2, 1fr) auto;
     flex: 1 1 auto;
   }
   &__button {
+    width: 44px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +62,7 @@
     &__buttons {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
     }
   }
 }
