@@ -11,9 +11,9 @@
   --clr-gray-light: #b8b8b8;
   --clr-orange: #ffac0c;
   --clr-red: #f03800;
-  //-
+  //
   --ff-primary: 'Cera Pro';
-  //-
+  //
   --fs-icon: 25px;
   --fs-primary: 16px;
   --fs-secondary: 16px;
@@ -21,25 +21,24 @@
   --fs-title: 30px;
   --fs-sub-title: 20px;
   --fs-item-title: 18px;
-  //-
+  //
   --lh-primary: 1;
   --lh-secondary: 1.3;
-  //-
+  //
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-bold: 700;
-  //-
+  //
   --header-height: 70px;
-  //-
+  //
   --padding-large: 50px;
   --padding-small: 30px;
-
   @include adaptation('tablet-wide', max) {
     --header-height: 60px;
   }
   @include adaptation('tablet', max) {
     --fs-icon: 20px;
-    --header-height: 44px;
+    --header-height: 50px;
     --padding-large: 35px;
     --padding-small: 20px;
   }
