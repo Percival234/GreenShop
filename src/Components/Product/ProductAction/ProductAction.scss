@@ -61,8 +61,8 @@
   .product-action {
     &__buttons {
       display: flex;
-      flex-wrap: wrap;
-      justify-items: center;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }
