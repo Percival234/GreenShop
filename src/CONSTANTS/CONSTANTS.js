@@ -1,4 +1,4 @@
-export const SERVER_URL = 'https://green-shop-server-gideons-projects-4cbcbb4e.vercel.app';
+export const SERVER_URL = 'https://green-shop-server.vercel.app';
 
 export const MIN_PRICE_VALUE = 0;
 export const MAX_PRICE_VALUE = 1000;
