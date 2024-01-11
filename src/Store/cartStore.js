@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 import { persist } from 'zustand/middleware';
 
-import { SHIPPING } from '@Constants/CONSTANTS';
+import { PAYMENT_METHODS, SHIPPING } from '@Constants/CONSTANTS';
 
 export const useCartStore = create(
   persist(
@@ -10,7 +10,7 @@ export const useCartStore = create(
       cartItems: [],
       shipping: SHIPPING,
       totalPrice: 0,
-      payment: 'Cash on delivery',
+      payment: PAYMENT_METHODS[0],
       order: null,
       setPayment: (payment) => {
         set((state) => {

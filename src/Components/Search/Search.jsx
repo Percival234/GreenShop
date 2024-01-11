@@ -15,14 +15,16 @@ export default function Search() {
 
   useEffect(() => {
     setSearchParams((prev) => {
-      if (debouncedSearch) prev.set('search', debouncedSearch);
-      else prev.delete('search');
-
-      prev.delete('page');
+      if (debouncedSearch) {
+        prev.set('search', debouncedSearch);
+      } else {
+        prev.delete('search');
+      }
       return prev;
     });
+    searchParams.delete('page');
     client.invalidateQueries({ queryKey: ['products'] });
-  }, [debouncedSearch, client, setSearchParams]);
+  }, [debouncedSearch, client, setSearchParams, searchParams]);
 
   const onChange = (event) => setSearch(event.target.value);
 

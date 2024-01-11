@@ -37,8 +37,16 @@ export default function FilterPrice() {
     <div className="filter__form">
       <TitleItem>Price Range</TitleItem>
       <label className="filter__double-range">
+        <div
+          style={{
+            background: `linear-gradient(to right, var(--clr-gray-light) ${
+              (minPrice / MAX_PRICE_VALUE) * 100
+            }% , var(--clr-primary) ${(minPrice / MAX_PRICE_VALUE) * 100}% , var(--clr-primary) ${
+              (maxPrice / MAX_PRICE_VALUE) * 100
+            }%, var(--clr-gray-light) ${(maxPrice / MAX_PRICE_VALUE) * 100}%)`,
+          }}
+          className="filter__slider-track"></div>
         <input
-          className="filter__range"
           type="range"
           min={MIN_PRICE_VALUE}
           max={MAX_PRICE_VALUE - PRICE_RANGE_STEP}
@@ -48,7 +56,6 @@ export default function FilterPrice() {
           onChange={handlePriceValue}
         />
         <input
-          className="filter__range"
           type="range"
           min={MIN_PRICE_VALUE + PRICE_RANGE_STEP}
           max={MAX_PRICE_VALUE}

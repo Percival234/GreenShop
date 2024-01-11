@@ -4,6 +4,8 @@ import { useCartStore } from '@Store/cartStore';
 
 import ImagePayment from '@Assets/images/payment.png';
 
+import { PAYMENT_METHODS } from '@Constants/CONSTANTS';
+
 import './Payment.scss';
 
 export default function Payment() {
@@ -17,25 +19,25 @@ export default function Payment() {
     <div className="payment">
       <TitleBorder>Payment Method</TitleBorder>
       <div className="payment__list">
-        <label className={`payment__item ${payment === 'Cash on delivery' ? 'active' : ''}`}>
+        <label className={`payment__item ${payment === PAYMENT_METHODS[0] ? 'active' : ''}`}>
           <input
             name="payment"
             type="radio"
             className="payment__input"
-            value="Cash on delivery"
+            value={PAYMENT_METHODS[0]}
             onChange={handlePayment}
-            checked={payment === 'Cash on delivery'}
+            checked={payment === PAYMENT_METHODS[0]}
           />
           Cash on delivery
         </label>
-        <label className={`payment__item ${payment === 'Card' ? 'active' : ''}`}>
+        <label className={`payment__item ${payment === PAYMENT_METHODS[1] ? 'active' : ''}`}>
           <input
             name="payment"
             type="radio"
             className="payment__input"
-            value="Card"
+            value={PAYMENT_METHODS[1]}
             onChange={handlePayment}
-            checked={payment === 'Card'}
+            checked={payment === PAYMENT_METHODS[1]}
           />
           <img src={ImagePayment} alt="payment-systems" />
         </label>

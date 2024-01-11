@@ -11,7 +11,7 @@ function Pagination({ pagesCount }) {
   const handlePage = (event) => {
     const page = event.target.textContent;
     setSearchParams((prev) => {
-      if (page == 1) searchParams.delete('page');
+      if (page == 1) prev.delete('page');
       else prev.set('page', page);
       return prev;
     });
@@ -20,20 +20,21 @@ function Pagination({ pagesCount }) {
 
   return (
     <div className="pag">
-      {[...Array(pagesCount)]
-        .map((_, i) => i + 1)
-        .map((page) => (
-          <button
-            key={page}
-            onClick={handlePage}
-            className={
-              searchParams.get('page') == page || (page == 1 && !searchParams.has('page'))
-                ? 'pag__point active'
-                : 'pag__point'
-            }>
-            {page}
-          </button>
-        ))}
+      {pagesCount > 1 &&
+        [...Array(pagesCount)]
+          .map((_, i) => i + 1)
+          .map((page) => (
+            <button
+              key={page}
+              onClick={handlePage}
+              className={
+                searchParams.get('page') == page || (page == 1 && !searchParams.has('page'))
+                  ? 'pag__point active'
+                  : 'pag__point'
+              }>
+              {page}
+            </button>
+          ))}
     </div>
   );
 }
