@@ -1,3 +1,6 @@
 .sub-title {
   font-size: var(--fs-sub-title);
+  &.centered {
+    text-align: center;
+  }
 }
