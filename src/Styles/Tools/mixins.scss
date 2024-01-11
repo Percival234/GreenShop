@@ -21,20 +21,3 @@ $breakpoints: (
     }
   }
 }
-
-//
-
-@mixin adaptive-property($property, $desktop, $mobile) {
-  $maxWidth: 1230;
-  $minWidth: 320;
-  @media only screen and (max-width: #{$minWidth}px) {
-    #{$property}: #{$mobile}px;
-  }
-  @media only screen and (min-width: #{$maxWidth}px) {
-    #{$property}: #{$desktop}px;
-  }
-  #{$property}: calc(
-    #{$mobile}px + ((100vw - #{$minWidth}px) / (#{$maxWidth} - #{$minWidth})) *
-      (#{$desktop} - #{$mobile})
-  );
-}

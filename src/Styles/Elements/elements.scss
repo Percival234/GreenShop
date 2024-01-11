@@ -20,14 +20,6 @@ input {
   accent-color: var(--clr-primary);
   cursor: pointer;
 }
-input,
-textarea {
-  &:focus::placeholder {
-    opacity: 0;
-    transform: translateX(40px);
-    transition: 0.3s;
-  }
-}
 html,
 body,
 #root {
