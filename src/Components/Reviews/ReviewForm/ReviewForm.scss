@@ -1,5 +1,6 @@
 .reviews-form {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--padding-small);
   &__rating {
     flex: 1;

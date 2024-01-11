@@ -27,6 +27,7 @@
 
 @include adaptation('tablet', max) {
   .shop {
+    padding-top: 0px;
     &__container {
       flex-direction: column;
     }

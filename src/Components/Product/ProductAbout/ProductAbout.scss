@@ -7,6 +7,7 @@
     font-size: var(--fs-item-title);
     padding: 10px 30px;
     font-weight: var(--fw-bold);
+    background: var(--clr-background);
     &:hover,
     &:active {
       color: var(--clr-primary-dark);
