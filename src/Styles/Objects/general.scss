@@ -1,6 +1,8 @@
-@import '../Tools/mixins.scss';
-@import './app.scss';
-@import './main.scss';
+@import '@Styles/Objects/app.scss';
+@import '@Styles/Objects/main.scss';
+@import '@Styles/Tools/mixins.scss';
+@import '@Styles/Objects/upload.scss';
+@import '@Styles/Objects/container.scss';
 
 @include adaptation('tablet-wide', max) {
   .hidden-tablet-wide {
@@ -16,4 +18,9 @@
   .hidden-phablet {
     display: none;
   }
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
 }
