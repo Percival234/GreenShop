@@ -59,7 +59,8 @@
 @include adaptation('phablet', max) {
   .product-action {
     &__buttons {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 }

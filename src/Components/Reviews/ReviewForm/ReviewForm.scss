@@ -1,10 +1,8 @@
+@import '@Styles/Tools/mixins.scss';
+
 .reviews-form {
   display: flex;
-  flex-wrap: wrap;
   gap: var(--padding-small);
-  &__rating {
-    flex: 1;
-  }
   &__actions {
     display: flex;
     flex-direction: column;
@@ -29,5 +27,12 @@
     &:checked ~ .rating-form__label {
       color: var(--clr-orange);
     }
+  }
+}
+
+@include adaptation('tablet', max) {
+  .reviews-form {
+    flex-direction: column;
+    align-items: center;
   }
 }
