@@ -13,7 +13,7 @@ function Review({ review: { user, rate, text, createdAt } }) {
         <div className="reviews-item__details">
           <div className="reviews-item__image-container">
             <img
-              src={`${SERVER_URL}/static/users/${user.image || 'default-user.jpg'}`}
+              src={`${SERVER_URL}/static/users/'default-user.jpg'}`}
               alt="user"
               className="reviews-item__image"
             />

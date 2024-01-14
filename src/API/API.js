@@ -37,8 +37,6 @@ export const fetchUser = () => request('get', 'user/current');
 export const updateUser = (userData) => request('patch', 'user', userData);
 export const loginUser = (userData) => request('post', 'user/login', userData);
 export const registerUser = (userData) => request('post', 'user/register', userData);
-export const updateImage = (file) =>
-  request('post', 'user/upload', file, { headers: { 'Content-Type': 'multipart/form-data' } });
 
 // --- FILTER --- //
 
@@ -80,5 +78,4 @@ export const fetchBlog = (id) => request('get', `blog/${id}`);
 
 // --- REPORT --- //
 
-export const postReport = (report) =>
-  request('post', 'report', report, { headers: { 'Content-Type': 'multipart/form-data' } });
+export const postReport = (report) => request('post', 'report', report);

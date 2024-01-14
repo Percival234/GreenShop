@@ -1,4 +1,3 @@
-import AccountImage from '@Components/Account/AccountImage/AccountImage';
 import AccountPersonal from '@Components/Account/AccountPersonal/AccountPersonal';
 import AccountDeletion from '@Components/Account/AccountDeletion/AccountDeletion';
 import AccountPassword from '@Components/Account/AccountPassword/AccountPassword';
@@ -12,7 +11,6 @@ export default function AccountInfo() {
         <AccountPersonal />
       </div>
       <div className="account-info__forms">
-        <AccountImage />
         <AccountPassword />
       </div>
       <AccountDeletion />
