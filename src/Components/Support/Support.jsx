@@ -27,7 +27,7 @@ export default function Support() {
   });
 
   const submitReport = (data) => {
-    const report = data.report;
+    const report = { text: data.report };
     mutate(report, {
       onSuccess: () => {
         reset();
