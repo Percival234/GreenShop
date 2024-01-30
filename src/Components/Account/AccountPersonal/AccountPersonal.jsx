@@ -27,6 +27,7 @@ export default function AccountPersonal() {
 
   const { mutate, isPending, error } = useMutation({
     mutationFn: (userData) => updateUser(userData),
+    onSuccess: () => client.invalidateQueries({ queryKey: ['user'] }),
   });
 
   useEffect(() => {
@@ -49,9 +50,7 @@ export default function AccountPersonal() {
       address: data.personalAddress,
       city: data.personalCity,
     };
-    mutate(userData, {
-      onSuccess: () => client.invalidateQueries({ queryKey: ['user'] }),
-    });
+    mutate(userData);
   };
 
   return (

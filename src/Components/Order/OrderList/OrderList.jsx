@@ -1,27 +1,14 @@
-import { useQuery } from '@tanstack/react-query';
+import PropTypes from 'prop-types';
+
 import { AiOutlineHistory } from 'react-icons/ai';
 
 import Empty from '@Components/Empty/Empty';
 import Order from '@Components/Order/Order/Order';
-import ServerError from '@Components/Error/ServerError/ServerError';
-import PageLoading from '@Components/Loading/PageLoading/PageLoading';
-
-import { fetchOrders } from '@API/API';
 
 import './OrderList.scss';
 
-export default function OrderList() {
-  const {
-    data: orders,
-    isPending,
-    isError,
-    error,
-  } = useQuery({ queryKey: ['order'], queryFn: fetchOrders });
-
-  if (isPending) return <PageLoading />;
-  if (isError) return <ServerError error={error} />;
+function OrderList({ orders }) {
   if (!orders.length) return <Empty text="Order history is empty" Icon={<AiOutlineHistory />} />;
-
   return (
     <div className="order-list">
       {orders.map((order) => (
@@ -30,3 +17,9 @@ export default function OrderList() {
     </div>
   );
 }
+
+OrderList.propTypes = {
+  orders: PropTypes.array,
+};
+
+export default OrderList;

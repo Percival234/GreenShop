@@ -11,12 +11,11 @@ export default function FilterCategory() {
   const {
     data: categories,
     isPending,
-    isError,
     error,
   } = useQuery({ queryKey: ['category'], queryFn: fetchCategories });
 
   if (isPending) return <PageLoading />;
-  if (isError) return <ServerError error={error} />;
+  if (error) return <ServerError error={error} />;
 
   return (
     <div className="filter__form">

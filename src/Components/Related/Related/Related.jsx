@@ -17,7 +17,6 @@ function Related({ category }) {
   const {
     data: related,
     isPending,
-    isError,
     error,
   } = useQuery({
     queryKey: ['related'],
@@ -25,7 +24,7 @@ function Related({ category }) {
   });
 
   if (isPending) return <LocalLoading />;
-  if (isError) return <ServerError error={error} />;
+  if (error) return <ServerError error={error} />;
 
   return (
     <div className="related">

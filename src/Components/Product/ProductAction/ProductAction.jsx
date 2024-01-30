@@ -37,12 +37,10 @@ function ProductAction({ product }) {
 
   const { mutate } = useMutation({
     mutationFn: (id) => updateWishlist(id),
+    onSuccess: () => client.invalidateQueries({ queryKey: ['wishlist'] }),
   });
 
-  const update = () =>
-    mutate(product._id, {
-      onSuccess: () => client.invalidateQueries({ queryKey: ['wishlist'] }),
-    });
+  const update = () => mutate(product._id);
 
   const buyNow = () => {
     handleAddToCart();

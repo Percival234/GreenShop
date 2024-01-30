@@ -8,15 +8,10 @@ import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 import { fetchSizes } from '@API/API';
 
 export default function FilterSize() {
-  const {
-    data: sizes,
-    isPending,
-    isError,
-    error,
-  } = useQuery({ queryKey: ['size'], queryFn: fetchSizes });
+  const { data: sizes, isPending, error } = useQuery({ queryKey: ['size'], queryFn: fetchSizes });
 
   if (isPending) return <PageLoading />;
-  if (isError) return <ServerError error={error} />;
+  if (error) return <ServerError error={error} />;
 
   return (
     <div className="filter__form">

@@ -39,12 +39,10 @@ const Card = ({ product }) => {
 
   const { mutate } = useMutation({
     mutationFn: (id) => updateWishlist(id),
+    onSuccess: () => client.invalidateQueries({ queryKey: ['wishlist'] }),
   });
 
-  const update = () =>
-    mutate(_id, {
-      onSuccess: () => client.invalidateQueries({ queryKey: ['wishlist'] }),
-    });
+  const update = () => mutate(_id);
 
   return (
     <div className={quantity ? 'card' : 'card disactive'}>

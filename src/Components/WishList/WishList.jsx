@@ -14,12 +14,12 @@ export default function Wishlist() {
   const queryClient = useQueryClient();
   const wishlist = useUserStore((state) => state.wishlist);
 
-  const { mutate } = useMutation({ mutationFn: clearWishlist });
+  const { mutate } = useMutation({
+    mutationFn: clearWishlist,
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['wishlist'] }),
+  });
 
-  const deleteWishlist = () =>
-    mutate(null, {
-      onSuccess: () => queryClient.invalidateQueries({ queryKey: ['wishlist'] }),
-    });
+  const deleteWishlist = () => mutate(null);
 
   return (
     <>

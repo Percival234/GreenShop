@@ -24,15 +24,12 @@ export default function Support() {
 
   const { mutate, error, isPending } = useMutation({
     mutationFn: (reportData) => postReport(reportData),
+    onSuccess: () => reset(),
   });
 
   const submitReport = (data) => {
     const report = { text: data.report };
-    mutate(report, {
-      onSuccess: () => {
-        reset();
-      },
-    });
+    mutate(report);
   };
 
   return (

@@ -10,15 +10,10 @@ import { fetchBlogs } from '@API/API';
 import './Blogs.scss';
 
 export default function Blogs() {
-  const {
-    data: blogs,
-    isPending,
-    isError,
-    error,
-  } = useQuery({ queryKey: ['blogs'], queryFn: fetchBlogs });
+  const { data: blogs, isPending, error } = useQuery({ queryKey: ['blogs'], queryFn: fetchBlogs });
 
   if (isPending) return <PageLoading />;
-  if (isError) return <ServerError error={error} />;
+  if (error) return <ServerError error={error} />;
 
   return (
     <section className="blog">

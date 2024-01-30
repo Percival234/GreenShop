@@ -27,7 +27,13 @@ export default function ReviewForm() {
     reset,
   } = useForm();
 
-  const { mutate, error, isPending } = useMutation({ mutationFn: (review) => postReview(review) });
+  const { mutate, error, isPending } = useMutation({
+    mutationFn: (review) => postReview(review),
+    onSuccess: () => {
+      client.invalidateQueries(['reviews', 'product']);
+      reset();
+    },
+  });
 
   const submitReview = (data) => {
     const review = {
@@ -35,12 +41,7 @@ export default function ReviewForm() {
       rate: data.rating,
       text: data.review,
     };
-    mutate(review, {
-      onSuccess: () => {
-        client.invalidateQueries(['reviews', 'product']);
-        reset();
-      },
-    });
+    mutate(review);
   };
 
   return (

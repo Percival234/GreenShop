@@ -13,13 +13,13 @@ import { fetchProducts } from '@API/API';
 import './Shop.scss';
 
 export default function Shop() {
-  const { data, isPending, isFetching, isError, error } = useQuery({
+  const { data, isPending, isFetching, error } = useQuery({
     queryKey: ['products'],
     queryFn: fetchProducts,
   });
 
   if (isPending) return <PageLoading />;
-  if (isError) return <ServerError error={error} />;
+  if (error) return <ServerError error={error} />;
 
   return (
     <div className="shop">

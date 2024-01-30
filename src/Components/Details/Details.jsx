@@ -16,12 +16,11 @@ export default function Details() {
   const {
     data: details,
     isPending,
-    isError,
     error,
   } = useQuery({ queryKey: ['details', productId], queryFn: () => fetchDetails(productId) });
 
   if (isPending) return <LocalLoading />;
-  if (isError) return <ServerError error={error} />;
+  if (error) return <ServerError error={error} />;
   if (!details?.length) return <Empty Icon={<FiInfo />} text="No details" />;
 
   return (
