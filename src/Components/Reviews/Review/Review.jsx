@@ -20,7 +20,7 @@ function Review({ review: { user, rate, text, createdAt } }) {
           </div>
           <div className="reviews-item__info">
             <div className="reviews-item__author">
-              {user.firstname ? `${user.firstname} ${user.lastname}` : `User ${user._id}`}
+              {user?.firstname ? `${user?.firstname} ${user?.lastname}` : `User ${user?._id}`}
             </div>
             <Rating rating={rate} />
           </div>
