@@ -26,6 +26,7 @@
     flex: 1;
     min-width: 7ch;
     overflow-x: hidden;
+    overflow-y: auto;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: var(--fs-item-title);

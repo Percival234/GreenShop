@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
-import Contacts from '@Components/Contants/Contacts';
+import Contacts from '@Components/Contacts/Contacts';
 import Related from '@Components/Related/Related/Related';
 import NewsLetter from '@Components/NewsLetter/NewsLetter';
 import ServerError from '@Components/Error/ServerError/ServerError';

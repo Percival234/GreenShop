@@ -9,7 +9,7 @@ import './ReviewList.scss';
 function ReviewList({ reviews }) {
   if (!reviews.length) return <Empty text="No reviews" Icon={<FiMessageSquare />} />;
   return (
-    <div className="reviews__list">
+    <div className="reviews-list">
       {reviews.map((review) => (
         <Review key={review._id} review={review} />
       ))}
