@@ -1,3 +1,5 @@
+@import '@Styles/Tools/mixins.scss';
+
 .product-action {
   margin: 15px 0px;
   display: flex;
@@ -7,7 +9,6 @@
   &__buttons {
     gap: 10px;
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
   }
   &__button {
@@ -52,5 +53,11 @@
     &:active {
       background: var(--clr-primary-dark);
     }
+  }
+}
+
+@include adaptation('phablet', max) {
+  .product-action__buttons {
+    align-items: center;
   }
 }
