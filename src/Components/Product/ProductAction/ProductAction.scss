@@ -4,12 +4,10 @@
   margin: 15px 0px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
   &__buttons {
     gap: 10px;
     display: flex;
-    flex-wrap: wrap;
   }
   &__button {
     width: 44px;
@@ -56,8 +54,8 @@
   }
 }
 
-@include adaptation('phablet', max) {
-  .product-action__buttons {
-    align-items: center;
+@include adaptation('tablet-wide', max) {
+  .product-action {
+    justify-content: center;
   }
 }
