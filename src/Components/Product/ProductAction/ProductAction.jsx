@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AiOutlineHeart, AiOutlineMinus, AiOutlinePlus, AiFillHeart } from 'react-icons/ai';
 
@@ -17,7 +16,6 @@ import { useRequiedAuth } from '@Hooks/useRequiedAuth';
 import './ProductAction.scss';
 
 function ProductAction({ product }) {
-  const navigate = useNavigate();
   const client = useQueryClient();
   const checkAuth = useRequiedAuth();
   const [counter, setCounter] = useState(1);
@@ -42,11 +40,6 @@ function ProductAction({ product }) {
 
   const update = () => mutate(product._id);
 
-  const buyNow = () => {
-    handleAddToCart();
-    navigate('/checkout');
-  };
-
   return (
     <div className="product-action">
       <div className="product-action__counter">
@@ -69,13 +62,10 @@ function ProductAction({ product }) {
         </button>
       </div>
       <div className="product-action__buttons">
-        <Button type="button" onClick={buyNow}>
-          Buy now
-        </Button>
         {isInCart ? (
           <ButtonOutline onClick={handleRemoveFromCart}>Remove from cart</ButtonOutline>
         ) : (
-          <ButtonOutline onClick={handleAddToCart}>Add to cart</ButtonOutline>
+          <Button onClick={handleAddToCart}>Add to cart</Button>
         )}
         {isInWishlist ? (
           <button
