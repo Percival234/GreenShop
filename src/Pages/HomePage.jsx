@@ -3,6 +3,7 @@ import Blogs from '@Components/Blog/Blogs';
 import Slider from '@Components/Slider/Slider';
 import Contacts from '@Components/Contacts/Contacts';
 import NewsLetter from '@Components/NewsLetter/NewsLetter';
+import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Blogs />
       <NewsLetter />
       <Contacts />
+      <PageLoading />
     </>
   );
 }

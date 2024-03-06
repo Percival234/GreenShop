@@ -1,3 +1,5 @@
+@import '@Styles/Tools/mixins.scss';
+
 .page-loading {
   background: var(--clr-white);
   position: fixed;
@@ -11,5 +13,11 @@
   align-items: center;
   &__gif {
     width: 75px;
+  }
+}
+
+@include adaptation('tablet', max) {
+  .page-loading__gif {
+    width: 50px;
   }
 }
