@@ -27,7 +27,7 @@ export default function Login() {
 
   const { mutate, isPending, error } = useMutation({
     mutationFn: (userData) => loginUser(userData),
-    oonSuccess: (res) => {
+    onSuccess: (res) => {
       setIsAuth(res?.token);
       queryClient.invalidateQueries({ queryKey: ['user'] });
       close('authModal');
