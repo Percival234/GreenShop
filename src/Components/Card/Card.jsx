@@ -10,7 +10,7 @@ import ButtonSmall from '@UI/Buttons/ButtonSmall/ButtonSmall';
 import TextTruncated from '@UI/Text/TextTruncated/TextTruncated';
 import ButtonOutline from '@UI/Buttons/ButtonOutline/ButtonOutline';
 
-import { SERVER_URL } from '@Constants/CONSTANTS';
+import { SERVER_URL } from '@Constants/SERVER_URL';
 
 import { useUserStore } from '@Store/userStore';
 import { useCartStore } from '@Store/cartStore';
@@ -26,9 +26,7 @@ const Card = ({ product }) => {
 
   const client = useQueryClient();
   const wishlist = useUserStore((state) => state.wishlist);
-  const cartItems = useCartStore((state) => state.cartItems);
-  const addToCart = useCartStore((state) => state.addToCart);
-  const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const { cartItems, addToCart, removeFromCart } = useCartStore((state) => state);
   const authCheck = useRequiedAuth();
 
   const isInCart = cartItems.some((item) => item.product._id === _id);

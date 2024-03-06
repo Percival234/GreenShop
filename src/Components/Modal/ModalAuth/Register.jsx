@@ -12,7 +12,7 @@ import { registerUser } from '@API/API';
 import { useUserStore } from '@Store/userStore';
 import { useEventStore } from '@Store/eventStore';
 
-import { REGEX_EMAIL } from '@Constants/CONSTANTS';
+import { REGEX_EMAIL } from '@Constants/EMAIL_REGEX';
 
 export default function Register() {
   const queryClient = useQueryClient();

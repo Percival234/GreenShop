@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import TextTruncated from '@UI/Text/TextTruncated/TextTruncated';
 import LinkUnderline from '@UI/Links/LinkUnderline/LinkUnderline';
 
-import { SERVER_URL } from '@Constants/CONSTANTS';
+import { SERVER_URL } from '@Constants/SERVER_URL';
 
 function Blog({ blog: { _id, image, title, description, createdAt } }) {
   return (

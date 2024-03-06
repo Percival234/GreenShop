@@ -13,7 +13,7 @@ import { useUserStore } from '@Store/userStore';
 
 import { updateUser } from '@API/API';
 
-import { REGEX_EMAIL } from '@Constants/CONSTANTS';
+import { REGEX_EMAIL } from '@Constants/EMAIL_REGEX';
 
 export default function AccountPersonal() {
   const client = useQueryClient();

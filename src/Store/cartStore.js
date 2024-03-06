@@ -1,8 +1,9 @@
 import { create } from 'zustand';
-import { immer } from 'zustand/middleware/immer';
 import { persist } from 'zustand/middleware';
+import { immer } from 'zustand/middleware/immer';
 
-import { PAYMENT_METHODS, SHIPPING } from '@Constants/CONSTANTS';
+import { SHIPPING } from '@Constants/SHIPPING';
+import { PAYMENT_METHODS } from '@Constants/PAYMENT_METHODS';
 
 export const useCartStore = create(
   persist(

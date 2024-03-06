@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-import { BANNERS } from '@Constants/CONSTANTS';
+import { BANNERS } from '@Constants/BANNERS';
 
 import './Slider.scss';
 

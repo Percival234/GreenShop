@@ -1,4 +1,4 @@
-import { ADVERTISING } from '@Constants/CONSTANTS';
+import { ADVERTISING } from '@Constants/ADVERTISING';
 
 export default function Advertising() {
   return (

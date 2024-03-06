@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import Rating from '@Components/Rating/Rating/Rating';
 
-import { SERVER_URL } from '@Constants/CONSTANTS';
+import { SERVER_URL } from '@Constants/SERVER_URL';
 
 import './Review.scss';
 

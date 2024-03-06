@@ -12,7 +12,7 @@ import { useEventStore } from '@Store/eventStore';
 
 import { loginUser } from '@API/API';
 
-import { REGEX_EMAIL } from '@Constants/CONSTANTS';
+import { REGEX_EMAIL } from '@Constants/EMAIL_REGEX';
 
 export default function Login() {
   const queryClient = useQueryClient();
@@ -27,6 +27,11 @@ export default function Login() {
 
   const { mutate, isPending, error } = useMutation({
     mutationFn: (userData) => loginUser(userData),
+    oonSuccess: (res) => {
+      setIsAuth(res?.token);
+      queryClient.invalidateQueries({ queryKey: ['user'] });
+      close('authModal');
+    },
   });
 
   const submitLogin = (data) => {
@@ -34,14 +39,7 @@ export default function Login() {
       email: data.loginEmail,
       password: data.loginPassword,
     };
-
-    mutate(userData, {
-      onSuccess: (res) => {
-        setIsAuth(res?.token);
-        queryClient.invalidateQueries({ queryKey: ['user'] });
-        close('authModal');
-      },
-    });
+    mutate(userData);
   };
 
   return (

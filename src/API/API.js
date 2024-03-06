@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { SERVER_URL } from '@Constants/CONSTANTS';
+import { SERVER_URL } from '@Constants/SERVER_URL';
 
 export const axiosInstance = axios.create({
   baseURL: `${SERVER_URL}/api/`,

@@ -4,7 +4,7 @@ import { useCartStore } from '@Store/cartStore';
 
 import ImagePayment from '@Assets/images/payment.png';
 
-import { PAYMENT_METHODS } from '@Constants/CONSTANTS';
+import { PAYMENT_METHODS } from '@Constants/PAYMENT_METHODS';
 
 import './Payment.scss';
 

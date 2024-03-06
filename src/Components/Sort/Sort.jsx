@@ -7,7 +7,7 @@ import TitleItem from '@UI/Titles/TitleItem/TitleItem';
 
 import { useEventStore } from '@Store/eventStore';
 
-import { SORT_ORDERS } from '@Constants/CONSTANTS';
+import { SORT_ORDERS } from '@Constants/SORT_ORDERS';
 
 import './Sort.scss';
 

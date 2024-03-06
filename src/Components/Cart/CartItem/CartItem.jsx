@@ -6,14 +6,12 @@ import ButtonSmall from '@UI/Buttons/ButtonSmall/ButtonSmall';
 
 import { useCartStore } from '@Store/cartStore';
 
-import { SERVER_URL } from '@Constants/CONSTANTS';
+import { SERVER_URL } from '@Constants/SERVER_URL';
 
 import './CartItem.scss';
 
 function CartItem({ item: { product, count } }) {
-  const removeFromCart = useCartStore((state) => state.removeFromCart);
-  const increaseItemCount = useCartStore((state) => state.increaseItemCount);
-  const decreaseItemCount = useCartStore((state) => state.decreaseItemCount);
+  const { removeFromCart, increaseItemCount, decreaseItemCount } = useCartStore((state) => state);
 
   const handleIncreaseItemQuantity = () => increaseItemCount(product._id);
   const handleDecreaseItemQuantity = () => decreaseItemCount(product._id);

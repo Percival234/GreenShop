@@ -15,7 +15,7 @@ import ButtonLoading from '@Components/Loading/ButtonLoading/ButtonLoading';
 
 import { postOrder } from '@API/API';
 
-import { REGEX_EMAIL } from '@Constants/CONSTANTS';
+import { REGEX_EMAIL } from '@Constants/EMAIL_REGEX';
 
 import { useCartStore } from '@Store/cartStore';
 import { useUserStore } from '@Store/userStore';

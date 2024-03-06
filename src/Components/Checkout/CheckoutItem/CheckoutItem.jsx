@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { SERVER_URL } from '@Constants/CONSTANTS';
+import { SERVER_URL } from '@Constants/SERVER_URL';
 
 import './CheckoutItem.scss';
 

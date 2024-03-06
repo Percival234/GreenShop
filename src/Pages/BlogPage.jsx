@@ -6,7 +6,7 @@ import PageLoading from '@Components/Loading/PageLoading/PageLoading';
 
 import { fetchBlog } from '@API/API';
 
-import { SERVER_URL } from '@Constants/CONSTANTS';
+import { SERVER_URL } from '@Constants/SERVER_URL';
 
 import './BlogPage.scss';
 

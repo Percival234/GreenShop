@@ -6,7 +6,7 @@ import Rating from '@Components/Rating/Rating/Rating';
 import TitleItem from '@UI/Titles/TitleItem/TitleItem';
 import ProductAction from '@Components/Product/ProductAction/ProductAction';
 
-import { SERVER_URL } from '@Constants/CONSTANTS';
+import { SERVER_URL } from '@Constants/SERVER_URL';
 
 import './ProductInfo.scss';
 

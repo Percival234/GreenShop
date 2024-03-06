@@ -8,7 +8,7 @@ import {
   BLOG_HOW_TO_BUY_ID,
   BLOG_HOW_TO_RETURN_ID,
   BLOG_PRIVATE_POLICY_ID,
-} from '@Constants/CONSTANTS';
+} from '@Constants/BLOGS';
 
 import './Footer.scss';
 

@@ -16,10 +16,12 @@ export default function AccountPassword() {
     handleSubmit,
     formState: { errors },
     watch,
+    reset,
   } = useForm();
 
   const { mutate, error, isPending } = useMutation({
     mutationFn: (userData) => updateUser(userData),
+    onSuccess: () => reset(),
   });
 
   const passwordResetSubmit = (data) => {
