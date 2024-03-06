@@ -7,7 +7,7 @@ import './Logo.scss';
 export default function Logo() {
   return (
     <Link to="/">
-      <img src={LogoImage} alt="logo" className="logo" />;
+      <img src={LogoImage} alt="logo" className="logo" />
     </Link>
   );
 }

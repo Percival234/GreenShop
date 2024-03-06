@@ -6,7 +6,6 @@ import Button from '@UI/Buttons/Button/Button';
 import TitleItem from '@UI/Titles/TitleItem/TitleItem';
 
 import { MIN_PRICE_VALUE, MAX_PRICE_VALUE, PRICE_RANGE_STEP } from '@Constants/PRICE_RANGE';
-import { AiFillThunderbolt } from 'react-icons/ai';
 
 export default function FilterPrice() {
   const client = useQueryClient();
