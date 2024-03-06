@@ -27,6 +27,11 @@ export default function Register() {
 
   const { mutate, isPending, error } = useMutation({
     mutationFn: (userData) => registerUser(userData),
+    onSuccess: (res) => {
+      setIsAuth(res?.token);
+      queryClient.invalidateQueries({ queryKey: ['user'] });
+      close('authModal');
+    },
   });
 
   const submitRegister = (data) => {
@@ -34,13 +39,7 @@ export default function Register() {
       email: data.registerEmail,
       password: data.registerPassword,
     };
-    mutate(userData, {
-      onSuccess: (res) => {
-        setIsAuth(res?.token);
-        queryClient.invalidateQueries({ queryKey: ['user'] });
-        close('authModal');
-      },
-    });
+    mutate(userData);
   };
 
   return (
